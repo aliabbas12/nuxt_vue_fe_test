@@ -15,6 +15,7 @@
         height="75"
         width="128"
         style="height: 70px"
+        alt="Translate"
       />
     </template>
   </UButton>

@@ -9,12 +9,12 @@
     <section id="section-3" class="w-full h-screen bg-secondary-bg snap-start">
       <CreateAccountSection />
     </section>
-    <section id="section-4" class="w-full h-screen bg-primary-bg snap-start">
-      section
-    </section>
-    <section class="w-full h-screen bg-secondary-bg snap-start">
-      section
-    </section>
+    <!--    <section id="section-4" class="w-full h-screen bg-primary-bg snap-start">-->
+    <!--      section-->
+    <!--    </section>-->
+    <!--    <section class="w-full h-screen bg-secondary-bg snap-start">-->
+    <!--      section-->
+    <!--    </section>-->
   </main>
 </template>
 <script setup lang="ts">

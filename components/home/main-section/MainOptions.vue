@@ -1,50 +1,94 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="flex flex-wrap px-5">
+  <div class="container flex flex-wrap px-5 w-3/4">
     <div class="w-1/4 text-center">
-      <UAvatar
-        src="/icons/keyboard.svg"
-        class="rounded-none"
-        :ui="{
-          strategy: 'override',
-          rounded: 'rounded-none',
-        }"
-        size="md"
-      />
+      <UButton
+        size="lg"
+        color="bg-primary-bg"
+        square
+        variant="soft"
+        block
+        class="px-0 py-0 bg-primary-bg rounded-3xl border-0"
+      >
+        <template #leading>
+          <UAvatar
+            src="/icons/keyboard.svg"
+            class="rounded-none"
+            :ui="{
+              strategy: 'override',
+              rounded: 'rounded-none',
+            }"
+            size="md"
+          />
+        </template>
+      </UButton>
     </div>
     <div class="w-1/4 text-center">
-      <UAvatar
-        src="/icons/microphone.svg"
-        class="rounded-none"
-        :ui="{
-          strategy: 'override',
-          rounded: 'rounded-none',
-        }"
-        size="md"
-      />
+      <UButton
+        size="lg"
+        color="bg-primary-bg"
+        square
+        variant="soft"
+        block
+        class="px-0 py-0 bg-primary-bg rounded-3xl border-0"
+      >
+        <template #leading>
+          <UAvatar
+            src="/icons/microphone.svg"
+            class="rounded-none"
+            :ui="{
+              strategy: 'override',
+              rounded: 'rounded-none',
+            }"
+            size="md"
+          />
+        </template>
+      </UButton>
     </div>
     <div class="w-1/4 text-center">
-      <UAvatar
-        src="/icons/Speaker-solid2.svg"
-        class="rounded-none"
-        :ui="{
-          strategy: 'override',
-          rounded: 'rounded-none',
-        }"
-        size="md"
-      />
+      <UButton
+        size="lg"
+        color="bg-primary-bg"
+        square
+        variant="soft"
+        block
+        class="px-0 py-0 bg-primary-bg rounded-3xl border-0"
+      >
+        <template #leading>
+          <UAvatar
+            src="/icons/Speaker-solid2.svg"
+            class="rounded-none"
+            :ui="{
+              strategy: 'override',
+              rounded: 'rounded-none',
+            }"
+            size="md"
+          />
+        </template>
+      </UButton>
     </div>
     <div class="w-1/4 text-center">
-      <UAvatar
-        src="/icons/button-restart.svg"
-        class="rounded-none"
-        :ui="{
-          strategy: 'override',
-          rounded: 'rounded-none',
-        }"
-        size="md"
-      />
+      <UButton
+        size="lg"
+        color="bg-primary-bg"
+        square
+        variant="soft"
+        block
+        class="px-0 py-0 bg-primary-bg rounded-3xl border-0"
+      >
+        <template #leading>
+          <UAvatar
+            src="/icons/button-restart.svg"
+            class="rounded-none"
+            :ui="{
+              strategy: 'override',
+              rounded: 'rounded-none',
+            }"
+            size="md"
+          />
+        </template>
+      </UButton>
     </div>
   </div>
   <UDivider
