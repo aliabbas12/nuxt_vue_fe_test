@@ -9,13 +9,13 @@ const selected = ref([0]);
       v-model="selected"
       :options="people"
       variant="none"
-      class="bg-primary-bg select-language"
+      class="bg-primary-bg select-language cursor-pointer"
       size="xl"
       trailing-icon=""
       :ui="{
         variant: {
           strategy: 'override',
-          none: 'text-xl text-center w-full',
+          none: 'text-xl text-center w-full cursor-pointer',
           form: ' w-full',
         },
       }"
