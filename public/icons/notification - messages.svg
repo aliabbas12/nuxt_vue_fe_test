@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="162.156" height="31" viewBox="0 0 162.156 31">
+  <g id="notification" transform="translate(0)">
+    <path id="Subtraction_5" data-name="Subtraction 5" d="M382.723,1499.214a1.862,1.862,0,0,0-1.348.571,1.915,1.915,0,0,0-.468.784l-.033.107-.11.018a5.036,5.036,0,0,0-4.22,4.909v5.613c0,.433-.509.692-.728.783a2.284,2.284,0,0,0-1.839,2.311v.334a1.249,1.249,0,0,0,1.238,1.245h4.917l.027.146a2.663,2.663,0,0,0,5.237-.007l.028-.147h4.941a1.244,1.244,0,0,0,1.232-1.244v-.328a2.323,2.323,0,0,0-1.814-2.23.893.893,0,0,1-.764-.846V1505.6a5.034,5.034,0,0,0-4.223-4.911l-.109-.019-.033-.1a2.053,2.053,0,0,0-.469-.786,1.878,1.878,0,0,0-1.4-.566Z" transform="translate(-373.975 -1498.213)" fill="#999"/>
+    <g id="button:_capretto_word" data-name="button: capretto word" transform="translate(44.156)">
+      <rect id="Rectangle_5" data-name="Rectangle 5" width="118" height="25" rx="12.5" fill="#fff"/>
+      <text id="_5_notifications" data-name="5 notifications" transform="translate(9)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="16">5 notifications</tspan></text>
+    </g>
+  </g>
+</svg>

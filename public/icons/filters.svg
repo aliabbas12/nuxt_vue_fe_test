@@ -1,0 +1,16 @@
+<svg id="filters" xmlns="http://www.w3.org/2000/svg" width="23.318" height="23.321" viewBox="0 0 23.318 23.321">
+  <g id="Group_640" data-name="Group 640">
+    <g id="Group_640-2" data-name="Group 640">
+      <rect id="Rectangle_132" data-name="Rectangle 132" width="23.318" height="2.594" rx="1.151" transform="translate(0 1.699)"/>
+      <circle id="Ellipse_30" data-name="Ellipse 30" cx="2.996" cy="2.996" r="2.996" transform="translate(3.394)"/>
+    </g>
+    <g id="Group_641" data-name="Group 641" transform="translate(0 8.664)">
+      <rect id="Rectangle_133" data-name="Rectangle 133" width="23.318" height="2.594" rx="1.151" transform="translate(23.318 4.293) rotate(180)"/>
+      <circle id="Ellipse_31" data-name="Ellipse 31" cx="2.996" cy="2.996" r="2.996" transform="translate(13.932 0)"/>
+    </g>
+    <g id="Group_642" data-name="Group 642" transform="translate(0 17.328)">
+      <rect id="Rectangle_134" data-name="Rectangle 134" width="23.318" height="2.594" rx="1.151" transform="translate(23.318 4.293) rotate(-180)"/>
+      <circle id="Ellipse_32" data-name="Ellipse 32" cx="2.996" cy="2.996" r="2.996" transform="translate(7.389)"/>
+    </g>
+  </g>
+</svg>

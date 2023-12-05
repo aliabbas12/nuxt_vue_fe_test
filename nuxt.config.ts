@@ -1,8 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss'],
+  ui: {
+    icons: [`mdi`, "ph"],
+  },
+  modules: ["@nuxtjs/color-mode", "@nuxtjs/eslint-module", "@nuxt/ui"],
   devtools: { enabled: true },
   postcss: {
     plugins: {
@@ -10,4 +11,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-})
+  tailwindcss: {
+    configPath: "~/tailwind.config.js",
+  },
+});

@@ -1,0 +1,11 @@
+<svg id="google_logo" data-name="google logo" xmlns="http://www.w3.org/2000/svg" width="61" height="61" viewBox="0 0 61 61">
+  <g id="Ellipse_29" data-name="Ellipse 29" fill="none" stroke="#000" stroke-width="2">
+    <circle cx="30.5" cy="30.5" r="30.5" stroke="none"/>
+    <circle cx="30.5" cy="30.5" r="29.5" fill="none"/>
+  </g>
+  <g id="google" transform="translate(16.861 17.041)">
+    <g id="Group_457" data-name="Group 457" transform="translate(0 0)">
+      <path id="Path_325" data-name="Path 325" d="M23.459,19.136v4.617h7.635c-.313,1.979-2.314,5.8-7.635,5.8a8.5,8.5,0,0,1-.011-16.991,7.589,7.589,0,0,1,5.366,2.079l3.655-3.521A12.844,12.844,0,0,0,23.459,7.6a13.459,13.459,0,0,0,0,26.918c7.769,0,12.922-5.466,12.922-13.146a11.648,11.648,0,0,0-.212-2.225l-12.71-.011Z" transform="translate(-10 -7.6)"/>
+    </g>
+  </g>
+</svg>

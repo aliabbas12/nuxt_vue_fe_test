@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="58" height="58" viewBox="0 0 58 58">
+  <defs>
+    <filter id="Ellipse_18" x="0" y="0" width="58" height="58" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="button:_table_expand" data-name="button: table expand" transform="translate(4 4)">
+    <g transform="matrix(1, 0, 0, 1, -4, -4)" filter="url(#Ellipse_18)">
+      <circle id="Ellipse_18-2" data-name="Ellipse 18" cx="23" cy="23" r="23" transform="translate(4 4)" fill="#fff"/>
+    </g>
+    <g id="go" transform="translate(80.938 42.726) rotate(180)">
+      <g id="Group_327" data-name="Group 327" transform="translate(59.575 10.025)">
+        <path id="Path_307" data-name="Path 307" d="M61.664,123.566l8.665-8.413a1.163,1.163,0,0,0,0-1.681,1.251,1.251,0,0,0-1.73,0l-8.665,8.421a1.163,1.163,0,0,0,0,1.681A1.259,1.259,0,0,0,61.664,123.566Z" transform="translate(-59.575 -104.753)"/>
+        <path id="Path_308" data-name="Path 308" d="M60,12.045l8.657,8.421a1.251,1.251,0,0,0,1.73,0,1.163,1.163,0,0,0,0-1.681l-8.657-8.413a1.251,1.251,0,0,0-1.73,0A1.167,1.167,0,0,0,60,12.045Z" transform="translate(-59.644 -10.025)"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -2,8 +2,19 @@
 export default {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        "primary-bg": "#f3f3f3",
+        "secondary-bg": "#ffffff",
+      },
+      textColor: {
+        primary: "#000000",
+        secondary: "#999999",
+      },
+      container: {
+        center: true,
+      },
+    },
   },
   plugins: [],
-}
-
+};
