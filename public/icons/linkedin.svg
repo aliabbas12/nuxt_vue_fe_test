@@ -1,0 +1,13 @@
+<svg id="linkedin_logo" data-name="linkedin logo" xmlns="http://www.w3.org/2000/svg" width="61" height="61" viewBox="0 0 61 61">
+  <g id="Ellipse_27" data-name="Ellipse 27" fill="none" stroke="#000" stroke-width="2">
+    <circle cx="30.5" cy="30.5" r="30.5" stroke="none"/>
+    <circle cx="30.5" cy="30.5" r="29.5" fill="none"/>
+  </g>
+  <g id="linkedin" transform="translate(18.549 15.199)">
+    <g id="Group_458" data-name="Group 458" transform="translate(0 0)">
+      <g id="_x37_935ec95c421cee6d86eb22ecd125aef">
+        <path id="Path_326" data-name="Path 326" d="M16.122,40.969V23.584h-5.78V40.969Zm-2.89-19.761a3.013,3.013,0,1,0,.034-6.008,3.012,3.012,0,1,0-.069,6.008Zm6.088,19.761s.08-15.751,0-17.385H25.1v2.524h-.034a5.736,5.736,0,0,1,5.243-2.924c3.8,0,6.659,2.479,6.659,7.824V40.98h-5.78v-9.3c0-2.342-.834-3.929-2.924-3.929a3.17,3.17,0,0,0-2.97,2.113,4.019,4.019,0,0,0-.194,1.4V40.98h-5.78Z" transform="translate(-10 -15.2)"/>
+      </g>
+    </g>
+  </g>
+</svg>

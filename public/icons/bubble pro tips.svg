@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="205" height="287" viewBox="0 0 205 287">
+  <defs>
+    <filter id="Rectangle_156" x="0" y="0" width="205" height="287" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="bubble:_pro_tips" data-name="bubble: pro tips" transform="translate(4 4)">
+    <g transform="matrix(1, 0, 0, 1, -4, -4)" filter="url(#Rectangle_156)">
+      <rect id="Rectangle_156-2" data-name="Rectangle 156" width="193" height="275" rx="22" transform="translate(4 4)" fill="#fff"/>
+    </g>
+    <text id="We_use_cookies_for_a_better_experience_and_to_gather_usage_metrics_for_translation_improvement._No_ads_no_data_sharing._Learn_more." data-name="We use cookies for a better experience and to gather usage metrics for translation improvement. No ads, no data sharing. Learn more." transform="translate(24 36)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="1.182" y="16">We use cookies for a </tspan><tspan x="11.118" y="36">better experience </tspan><tspan x="3.2" y="56">and to gather usage </tspan><tspan x="34.998" y="76">metrics for </tspan><tspan x="35.181" y="96">translation </tspan><tspan x="11.535" y="116">improvement. No </tspan><tspan x="0.234" y="136">ads, no data sharing. </tspan><tspan x="30.391" y="156" text-decoration="underline">Learn more.</tspan></text>
+    <g id="close_copy" data-name="close copy" transform="translate(162.488 22.439)">
+      <g id="Group_16" data-name="Group 16" transform="translate(0 0)">
+        <g id="Group_15" data-name="Group 15">
+          <path id="Path_35" data-name="Path 35" d="M10.169,10.052A.3.3,0,0,0,10,10.39a14.269,14.269,0,0,0,1.566,1.627l1.557,1.557L11.57,15.131C9.883,16.821,9.968,16.724,10,16.9a.356.356,0,0,0,.223.223c.169.03.075.117,1.765-1.569l1.557-1.557L15.1,15.55c1.687,1.687,1.59,1.6,1.762,1.569a.356.356,0,0,0,.223-.223c.03-.169.117-.075-1.569-1.765l-1.56-1.554,1.557-1.557c1.687-1.687,1.6-1.59,1.569-1.762a.356.356,0,0,0-.223-.223c-.169-.03-.075-.117-1.765,1.569l-1.554,1.557-1.548-1.548c-.868-.868-1.572-1.557-1.6-1.566A.308.308,0,0,0,10.169,10.052Z" transform="translate(-9.988 -10.023)"/>
+        </g>
+      </g>
+    </g>
+    <g id="button:_capretto_word" data-name="button: capretto word" transform="translate(29 222)">
+      <rect id="Rectangle_5" data-name="Rectangle 5" width="63" height="25" rx="12.5" fill="#9fc"/>
+      <text id="agree" transform="translate(12)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="16">agree</tspan></text>
+    </g>
+    <g id="button:_capretto_word-2" data-name="button: capretto word" transform="translate(119 222)">
+      <rect id="Rectangle_5-2" data-name="Rectangle 5" width="43" height="25" rx="12.5" fill="#9fc"/>
+      <text id="no" transform="translate(12)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="16">no</tspan></text>
+    </g>
+  </g>
+</svg>
