@@ -1,26 +1,54 @@
 <script setup>
-const people = ["English", "Italian"];
-const selected = ref([0]);
+import { ref } from "vue";
+const isOpen = ref(false);
+const language = ref("english");
+const languages = [
+  { value: "english", label: "english" },
+  { value: "italian", label: "italian" },
+  { value: "spanish", label: "spanish" },
+];
 </script>
 
 <template>
   <div>
-    <USelectMenu
-      v-model="selected"
-      :options="people"
-      variant="none"
-      class="bg-primary-bg select-language cursor-pointer"
-      size="xl"
-      trailing-icon=""
-      :ui="{
-        variant: {
-          strategy: 'override',
-          none: 'text-xl text-center w-full cursor-pointer',
-          form: ' w-full',
-        },
-      }"
+    <UButton
+      size="lg"
+      color="white"
+      square
+      variant="soft"
+      block
+      class="h-12 px-0 py-0 bg-primary-bg text-base"
+      @click="isOpen = true"
+      >{{ language.toUpperCase() }}</UButton
     >
-    </USelectMenu>
+    <UModal v-model="isOpen" class="w-[448px]">
+      <div class="flex items-center justify-between">
+        <div></div>
+        <UButton
+          color="gray"
+          variant="ghost"
+          icon="i-heroicons-x-mark-20-solid"
+          class="my-2 mx-2"
+          @click="isOpen = false"
+        />
+      </div>
+      <div
+        class="p-4 h-[448px] w-full flex flex-col items-center justify-center px-8"
+      >
+        <div class="mb-[30px] -mt-[45px]">Choose an input language</div>
+        <URadio
+          v-for="lang of languages"
+          :key="lang.value"
+          v-model="language"
+          v-bind="lang"
+          :ui="{
+            strategy: 'override',
+            wrapper:
+              'relative mx-[20px] w-full flex items-start py-[28px] px-[25px] my-[10px] border-2 rounded-3xl',
+          }"
+        />
+      </div>
+    </UModal>
     <UDivider
       class="mt-0"
       :ui="{

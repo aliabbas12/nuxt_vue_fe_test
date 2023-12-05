@@ -52,8 +52,7 @@ function scrollToSection(sectionId) {
         <img
           src="/icons/logo.svg"
           alt="Icon"
-          class="logo-icon"
-          style="height: 35px"
+          class="logo-icon md:w-[151px] lg:w-[211px] md:h-[35px] lg:h-[41px]"
         />
       </div>
       <div
@@ -121,7 +120,6 @@ function scrollToSection(sectionId) {
 .default-layout {
   header {
     .logo-icon {
-      height: 35px;
       padding: 6px;
     }
   }
