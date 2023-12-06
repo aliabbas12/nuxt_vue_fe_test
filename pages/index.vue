@@ -3,7 +3,7 @@
     <section id="section-1" class="w-full h-screen bg-primary-bg snap-start">
       <MainSection />
     </section>
-    <section id="section-2" class="w-full h-screen bg-primary-bg snap-start">
+    <section id="section-2" class="w-full h-screen bg-primary-bg snap-start overflow-y-auto">
       <HistorySection />
     </section>
     <section id="section-3" class="w-full h-screen bg-secondary-bg snap-start">

@@ -4,7 +4,12 @@ export default defineNuxtConfig({
   ui: {
     icons: [`mdi`, "ph"],
   },
-  modules: ["@nuxtjs/color-mode", "@nuxtjs/eslint-module", "@nuxt/ui"],
+  modules: [
+    "@nuxtjs/color-mode",
+    "@nuxtjs/eslint-module",
+    "@nuxt/ui",
+    "nuxt-viewport",
+  ],
   devtools: { enabled: true },
   postcss: {
     plugins: {
