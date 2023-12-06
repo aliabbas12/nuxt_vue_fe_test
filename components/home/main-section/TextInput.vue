@@ -1,5 +1,25 @@
-<script setup>
+<script setup lang="ts">
+import { ref } from "vue";
 const text = ref("");
+// const { $api } = useNuxtApp();
+//
+// const SearchText = reactive({
+//   text: String,
+// });
+
+// function handleSubmit() {
+//   try {
+//     const credentials = {
+//       text: SearchText.text,
+//     };
+//
+//     const response = await $api.auth.login(credentials);
+//     console.log(response);
+//     // allow user access into the app
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 </script>
 
 <template>
