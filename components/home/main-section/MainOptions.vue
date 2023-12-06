@@ -1,7 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const viewport = useViewport()
+</script>
 
 <template>
-  <div class="container flex flex-wrap px-5 w-3/4">
+  <div class="container flex flex-wrap md:px-3 lg:px-5 w-3/4">
     <div class="w-1/4 text-center">
       <UButton
         size="lg"
@@ -19,7 +21,7 @@
               strategy: 'override',
               rounded: 'rounded-none',
             }"
-            size="md"
+            :size="viewport.isLessThan('tablet')?'sm':'md'"
           />
         </template>
       </UButton>
@@ -41,7 +43,7 @@
               strategy: 'override',
               rounded: 'rounded-none',
             }"
-            size="md"
+            :size="viewport.isLessThan('tablet')?'sm':'md'"
           />
         </template>
       </UButton>
@@ -63,7 +65,7 @@
               strategy: 'override',
               rounded: 'rounded-none',
             }"
-            size="md"
+            :size="viewport.isLessThan('tablet')?'sm':'md'"
           />
         </template>
       </UButton>
@@ -85,7 +87,7 @@
               strategy: 'override',
               rounded: 'rounded-none',
             }"
-            size="md"
+            :size="viewport.isLessThan('tablet')?'sm':'md'"
           />
         </template>
       </UButton>
