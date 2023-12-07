@@ -1,9 +1,12 @@
 <template>
   <main class="max-h-screen overflow-y-scroll snap snap-y snap-mandatory">
     <section id="section-1" class="w-full h-screen bg-primary-bg snap-start">
-      <MainSection />
+      <TranslateSection />
     </section>
-    <section id="section-2" class="w-full h-screen bg-primary-bg snap-start overflow-y-auto">
+    <section
+      id="section-2"
+      class="w-full h-screen bg-primary-bg snap-start overflow-y-auto"
+    >
       <HistorySection />
     </section>
     <section id="section-3" class="w-full h-screen bg-secondary-bg snap-start">
@@ -18,8 +21,8 @@
   </main>
 </template>
 <script setup lang="ts">
-import MainSection from "~/components/home/MainSection.vue";
-import HistorySection from "~/components/home/HistorySection.vue";
-import CreateAccountSection from "~/components/home/CreateAccountSection.vue";
+import TranslateSection from "~/components/sections/translate/TranslateSection.vue";
+import HistorySection from "~/components/sections/history/HistorySection.vue";
+import CreateAccountSection from "~/components/sections/CreateAccount/CreateAccountSection.vue";
 </script>
 <style scoped></style>

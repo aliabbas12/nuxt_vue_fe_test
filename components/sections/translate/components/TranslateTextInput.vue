@@ -1,6 +1,14 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 const text = ref("");
+
+const textSizeAccordingToLength = computed(() => {
+  if (text.value.length > 60 && text.value.length < 120) {
+    return "text-4xl";
+  } else if (text.value.length >= 120) {
+    return "text-3xl";
+  } else return "text-5xl";
+});
 // const { $api } = useNuxtApp();
 //
 // const SearchText = reactive({
@@ -29,7 +37,7 @@ const text = ref("");
       variant="none"
       size="xl"
       :autoresize="true"
-      textarea-class=" mb-[1rem] mt-[2rem] text-5xl text-center tracking-wider"
+      :textarea-class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem]  text-center tracking-wider`"
     />
     <div class="w-full flex flex-auto my-3 pr-1 text-center">
       <span class="w-6/12 text-right tracking-wider text-primary"

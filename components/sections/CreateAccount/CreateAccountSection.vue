@@ -1,11 +1,11 @@
 <script setup lang="ts">
-const viewport = useViewport()
-import NextButton from "~/components/home/general/NextButton.vue";
+import NextButton from "~/components/general/NextButton.vue";
+const viewport = useViewport();
 </script>
 
 <template>
   <div
-    class="container  lg:w-4/6 xl:w-3/6 pt-[6rem] text-center flex flex-col items-center justify-center"
+    class="container lg:w-4/6 xl:w-3/6 pt-[6rem] text-center flex flex-col items-center justify-center"
   >
     <div class="text-3xl">create a free account</div>
     <div class="text-sm leading-6 m-8 lg:m-14">
@@ -52,7 +52,7 @@ import NextButton from "~/components/home/general/NextButton.vue";
             strategy: 'override',
             rounded: 'rounded-none',
           }"
-          :size="viewport.isLessThan('tablet')?'lg':'2xl'"
+          :size="viewport.isLessThan('tablet') ? 'lg' : '2xl'"
         />
         <UAvatar
           src="/icons/google.svg"
@@ -61,7 +61,7 @@ import NextButton from "~/components/home/general/NextButton.vue";
             strategy: 'override',
             rounded: 'rounded-none',
           }"
-          :size="viewport.isLessThan('tablet')?'lg':'2xl'"
+          :size="viewport.isLessThan('tablet') ? 'lg' : '2xl'"
         />
         <UAvatar
           src="/icons/linkedin.svg"
@@ -70,7 +70,7 @@ import NextButton from "~/components/home/general/NextButton.vue";
             strategy: 'override',
             rounded: 'rounded-none',
           }"
-          :size="viewport.isLessThan('tablet')?'lg':'2xl'"
+          :size="viewport.isLessThan('tablet') ? 'lg' : '2xl'"
         />
       </div>
       <div>got an account? sign in</div>
