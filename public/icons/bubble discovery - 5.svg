@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="269" height="253" viewBox="0 0 269 253">
+  <defs>
+    <filter id="Rectangle_20" x="0" y="0" width="269" height="253" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="bubble:_discovery" data-name="bubble: discovery" transform="translate(4 4)">
+    <g transform="matrix(1, 0, 0, 1, -4, -4)" filter="url(#Rectangle_20)">
+      <rect id="Rectangle_20-2" data-name="Rectangle 20" width="257" height="241" rx="22" transform="translate(4 4)" fill="#fff"/>
+    </g>
+    <text id="capêtti_is_an_unverified_word_known_to_you_but_not_known_in_our_dictionary." data-name="capêtti is an unverified word known to you but not known in our dictionary." transform="translate(18 69)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="16">capêtti is an unverified word </tspan><tspan x="0" y="36">known to you but not known </tspan><tspan x="0" y="56">in our dictionary.</tspan></text>
+    <g id="dots" transform="translate(101.567 112.234)">
+      <g id="Group_18" data-name="Group 18" transform="translate(10 101.256)">
+        <g id="Group_17" data-name="Group 17" transform="translate(0)">
+          <path id="Path_36" data-name="Path 36" d="M12.731,101.539a4.735,4.735,0,0,0-2.386,2.011A3.307,3.307,0,0,0,10,105.365a3.437,3.437,0,0,0,1.35,3.031,4.011,4.011,0,0,0,6.227-1.38,4.717,4.717,0,0,0,0-3.271A4.105,4.105,0,0,0,12.731,101.539Z" transform="translate(-10 -101.352)"/>
+          <path id="Path_37" data-name="Path 37" d="M104.175,101.568a4.025,4.025,0,0,0-2.731,4.936,3.985,3.985,0,0,0,5.7,2.416,3.8,3.8,0,0,0,2.1-3.511,3.885,3.885,0,0,0-3.571-3.961A5.538,5.538,0,0,0,104.175,101.568Z" transform="translate(-87.596 -101.412)" fill="#999"/>
+          <path id="Path_38" data-name="Path 38" d="M196.446,101.353a4.267,4.267,0,0,0-2.746,2.281,4.133,4.133,0,0,0-.3,1.635,3.931,3.931,0,0,0,3.541,3.991,4.284,4.284,0,0,0,3.991-2.176,4.719,4.719,0,0,0,0-3.616A4.154,4.154,0,0,0,196.446,101.353Z" transform="translate(-165.883 -101.256)" fill="#999"/>
+        </g>
+      </g>
+    </g>
+    <text id="capêtti" transform="translate(55 12)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="16">capêtti</tspan></text>
+    <text id="noodle" transform="translate(55 28)" fill="#999" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="16">noodle</tspan></text>
+    <g id="button:_capretto_word" data-name="button: capretto word" transform="translate(77 155)">
+      <rect id="Rectangle_5" data-name="Rectangle 5" width="43" height="25" rx="12.5" fill="#9fc"/>
+      <text id="fix" transform="translate(12)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="16">fix</tspan></text>
+    </g>
+    <g id="button:_capretto_word-2" data-name="button: capretto word" transform="translate(136 155)">
+      <rect id="Rectangle_5-2" data-name="Rectangle 5" width="55" height="25" rx="12.5" fill="#f3f3f3"/>
+      <text id="keep" transform="translate(11)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="16">keep</tspan></text>
+    </g>
+    <g id="unverified" transform="translate(17 18)">
+      <g id="Group_452" data-name="Group 452">
+        <g id="Group_451" data-name="Group 451">
+          <path id="Path_321" data-name="Path 321" d="M348.21,1392.9a12.542,12.542,0,0,0-9.576,5.719,16.165,16.165,0,0,0-1.29,2.646,12.495,12.495,0,0,0,22.483,10.59,11.278,11.278,0,0,0,.974-1.959,12.75,12.75,0,0,0,.54-7.361,13.109,13.109,0,0,0-2.486-5.061,12.621,12.621,0,0,0-7.935-4.492A15.613,15.613,0,0,0,348.21,1392.9Z" transform="translate(-336.649 -1392.877)" fill="#fc9"/>
+        </g>
+      </g>
+      <path id="Path_545" data-name="Path 545" d="M353.1,1398.41a5.742,5.742,0,0,1,1.666.826,4.419,4.419,0,0,1,1.354,4.247,4.533,4.533,0,0,1-2.042,2.456,4.837,4.837,0,0,0-1.539,1.493,2.219,2.219,0,0,0-.169.9,1.387,1.387,0,0,1-.466,1.2,1.331,1.331,0,0,1-1.016.371,1.383,1.383,0,0,1-1.206-.593c-.169-.257-.191-.3-.191-.8a4.2,4.2,0,0,1,.4-1.875,5.263,5.263,0,0,1,1.884-2.16,4.55,4.55,0,0,0,1.344-1.345,1.8,1.8,0,0,0-.032-1.365c-.276-.593-.814-.8-1.9-.762a2.364,2.364,0,0,0-2.1,1.069,1.944,1.944,0,0,1-.826.73,1.517,1.517,0,0,1-1.523-.233,1.332,1.332,0,0,1-.318-1.377,3.932,3.932,0,0,1,.941-1.4,5.859,5.859,0,0,1,2.72-1.4,5.323,5.323,0,0,1,1.6-.1,6.18,6.18,0,0,1,1.429.121Z" transform="translate(-338.504 -1393.905)" fill="#fff"/>
+      <path id="Path_546" data-name="Path 546" d="M352.126,1414.45a1.549,1.549,0,0,1,.931.752,1.481,1.481,0,0,1,.149.815,1.387,1.387,0,0,1-.423,1.25,1.842,1.842,0,0,1-2.6-.107,1.819,1.819,0,0,1-.211-.278,2.428,2.428,0,0,1,0-1.674A1.867,1.867,0,0,1,352.126,1414.45Z" transform="translate(-339.168 -1396.973)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
