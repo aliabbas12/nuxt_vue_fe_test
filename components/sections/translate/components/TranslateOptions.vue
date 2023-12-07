@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const viewport = useViewport()
+const viewport = useViewport();
 </script>
 
 <template>
@@ -21,7 +21,7 @@ const viewport = useViewport()
               strategy: 'override',
               rounded: 'rounded-none',
             }"
-            :size="viewport.isLessThan('tablet')?'sm':'md'"
+            :size="viewport.isLessThan('tablet') ? 'sm' : 'md'"
           />
         </template>
       </UButton>
@@ -43,7 +43,7 @@ const viewport = useViewport()
               strategy: 'override',
               rounded: 'rounded-none',
             }"
-            :size="viewport.isLessThan('tablet')?'sm':'md'"
+            :size="viewport.isLessThan('tablet') ? 'sm' : 'md'"
           />
         </template>
       </UButton>
@@ -65,7 +65,7 @@ const viewport = useViewport()
               strategy: 'override',
               rounded: 'rounded-none',
             }"
-            :size="viewport.isLessThan('tablet')?'sm':'md'"
+            :size="viewport.isLessThan('tablet') ? 'sm' : 'md'"
           />
         </template>
       </UButton>
@@ -87,7 +87,7 @@ const viewport = useViewport()
               strategy: 'override',
               rounded: 'rounded-none',
             }"
-            :size="viewport.isLessThan('tablet')?'sm':'md'"
+            :size="viewport.isLessThan('tablet') ? 'sm' : 'md'"
           />
         </template>
       </UButton>
