@@ -1,0 +1,66 @@
+<svg id="button:_autodetect" data-name="button: autodetect" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1366" height="768" viewBox="0 0 1366 768">
+  <defs>
+    <filter id="Rectangle_71" x="454.5" y="156" width="460" height="461" filterUnits="userSpaceOnUse">
+      <feOffset dx="2" dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect id="Rectangle_145" data-name="Rectangle 145" width="1366" height="768" fill="rgba(243,243,243,0.62)"/>
+  <g id="Group_551" data-name="Group 551" transform="translate(530 90)">
+    <line id="Line_1" data-name="Line 1" x2="300" transform="translate(0 43.5)" fill="none" stroke="#999" stroke-width="1"/>
+  </g>
+  <text id="AUTODETECT" transform="translate(622.5 90)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="10.563" y="16">AUTODETECT</tspan></text>
+  <g id="Group_493" data-name="Group 493" transform="translate(18987.5 17565)">
+    <g transform="matrix(1, 0, 0, 1, -18987.5, -17565)" filter="url(#Rectangle_71)">
+      <rect id="Rectangle_71-2" data-name="Rectangle 71" width="448" height="449" rx="22" transform="translate(458.5 160)" fill="#fff"/>
+    </g>
+    <path id="Path_358" data-name="Path 358" d="M10.169,10.052A.3.3,0,0,0,10,10.39a14.269,14.269,0,0,0,1.566,1.627l1.557,1.557L11.57,15.131C9.883,16.821,9.968,16.724,10,16.9a.356.356,0,0,0,.223.223c.169.03.075.117,1.765-1.569l1.557-1.557L15.1,15.55c1.687,1.687,1.59,1.6,1.762,1.569a.356.356,0,0,0,.223-.223c.03-.169.117-.075-1.569-1.765l-1.56-1.554,1.557-1.557c1.687-1.687,1.6-1.59,1.569-1.762a.356.356,0,0,0-.223-.223c-.169-.03-.075-.117-1.765,1.569l-1.554,1.557-1.548-1.548c-.868-.868-1.572-1.557-1.6-1.566A.308.308,0,0,0,10.169,10.052Z" transform="translate(-18119.5 -17397.582)"/>
+    <text id="Choose_an_input_language" data-name="Choose an input language" transform="translate(-18435 -17354)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="35.617" y="16">Choose an input language</tspan></text>
+    <g id="Group_492" data-name="Group 492" transform="translate(-3799 -18617)">
+      <g id="Rectangle_68" data-name="Rectangle 68" transform="translate(-14689 1322)" fill="#fff" stroke="#999" stroke-width="1">
+        <rect width="363" height="63" rx="22" stroke="none"/>
+        <rect x="0.5" y="0.5" width="362" height="62" rx="21.5" fill="none"/>
+      </g>
+      <g id="Rectangle_69" data-name="Rectangle 69" transform="translate(-14689 1405)" fill="#fff" stroke="#999" stroke-width="1">
+        <rect width="363" height="63" rx="22" stroke="none"/>
+        <rect x="0.5" y="0.5" width="362" height="62" rx="21.5" fill="none"/>
+      </g>
+      <g id="Rectangle_70" data-name="Rectangle 70" transform="translate(-14689 1488)" fill="#fff" stroke="#999" stroke-width="1">
+        <rect width="363" height="63" rx="22" stroke="none"/>
+        <rect x="0.5" y="0.5" width="362" height="62" rx="21.5" fill="none"/>
+      </g>
+      <text id="english" transform="translate(-14636 1342)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="16">english</tspan></text>
+      <text id="italian" transform="translate(-14636 1425)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="16">italian</tspan></text>
+      <text id="spanish" transform="translate(-14636 1508)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="16">spanish</tspan></text>
+      <g id="radio" transform="translate(-14663.796 1430)">
+        <g id="Group_352" data-name="Group 352" transform="translate(0 0)">
+          <path id="Path_317" data-name="Path 317" d="M16.334,10.87a5.411,5.411,0,0,1,2.126.429,5.516,5.516,0,0,1,1.739,1.17,5.471,5.471,0,0,1,1.17,5.99A5.516,5.516,0,0,1,20.2,20.2a5.471,5.471,0,0,1-5.99,1.17,5.516,5.516,0,0,1-1.739-1.17,5.471,5.471,0,0,1-1.17-5.99,5.516,5.516,0,0,1,1.17-1.739,5.462,5.462,0,0,1,3.865-1.6m0-.87a6.334,6.334,0,1,0,6.334,6.334A6.332,6.332,0,0,0,16.334,10Z" transform="translate(-10 -10)"/>
+        </g>
+      </g>
+      <g id="Group_494" data-name="Group 494" transform="translate(-14664 1513.166)">
+        <path id="Path_316" data-name="Path 316" d="M16.334,10a6.334,6.334,0,1,0,6.334,6.334A6.332,6.332,0,0,0,16.334,10Zm0,12.035a5.7,5.7,0,1,1,5.7-5.7A5.7,5.7,0,0,1,16.334,22.035Zm-3.484-5.7h0a3.484,3.484,0,0,0,6.967,0h0a3.484,3.484,0,0,0-6.967,0Z" transform="translate(-10 -10)"/>
+      </g>
+      <g id="radio-2" data-name="radio" transform="translate(-14663.797 1347)">
+        <g id="Group_352-2" data-name="Group 352" transform="translate(0 0)">
+          <path id="Path_317-2" data-name="Path 317" d="M16.334,10.87a5.411,5.411,0,0,1,2.126.429,5.516,5.516,0,0,1,1.739,1.17,5.471,5.471,0,0,1,1.17,5.99A5.516,5.516,0,0,1,20.2,20.2a5.471,5.471,0,0,1-5.99,1.17,5.516,5.516,0,0,1-1.739-1.17,5.471,5.471,0,0,1-1.17-5.99,5.516,5.516,0,0,1,1.17-1.739,5.462,5.462,0,0,1,3.865-1.6m0-.87a6.334,6.334,0,1,0,6.334,6.334A6.332,6.332,0,0,0,16.334,10Z" transform="translate(-10 -10)"/>
+        </g>
+      </g>
+    </g>
+    <text id="auto_detect" data-name="auto detect" transform="translate(-18413 -17027)" font-size="15" font-family="OpenSans-Regular, Open Sans"><tspan x="0" y="16">auto detect</tspan></text>
+    <g id="toggle" transform="translate(-18483.879 -17032.887)">
+      <path id="Path_118" data-name="Path 118" d="M46.807,56.483a15.18,15.18,0,0,1,3.162,1.11,12.908,12.908,0,0,1,3.644,2.66,12.762,12.762,0,0,1,3.372,6.22,16.189,16.189,0,0,1,.188,5.215,13.174,13.174,0,0,1-5.78,9.09,12.483,12.483,0,0,1-3.246,1.529c-1.864.586-1.34.565-13.467.565-10.262,0-11.2,0-11.959-.168a13.05,13.05,0,0,1-6.744-3.623,12.728,12.728,0,0,1-3.644-6.87,14.872,14.872,0,0,1-.042-5.006A13.155,13.155,0,0,1,23.685,56.315c.335-.042,5.487-.084,11.435-.063C45.885,56.273,45.927,56.273,46.807,56.483Z" transform="translate(-10.011 -54.173)" fill="#9fc"/>
+      <g id="on_off_switch_toggle_settings_preferences" transform="translate(-3.011 -54.173)">
+        <g id="Group_86" data-name="Group 86" transform="translate(3.011 54.173)">
+          <g id="Group_85" data-name="Group 85" transform="translate(0 0)">
+            <path id="Path_116" data-name="Path 116" d="M23.329,54.242a15.78,15.78,0,0,0-8.8,4.545A15.124,15.124,0,0,0,11.58,76.254a15.775,15.775,0,0,0,12.5,8.754c1.382.147,20,.147,21.279,0A15.664,15.664,0,0,0,56.8,78.138a15.341,15.341,0,0,0,2.576-9.7,15.041,15.041,0,0,0-4.566-9.718,15.413,15.413,0,0,0-7.77-4.314c-.9-.209-1.005-.209-12-.23C28.879,54.158,23.664,54.2,23.329,54.242Zm23.478,2.241a15.18,15.18,0,0,1,3.162,1.11,12.908,12.908,0,0,1,3.644,2.66,12.762,12.762,0,0,1,3.372,6.22,16.189,16.189,0,0,1,.188,5.215,13.174,13.174,0,0,1-5.78,9.09,12.483,12.483,0,0,1-3.246,1.529c-1.864.586-1.34.565-13.467.565-10.262,0-11.2,0-11.959-.168a13.05,13.05,0,0,1-6.744-3.623,12.728,12.728,0,0,1-3.644-6.87,14.872,14.872,0,0,1-.042-5.006A13.155,13.155,0,0,1,23.685,56.315c.335-.042,5.487-.084,11.435-.063C45.885,56.273,45.927,56.273,46.807,56.483Z" transform="translate(-10.011 -54.173)"/>
+            <path id="Path_117" data-name="Path 117" d="M47.011,83.856a9.723,9.723,0,0,0-7.2,6.744,10.475,10.475,0,0,0-.168,4.042A10.077,10.077,0,0,0,41.817,99a10.617,10.617,0,0,0,4.545,2.89,6.385,6.385,0,0,0,2.367.272,6.914,6.914,0,0,0,2.262-.209,9.8,9.8,0,0,0,6.765-6.807,10.38,10.38,0,0,0,0-4.4,9.642,9.642,0,0,0-7.393-6.911A10.576,10.576,0,0,0,47.011,83.856Zm3.854,2.22A7.607,7.607,0,0,1,53.42,87.4a7.173,7.173,0,0,1,1.92,2.57,7.469,7.469,0,0,1,.216,5.472,6.069,6.069,0,0,1-1.717,2.66,6.57,6.57,0,0,1-5.047,2.011,6.639,6.639,0,0,1-3.309-.733,6.537,6.537,0,0,1-3.162-3.2,7.913,7.913,0,0,1,.063-6.513,6.814,6.814,0,0,1,4.943-3.749A9.253,9.253,0,0,1,50.865,86.076Z" transform="translate(-33.338 -77.526)"/>
+            <circle id="Ellipse_2" data-name="Ellipse 2" cx="7.5" cy="7.5" r="7.5" transform="translate(7.88 7.886)" fill="#fff"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
