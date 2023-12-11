@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { ref, onUnmounted } from "vue";
+import { ref, onUnmounted, computed } from "vue";
+import { useTranslationStore } from "~/store/translation";
 const viewport = useViewport();
-const textToSpeak = ref("Hello, welcome to the Text-to-Speech example!");
+const store = useTranslationStore();
+const text = computed(() => store.text);
 const synth = window.speechSynthesis;
 
 const speak = () => {
-  const utterance = new SpeechSynthesisUtterance(textToSpeak.value);
+  const utterance = new SpeechSynthesisUtterance(text.value);
   synth.speak(utterance);
 };
 
-// Clean up the speechSynthesis object when the component is unmounted
 onUnmounted(() => {
   synth.cancel();
 });

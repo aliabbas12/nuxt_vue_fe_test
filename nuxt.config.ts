@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxtjs/eslint-module",
     "@nuxt/ui",
     "nuxt-viewport",
+    "@pinia/nuxt",
   ],
   devtools: { enabled: true },
   postcss: {

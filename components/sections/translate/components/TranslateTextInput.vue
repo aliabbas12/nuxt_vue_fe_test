@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
-const text = ref("");
+import { computed } from "vue";
+import { useTranslationStore } from "~/store/translation";
 
 const textSizeAccordingToLength = computed(() => {
   if (text.value.length > 60 && text.value.length < 120) {
@@ -9,12 +9,19 @@ const textSizeAccordingToLength = computed(() => {
     return "text-3xl";
   } else return "text-5xl";
 });
+
+const store = useTranslationStore();
+const text = computed({
+  get: () => store.text,
+  set: (value) => {
+    store.addText(value);
+  },
+});
 // const { $api } = useNuxtApp();
 //
 // const SearchText = reactive({
 //   text: String,
 // });
-
 // function handleSubmit() {
 //   try {
 //     const credentials = {
