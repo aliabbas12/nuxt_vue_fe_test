@@ -2,8 +2,6 @@
   <main class="max-h-screen overflow-y-scroll snap snap-y snap-mandatory">
     <section id="section-1" class="w-full h-screen bg-primary-bg snap-start">
       <TranslateSection />
-      <div class=""></div>
-      <TranslationPane />
     </section>
     <section
       id="section-2"

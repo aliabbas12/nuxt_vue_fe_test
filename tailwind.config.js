@@ -14,6 +14,9 @@ export default {
       container: {
         center: true,
       },
+      fontSize: {
+        normal: "15px",
+      },
     },
   },
   plugins: [],

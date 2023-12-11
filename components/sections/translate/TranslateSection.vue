@@ -7,7 +7,8 @@ import TranslationPane from "~/components/layouts/TranslationPane.vue";
 </script>
 
 <template>
-  <div class="pt-[15rem] flex flex-col items-center justify-center">
+  <div class="relative pt-[15rem] flex flex-col h-screen">
+    <TranslationPane />
     <div class="container w-4/6 sm:w-6/12 md:w-5/12 lg:w-4/12 xl:w-1/4">
       <SelectLanguage />
     </div>
@@ -20,7 +21,7 @@ import TranslationPane from "~/components/layouts/TranslationPane.vue";
       <TranslateOptions />
     </div>
     <div class="container w-3/6 sm:w-1/6 md:w-2/12 lg:w-2/12 my-10 text-center">
-      <NextButton />
+      <NextButton text="translate" />
     </div>
   </div>
 </template>

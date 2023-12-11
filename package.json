@@ -42,6 +42,7 @@
     "@iconify-json/mdi": "^1.1.57",
     "@iconify-json/ph": "^1.1.8",
     "@pinia/nuxt": "^0.5.1",
-    "ohmyfetch": "^0.4.21"
+    "ohmyfetch": "^0.4.21",
+    "pinia": "^2.1.7"
   }
 }

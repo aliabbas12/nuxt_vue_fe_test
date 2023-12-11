@@ -22,32 +22,12 @@ const translations = ref([
     text: "cannoli",
     translation: "Italian pastry",
   },
-  {
-    text: "cannoli",
-    translation: "Italian pastry",
-  },
-  {
-    text: "alla",
-    translation: "to, with",
-  },
-  {
-    text: "forestiera",
-    translation: "wild mashrooms",
-  },
-  {
-    text: "capretto",
-    translation: "baby goad",
-  },
-  {
-    text: "cannoli",
-    translation: "Italian pastry",
-  },
 ]);
 </script>
 
 <template>
   <div
-    class="flex h-full flex-col absolute bg-transparent w-1/4 right-0 top-0 justify-center"
+    class="flex h-full flex-col absolute bg-transparent w-3/12 right-0 top-0 justify-center"
   >
     <div class="overflow-y-auto inset-0 backdrop-blur-md">
       <TranslationPopOver

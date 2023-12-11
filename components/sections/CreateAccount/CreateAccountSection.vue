@@ -34,7 +34,7 @@ const viewport = useViewport();
       />
       <UCheckbox label="you agree to our terms and conditions" />
       <div class="w-full flex flex-col items-center justify-center">
-        <NextButton class="w-2/6 my-3" />
+        <NextButton text="continue" class="my-3" />
       </div>
       <UDivider
         class="mt-4"

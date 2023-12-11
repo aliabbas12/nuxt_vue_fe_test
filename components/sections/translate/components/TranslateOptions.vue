@@ -1,5 +1,18 @@
 <script setup lang="ts">
+import { ref, onUnmounted } from "vue";
 const viewport = useViewport();
+const textToSpeak = ref("Hello, welcome to the Text-to-Speech example!");
+const synth = window.speechSynthesis;
+
+const speak = () => {
+  const utterance = new SpeechSynthesisUtterance(textToSpeak.value);
+  synth.speak(utterance);
+};
+
+// Clean up the speechSynthesis object when the component is unmounted
+onUnmounted(() => {
+  synth.cancel();
+});
 </script>
 
 <template>
@@ -56,6 +69,7 @@ const viewport = useViewport();
         variant="soft"
         block
         class="px-0 py-0 bg-primary-bg rounded-3xl border-0"
+        @click="speak"
       >
         <template #leading>
           <UAvatar
