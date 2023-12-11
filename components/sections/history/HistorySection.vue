@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="container w-4/6 sm:w-3/6 md:w-10/12 lg:w-8/12 xl:w-5/12 pt-[6rem] grid grid-cols-1 md:grid-cols-2">
+  <div
+    class="container w-4/6 sm:w-3/6 md:w-10/12 lg:w-8/12 xl:w-5/12 pt-[6rem] grid grid-cols-1 md:grid-cols-2"
+  >
     <u-card
       class="p-0 rounded-3xl history-card col-span-1 m-[1.5rem]"
       :ui="{

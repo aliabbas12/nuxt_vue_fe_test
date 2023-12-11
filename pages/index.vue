@@ -2,6 +2,8 @@
   <main class="max-h-screen overflow-y-scroll snap snap-y snap-mandatory">
     <section id="section-1" class="w-full h-screen bg-primary-bg snap-start">
       <TranslateSection />
+      <div class=""></div>
+      <TranslationPane />
     </section>
     <section
       id="section-2"
@@ -24,5 +26,6 @@
 import TranslateSection from "~/components/sections/translate/TranslateSection.vue";
 import HistorySection from "~/components/sections/history/HistorySection.vue";
 import CreateAccountSection from "~/components/sections/CreateAccount/CreateAccountSection.vue";
+import TranslationPane from "~/components/layouts/TranslationPane.vue";
 </script>
 <style scoped></style>

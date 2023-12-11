@@ -3,6 +3,7 @@ import SelectLanguage from "~/components/sections/translate/components/SelectLan
 import TranslateTextInput from "~/components/sections/translate/components/TranslateTextInput.vue";
 import NextButton from "~/components/general/NextButton.vue";
 import TranslateOptions from "~/components/sections/translate/components/TranslateOptions.vue";
+import TranslationPane from "~/components/layouts/TranslationPane.vue";
 </script>
 
 <template>

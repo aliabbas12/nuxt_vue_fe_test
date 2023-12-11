@@ -4,7 +4,7 @@ import SectionNavigation from "~/components/layouts/SectionNavigation.vue";
 </script>
 <template>
   <div class="default-layout bg-transparent light-mode">
-    <header class="w-full fixed top-0 bg-transparent flex justify-between">
+    <header class="w-full fixed top-0 bg-transparent flex justify-between z-50">
       <!-- Your header content goes here -->
       <div>
         <img
