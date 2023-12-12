@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { ref, onUnmounted, computed } from "vue";
+import { onUnmounted, computed } from "vue";
 import { useTranslationStore } from "~/store/translation";
+import { useGeneralStore } from "~/store/general";
 const viewport = useViewport();
 const store = useTranslationStore();
+const generalStore = useGeneralStore();
 const text = computed(() => store.text);
 const synth = window.speechSynthesis;
 
@@ -13,6 +15,14 @@ const speak = () => {
 
 onUnmounted(() => {
   synth.cancel();
+});
+
+const isKeyboardOpen = computed({
+  get: () => generalStore.keyboard,
+  set: (value) => {
+    console.log("keybaord ", value);
+    generalStore.setKeyboardState(value);
+  },
 });
 </script>
 
@@ -26,6 +36,7 @@ onUnmounted(() => {
         variant="soft"
         block
         class="px-0 py-0 bg-primary-bg rounded-3xl border-0"
+        @click="isKeyboardOpen = !isKeyboardOpen"
       >
         <template #leading>
           <UAvatar
