@@ -45,7 +45,7 @@ function changeHoverStatus(index, value) {
 
 function scrollToSection(sectionId) {
   const element = document.getElementById(sectionId);
-  if (element) {
+  if (element != null) {
     element.scrollIntoView({ behavior: "smooth" });
   }
 }
@@ -53,7 +53,7 @@ function scrollToSection(sectionId) {
 
 <template>
   <div
-    class="flex flex-col py-[14px] fixed top-1/2 transform -translate-y-1/2 left-0 bg-secondary-bg rounded-r-[15px] py-1 shadow-xl navigations z-60"
+    class="flex flex-col py-[14px] fixed top-1/2 transform -translate-y-1/2 left-0 bg-secondary-bg rounded-r-[15px] py-1 shadow-xl navigations z-100"
   >
     <UTooltip
       v-for="(item, index) in menu"

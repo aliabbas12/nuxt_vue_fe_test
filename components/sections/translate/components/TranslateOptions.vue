@@ -13,6 +13,13 @@ const speak = () => {
   synth.speak(utterance);
 };
 
+const isListening = computed({
+  get: () => generalStore.getListeningState,
+  set: (value) => {
+    generalStore.setListeningState(value);
+  },
+});
+
 onUnmounted(() => {
   synth.cancel();
 });
@@ -20,7 +27,6 @@ onUnmounted(() => {
 const isKeyboardOpen = computed({
   get: () => generalStore.keyboard,
   set: (value) => {
-    console.log("keybaord ", value);
     generalStore.setKeyboardState(value);
   },
 });
@@ -58,12 +64,19 @@ const isKeyboardOpen = computed({
         square
         variant="soft"
         block
-        class="px-0 py-0 bg-primary-bg rounded-3xl border-0"
+        :class="`px-0 py-0 bg-primary-bg rounded-3xl border-0 ${
+          isListening ? 'icon-listening' : ''
+        }`"
+        @click="isListening = !isListening"
       >
         <template #leading>
           <UAvatar
-            src="/icons/microphone.svg"
-            class="rounded-none"
+            :src="
+              isListening
+                ? '/icons/microphone-red.svg'
+                : '/icons/microphone.svg'
+            "
+            class="rounded-none icon"
             :ui="{
               strategy: 'override',
               rounded: 'rounded-none',
@@ -128,4 +141,20 @@ const isKeyboardOpen = computed({
   />
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.icon-listening {
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+  }
+
+  .icon {
+    animation: pulse 1.5s infinite;
+  }
+}
+</style>

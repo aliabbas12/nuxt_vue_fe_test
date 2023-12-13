@@ -14,7 +14,7 @@ const props = defineProps({
     required: true,
   },
 });
-const { text, type } = props;
+const { text } = props;
 const viewport = useViewport();
 </script>
 
@@ -52,7 +52,6 @@ const viewport = useViewport();
     </u-card>
     <UButton
       size="sm"
-      color="bg-primary-bg"
       square
       variant="soft"
       block
@@ -72,7 +71,6 @@ const viewport = useViewport();
     </UButton>
     <UButton
       size="sm"
-      color="bg-primary-bg"
       square
       variant="soft"
       block

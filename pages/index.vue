@@ -24,6 +24,5 @@
 import TranslateSection from "~/components/sections/translate/TranslateSection.vue";
 import HistorySection from "~/components/sections/history/HistorySection.vue";
 import CreateAccountSection from "~/components/sections/CreateAccount/CreateAccountSection.vue";
-import TranslationPane from "~/components/layouts/TranslationPane.vue";
 </script>
 <style scoped></style>
