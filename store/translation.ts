@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const useTranslationStore = defineStore("translation", {
   state: () => ({
-    text: "my name is Abdullah",
+    text: "",
   }),
   getters: {
     getText: (state) => state.text,

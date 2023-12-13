@@ -1,4 +1,5 @@
 <script setup>
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { computed, watch } from "vue";
 import { useTranslationStore } from "~/store/translation.ts";
 import { useGeneralStore } from "~/store/general.ts";
@@ -8,14 +9,12 @@ const listeningState = computed(() => generalStore.getListeningState);
 const translationText = computed(() => translationStore.getText);
 const recognition = new (window.SpeechRecognition ||
   window.webkitSpeechRecognition)();
-recognition.lang = "en-US"; // Set the language as needed
+recognition.lang = "en-US";
 
 watch(listeningState, (value) => {
   if (value) {
-    console.log("listening start");
     recognition.start();
   } else {
-    console.log("listening stop");
     recognition.stop();
   }
 });

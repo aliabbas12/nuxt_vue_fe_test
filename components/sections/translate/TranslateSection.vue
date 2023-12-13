@@ -23,7 +23,7 @@ import VirtualKeyboard from "~/components/general/VirtualKeyboard.vue";
       <TranslateOptions />
     </div>
     <div class="container w-3/6 sm:w-1/6 md:w-2/12 lg:w-2/12 my-10 text-center">
-      <NextButton text="translate" />
+      <NextButton :text="$t('button.translate')" />
     </div>
     <div></div>
   </div>

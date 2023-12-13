@@ -16,6 +16,7 @@
     "@nuxtjs/color-mode": "^3.3.2",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/eslint-module": "^4.1.0",
+    "@nuxtjs/i18n": "^8.0.0-rc.9",
     "@nuxtjs/tailwindcss": "^6.10.1",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "autoprefixer": "^10.4.16",
