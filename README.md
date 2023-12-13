@@ -40,20 +40,20 @@ bun run dev
 
 ## Production
 
-Build the application for production:
+Build the application for production, it will generate a public directory in .output directory. then copy public directory files to static server :
 
 ```bash
 # npm
-npm run build
+npm run generate
 
 # pnpm
-pnpm run build
+pnpm run generate
 
 # yarn
-yarn build
+yarn generate
 
 # bun
-bun run build
+bun run generate
 ```
 
 Locally preview production build:
