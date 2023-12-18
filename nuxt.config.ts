@@ -1,10 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 import { SystemLanguages } from "../global/constants/systemLanguages";
 
 export default defineNuxtConfig({
-  ssr: false,
-  ui: {
-    icons: [`mdi`, "ph"],
+  devtools: { enabled: true },
+  i18n: {
+    defaultLocale: "en",
+    globalInjection: true,
+    langDir: "lang/",
+    legacy: false,
+    locales: SystemLanguages,
   },
   modules: [
     "@nuxtjs/color-mode",
@@ -13,22 +18,19 @@ export default defineNuxtConfig({
     "nuxt-viewport",
     "@pinia/nuxt",
     "@nuxtjs/i18n",
+    "vue3-carousel-nuxt",
   ],
-  i18n: {
-    legacy: false,
-    globalInjection: true,
-    locales: SystemLanguages,
-    langDir: "lang/",
-    defaultLocale: "en",
-  },
-  devtools: { enabled: true },
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+  ssr: false,
   tailwindcss: {
     configPath: "~/tailwind.config.js",
+  },
+  ui: {
+    icons: [`mdi`, "ph"],
   },
 });

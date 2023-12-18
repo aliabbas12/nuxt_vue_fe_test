@@ -45,6 +45,7 @@
     "@iconify-json/ph": "^1.1.8",
     "@pinia/nuxt": "^0.5.1",
     "ohmyfetch": "^0.4.21",
-    "pinia": "^2.1.7"
+    "pinia": "^2.1.7",
+    "vue3-carousel-nuxt": "^1.1.0"
   }
 }

@@ -6,10 +6,14 @@ export default {
       backgroundColor: {
         "primary-bg": "#f3f3f3",
         "secondary-bg": "#ffffff",
+        success: "#99ffcc",
+        error: "#FF6666",
       },
       textColor: {
         primary: "#000000",
         secondary: "#999999",
+        success: "#99ffcc",
+        error: "#FF6666",
       },
       container: {
         center: true,

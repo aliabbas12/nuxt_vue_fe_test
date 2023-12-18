@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, watch } from "vue";
 import { useTranslationStore } from "~/store/translation";
+
+const isLimitExceeded = ref(false);
 
 const textSizeAccordingToLength = computed(() => {
   if (text.value.length > 60 && text.value.length < 120) {
@@ -17,24 +19,38 @@ const text = computed({
     store.addText(value);
   },
 });
-// const { $api } = useNuxtApp();
-//
-// const SearchText = reactive({
-//   text: String,
-// });
-// function handleSubmit() {
-//   try {
-//     const credentials = {
-//       text: SearchText.text,
-//     };
-//
-//     const response = await $api.auth.login(credentials);
-//     console.log(response);
-//     // allow user access into the app
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+
+watch(text, (value) => {
+  if (value.length >= 160) {
+    isLimitExceeded.value = true;
+    if (value.length >= 160) {
+      text.value = text.value.slice(0, 160);
+    }
+  } else {
+    isLimitExceeded.value = false;
+  }
+});
+
+/**
+ * const { $api } = useNuxtApp();
+ *
+ * const SearchText = reactive({
+ *   text: String,
+ * });
+ * function handleSubmit() {
+ *   try {
+ *     const credentials = {
+ *       text: SearchText.text,
+ *     };
+ *
+ *     const response = await $api.auth.login(credentials);
+ *     console.log(response);
+ *     // allow user access into the app
+ *   } catch (error) {
+ *     console.error(error);
+ *   }
+ * }
+ */
 </script>
 
 <template>
@@ -43,6 +59,7 @@ const text = computed({
       v-model="text"
       variant="none"
       size="xl"
+      :maxlength="160"
       :autoresize="true"
       :textarea-class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem]  text-center tracking-wider`"
     />
@@ -50,7 +67,11 @@ const text = computed({
       <span class="w-6/12 text-right tracking-wider text-primary"
         >à è é ì ò ù
       </span>
-      <span class="w-6/12 text-secondary pl-3 font-light text-left">
+      <span
+        :class="`w-6/12 pl-3 font-light text-left ${
+          isLimitExceeded ? 'text-red-500' : 'text-secondary'
+        }`"
+      >
         {{ text.length }} / 160</span
       >
     </div>

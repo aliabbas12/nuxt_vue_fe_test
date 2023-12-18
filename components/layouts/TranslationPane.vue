@@ -1,26 +1,33 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import TranslationPopOver from "../general/TranslationPopOver.vue";
+import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
+
 const translations = ref([
   {
     text: "cannoli",
     translation: "Italian pastry",
+    type: TranslationPopOverType.FOUND,
   },
   {
-    text: "alla",
-    translation: "to, with",
+    text: "May be you know how to translate this word. Provide us a translation and we will try adding it to our dictionary.",
+    translation: "",
+    type: TranslationPopOverType.BASIC,
   },
   {
     text: "forestiera",
     translation: "wild mashrooms",
+    type: TranslationPopOverType.NOT_FOUND,
   },
   {
     text: "capretto",
     translation: "baby goad",
+    type: TranslationPopOverType.FOUND,
   },
   {
     text: "cannoli",
     translation: "Italian pastry",
+    type: TranslationPopOverType.NOT_FOUND,
   },
 ]);
 </script>
@@ -35,6 +42,7 @@ const translations = ref([
         :key="index"
         :text="word.text"
         :translation="word.translation"
+        :type="word.type"
       />
     </div>
   </div>
