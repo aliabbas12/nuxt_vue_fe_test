@@ -2,6 +2,19 @@
 import { ref } from "vue";
 import TranslationPopOver from "../general/TranslationPopOver.vue";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
+// const localStorageService = useLocalStorageService();
+//
+// // Set an item in the local storage
+// localStorageService.setItem('myKey', 'myValue');
+//
+// // Get an item from the local storage
+// const myValue = localStorageService.getItem('myKey');
+//
+// // Remove an item from the local storage
+// localStorageService.removeItem('myKey');
+//
+// // Clear the local storage
+// localStorageService.clear();
 
 const translations = ref([
   {
