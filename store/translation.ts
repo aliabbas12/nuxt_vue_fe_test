@@ -11,5 +11,8 @@ export const useTranslationStore = defineStore("translation", {
     addText(text: string) {
       this.text = text;
     },
+    clearText() {
+      this.text = "";
+    },
   },
 });

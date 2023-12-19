@@ -13,6 +13,10 @@ const speak = () => {
   synth.speak(utterance);
 };
 
+const clearText = () => {
+  store.clearText();
+};
+
 const isListening = computed({
   get: () => generalStore.getListeningState,
   set: (value) => {
@@ -117,6 +121,7 @@ const isKeyboardOpen = computed({
         variant="soft"
         block
         class="px-0 py-0 bg-primary-bg rounded-3xl border-0"
+        @click="clearText"
       >
         <template #leading>
           <UAvatar
