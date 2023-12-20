@@ -1,5 +1,14 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useGeneralStore } from "../../store/general";
+const generalStore = useGeneralStore();
+
+const slideOverOpen = computed({
+  get: () => generalStore.getSideOverState,
+  set: (value) => {
+    generalStore.setSideOverState(value);
+  },
+});
 
 const menu = ref([
   {
@@ -39,21 +48,27 @@ const menu = ref([
   },
 ]);
 
-function changeHoverStatus(index, value) {
+function changeHoverStatus(index: number, value: boolean) {
   menu.value[index].hover = value;
 }
 
-function scrollToSection(sectionId) {
-  const element = document.getElementById(sectionId);
-  if (element != null) {
-    element.scrollIntoView({ behavior: "smooth" });
+function scrollToSection(sectionId: string) {
+  if (sectionId === "section-5") {
+    slideOverOpen.value = !slideOverOpen.value;
+  } else {
+    const element = document.getElementById(sectionId);
+    if (element != null) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   }
 }
 </script>
 
 <template>
   <div
-    class="flex flex-col py-[14px] fixed top-1/2 transform -translate-y-1/2 left-0 bg-secondary-bg rounded-r-[15px] py-1 shadow-xl navigations z-100"
+    :class="`flex flex-col py-[14px] fixed top-1/2 transform -translate-y-1/2 left-0 bg-secondary-bg rounded-r-[15px] shadow-xl navigations z-100 transition-all duration-200 ease-in-out ${
+      slideOverOpen ? 'delay-100 ml-[20rem]' : ''
+    }`"
   >
     <UTooltip
       v-for="(item, index) in menu"

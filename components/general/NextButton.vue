@@ -17,7 +17,7 @@ const { text } = props;
     class="px-0 py-0 bg-secondary-bg rounded-3xl border-0 shadow group transition ease-in-out delay-50 duration-600"
     :ui="{
       strategy: 'override',
-      inline: 'inline-flex items-center justify-center',
+      inline: 'inline-flex items-center justify-center shadow-card',
     }"
   >
     <img

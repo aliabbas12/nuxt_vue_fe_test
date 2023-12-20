@@ -38,7 +38,8 @@ const translationLogo = computed(() => {
       class="flex-initial w-64 p-0 rounded-3xl history-card col-span-1 my-[1rem] transition ease-in-out delay-50 duration-600 group-hover:-translate-x-2 font-light cursor-pointer"
       :ui="{
         strategy: 'override',
-        shadow: 'shadow-none',
+        shadow: 'shadow-card',
+        ring: 'ring-0',
         body: {
           padding: 'px-4 py-2',
         },

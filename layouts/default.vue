@@ -2,6 +2,7 @@
 import LanguagePane from "~/components/layouts/LanguagePane.vue";
 import SectionNavigation from "~/components/layouts/SectionNavigation.vue";
 import ListeningAudio from "~/components/general/ListeningAudio.vue";
+import LeftSideOver from "~/components/layouts/LeftSideOver.vue";
 </script>
 <template>
   <div class="default-layout bg-transparent light-mode">
@@ -18,6 +19,7 @@ import ListeningAudio from "~/components/general/ListeningAudio.vue";
     </header>
 
     <main>
+      <LeftSideOver />
       <SectionNavigation />
       <slot />
     </main>

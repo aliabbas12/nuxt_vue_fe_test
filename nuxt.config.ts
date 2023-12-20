@@ -5,10 +5,7 @@ import { SystemLanguages } from "../global/constants/systemLanguages";
 export default defineNuxtConfig({
   devtools: { enabled: true },
   i18n: {
-    defaultLocale: "en",
-    globalInjection: true,
     langDir: "lang/",
-    legacy: false,
     locales: SystemLanguages,
   },
   modules: [

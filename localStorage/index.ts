@@ -11,13 +11,16 @@ export const useLocalStorageService = defineStore({
     },
   },
   actions: {
-    setItem(key, value) {
+    setItem(key: any, value: any) {
       this.data[key] = value;
       localStorage.setItem(key, JSON.stringify(value));
     },
-    removeItem(key) {
-      delete this.data[key];
-      localStorage.removeItem(key);
+    removeItem(key: any) {
+      if (this.data[key] !== null && this.data[key] !== undefined) {
+        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+        delete this.data[key];
+        localStorage.removeItem(key);
+      }
     },
     clear() {
       this.data = {};

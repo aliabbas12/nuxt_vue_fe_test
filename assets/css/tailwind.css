@@ -16,3 +16,9 @@
         scroll-snap-align: start;
     }
 }
+
+.carousel__pagination-button::after{
+    width: 7px !important;
+    height: 7px !important;
+    border-radius: 5px !important;
+}

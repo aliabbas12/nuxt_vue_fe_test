@@ -8,6 +8,8 @@
       class="p-0 rounded-3xl history-card col-span-1 m-[1.5rem]"
       :ui="{
         strategy: 'override',
+        shadow: 'shadow-card',
+        ring: 'ring-0',
         body: {
           padding: 'px-4 pt-2 pb-5',
         },
@@ -78,6 +80,8 @@
       class="p-0 rounded-3xl history-card col-span-1 m-[1.5rem]"
       :ui="{
         strategy: 'override',
+        shadow: 'shadow-card',
+        ring: 'ring-0',
         body: {
           padding: 'px-4 pt-2 pb-5',
         },
@@ -148,6 +152,8 @@
       class="p-0 rounded-3xl history-card col-span-1 m-[1.5rem]"
       :ui="{
         strategy: 'override',
+        ring: 'ring-0',
+        shadow: 'shadow-card',
         body: {
           padding: 'px-4 pt-2 pb-5',
         },
@@ -218,6 +224,8 @@
       class="p-0 rounded-3xl history-card col-span-1 m-[1.5rem]"
       :ui="{
         strategy: 'override',
+        ring: 'ring-0',
+        shadow: 'shadow-card',
         body: {
           padding: 'px-4 pt-2 pb-5',
         },
@@ -288,6 +296,8 @@
       class="p-0 rounded-3xl history-card col-span-1 m-[1.5rem]"
       :ui="{
         strategy: 'override',
+        ring: 'ring-0',
+        shadow: 'shadow-card',
         body: {
           padding: 'px-4 pt-2 pb-5',
         },
@@ -358,6 +368,8 @@
       class="p-0 rounded-3xl history-card bg-primary-bg col-span-1 m-[1.5rem]"
       :ui="{
         strategy: 'override',
+        ring: 'ring-0',
+        shadow: 'shadow-none',
         body: {
           padding: 'p-0 h-full',
         },
