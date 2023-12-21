@@ -5,12 +5,18 @@ import { SystemLanguages } from "~/global/constants/systemLanguages";
 const generalStore = useGeneralStore();
 const switchLocalePath = useSwitchLocalePath();
 const systemLanguages = SystemLanguages;
+const toast = useToast();
 const selectedLanguage = computed({
   get: () => generalStore.getSelectedLanguageState,
   set: (value) => {
     generalStore.setSelectedLanguageState(value);
   },
 });
+
+function setLanguage(code: string) {
+  selectedLanguage.value = code;
+  toast.add({ title: "Language changed", timeout: 2000 });
+}
 </script>
 
 <template>
@@ -33,20 +39,12 @@ const selectedLanguage = computed({
           ? ''
           : 'hidden group-hover:block transition ease-in-out delay-50 duration-600'
       } `"
-      @click="selectedLanguage = language.code"
+      @click="setLanguage(language.code)"
     >
       <NuxtLink :to="switchLocalePath(language.code)">{{
         language.code.toUpperCase()
       }}</NuxtLink>
     </div>
-    <!--    <div-->
-    <!--      class="px-2 hover:bg-primary-bg rounded-3xl hidden group-hover:block transition ease-in-out delay-50 duration-600"-->
-    <!--    >-->
-    <!--      <NuxtLink :to="switchLocalePath('it')">IT</NuxtLink>-->
-    <!--    </div>-->
-    <!--    <div class="px-2 hover:bg-primary-bg rounded-3xl">-->
-    <!--      <NuxtLink :to="switchLocalePath('en')">EN</NuxtLink>-->
-    <!--    </div>-->
   </div>
 </template>
 

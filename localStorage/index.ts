@@ -3,28 +3,30 @@ import { defineStore } from "pinia";
 export const useLocalStorageService = defineStore({
   id: "localStorageService",
   state: () => ({
-    data: {},
+    history: [] as string[],
   }),
   getters: {
-    getItem: (state) => (key) => {
-      return state.data[key];
+    getHistory: (state) => {
+      const storageHistory = localStorage.getItem("menulance");
+      if (storageHistory !== null) {
+        const { history } = JSON.parse(storageHistory);
+        if (history != null) {
+          Object.assign(state.history, history);
+        }
+      }
+      return state.history;
     },
   },
   actions: {
-    setItem(key: any, value: any) {
-      this.data[key] = value;
-      localStorage.setItem(key, JSON.stringify(value));
-    },
-    removeItem(key: any) {
-      if (this.data[key] !== null && this.data[key] !== undefined) {
-        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
-        delete this.data[key];
-        localStorage.removeItem(key);
-      }
-    },
     clear() {
-      this.data = {};
+      this.history = [];
       localStorage.clear();
+    },
+    setHistory: function ({ value }: { value: any }) {
+      const history: string[] = this.history;
+      history.push(value);
+      this.history = history;
+      localStorage.setItem("menulance", JSON.stringify({ history }));
     },
   },
 });

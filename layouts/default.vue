@@ -24,6 +24,7 @@ import LeftSideOver from "~/components/layouts/LeftSideOver.vue";
       <slot />
     </main>
     <ListeningAudio />
+    <UNotifications />
     <footer class="sticky bottom-0">
       <!-- Your footer content goes here -->
       <p>&copy; 2023 menulance</p>

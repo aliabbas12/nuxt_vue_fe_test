@@ -4,6 +4,14 @@ import "vue3-carousel/dist/carousel.css";
 import type { PropType } from "vue";
 import { computed } from "vue";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
+import { useLocalStorageService } from "~/localStorage";
+const localStorageService = useLocalStorageService();
+const toast = useToast();
+
+function addHistory(history: any) {
+  localStorageService.setHistory({ value: history });
+  toast.add({ title: "history added", timeout: 1000 });
+}
 
 const props = defineProps({
   type: {
@@ -20,7 +28,7 @@ const props = defineProps({
     required: true,
   },
 });
-const { text, type } = props;
+const { text, type, translation } = props;
 const expanded = ref(false);
 const viewport = useViewport();
 
@@ -300,6 +308,7 @@ const translationLogo = computed(() => {
       :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 ${
         expanded ? 'block' : ''
       } group-hover:block`"
+      @click="addHistory({ text, translation, type })"
     >
       <template #leading>
         <UAvatar
