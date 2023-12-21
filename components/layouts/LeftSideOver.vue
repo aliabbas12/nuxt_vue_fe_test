@@ -3,6 +3,11 @@ import { computed } from "vue";
 import { Carousel, Pagination, Slide } from "vue3-carousel";
 import { useGeneralStore } from "../../store/general";
 const generalStore = useGeneralStore();
+const wizard = ref(true);
+const proTips = ref(true);
+const autoDedect = ref(true);
+const notification = ref(true);
+const sound = ref(true);
 
 const slideOverOpen = computed({
   get: () => generalStore.getSideOverState,
@@ -82,9 +87,9 @@ const slideOverOpen = computed({
           <div class="h-full w-full flex flex-col my-10">
             <div class="w-full flex flex-col my-16 items-center justify-center">
               <UToggle
+                v-model="wizard"
                 color="primary"
                 size="xl"
-                :model-value="true"
                 :ui="{
                   strategy: 'override',
                   active: 'bg-success dark:bg-success',
@@ -101,9 +106,9 @@ const slideOverOpen = computed({
             </div>
             <div class="w-full flex flex-col my-16 items-center justify-center">
               <UToggle
+                v-model="proTips"
                 color="primary"
                 size="xl"
-                :model-value="true"
                 :ui="{
                   strategy: 'override',
                   active: 'bg-success dark:bg-success',
@@ -120,9 +125,9 @@ const slideOverOpen = computed({
             </div>
             <div class="w-full flex flex-col my-16 items-center justify-center">
               <UToggle
+                v-model="autoDedect"
                 color="primary"
                 size="xl"
-                :model-value="true"
                 :ui="{
                   strategy: 'override',
                   active: 'bg-success dark:bg-success',
@@ -139,9 +144,9 @@ const slideOverOpen = computed({
             </div>
             <div class="w-full flex flex-col my-16 items-center justify-center">
               <UToggle
+                v-model="notification"
                 color="primary"
                 size="xl"
-                :model-value="true"
                 :ui="{
                   strategy: 'override',
                   active: 'bg-success dark:bg-success',
@@ -162,9 +167,9 @@ const slideOverOpen = computed({
           <div class="h-full w-full flex flex-col my-10">
             <div class="w-full flex flex-col my-16 items-center justify-center">
               <UToggle
+                v-model="sound"
                 color="primary"
                 size="xl"
-                :model-value="true"
                 :ui="{
                   strategy: 'override',
                   active: 'bg-success dark:bg-success',
