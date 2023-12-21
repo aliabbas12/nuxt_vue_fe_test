@@ -37,7 +37,7 @@ import NextButton from "~/components/general/NextButton.vue";
         textarea-class="rounded-2xl bg-secondary-bg"
       />
       <div class="w-full flex flex-col lg:mt-12 items-center justify-center">
-        <NextButton class="w-2/6 my-3" />
+        <NextButton class="my-3" :text="'send'" />
       </div>
     </div>
   </div>

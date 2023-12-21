@@ -25,6 +25,6 @@ import TranslateSection from "~/components/sections/translate/TranslateSection.v
 import HistorySection from "~/components/sections/history/HistorySection.vue";
 import CreateAccountSection from "~/components/sections/CreateAccount/CreateAccountSection.vue";
 import ContactUsSection from "~/components/sections/contactUs/ContactUsSection.vue";
-import ContactUsSocial from "~/components/sections/contactUsSocial/ContactUsSocial.vue";
+import ContactUsSocial from "~/components/sections/about/AboutSection.vue";
 </script>
 <style scoped></style>

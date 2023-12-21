@@ -2,8 +2,12 @@
 import { computed, watch } from "vue";
 
 import { useTranslationStore } from "~/store/translation";
+import { useGeneralStore } from "~/store/general";
 
+const store = useTranslationStore();
+const generalStore = useGeneralStore();
 const isLimitExceeded = ref(false);
+const accentGroup = ref(["à", "è", "é", "ì", "ò", "ù"]);
 
 const textSizeAccordingToLength = computed(() => {
   if (text.value.length > 60 && text.value.length < 120) {
@@ -13,7 +17,19 @@ const textSizeAccordingToLength = computed(() => {
   } else return "text-5xl";
 });
 
-const store = useTranslationStore();
+const selectedLanguage = computed({
+  get: () => generalStore.getSelectedLanguageState,
+  set: (value) => {
+    generalStore.setSelectedLanguageState(value);
+  },
+});
+const isListening = computed({
+  get: () => generalStore.getListeningState,
+  set: (value) => {
+    generalStore.setListeningState(value);
+  },
+});
+
 const text = computed({
   get: () => store.text,
   set: (value) => {
@@ -63,14 +79,26 @@ watch(text, (value) => {
       :maxlength="160"
       :autoresize="true"
       :textarea-class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem]  text-center tracking-wider`"
+      @focus="isListening = false"
     />
     <div class="w-full flex flex-auto my-3 pr-1 text-center">
-      <span class="w-6/12 text-right tracking-wider text-primary"
-        >à è é ì ò ù
+      <span
+        v-if="selectedLanguage !== 'en'"
+        class="w-6/12 text-right tracking-wider text-primary"
+      >
+        <span
+          v-for="(word, index) in accentGroup"
+          :key="index"
+          class="px-0.5 cursor-pointer"
+          @click="text = text + word"
+          >{{ word }}</span
+        >
       </span>
       <span
-        :class="`w-6/12 pl-3 font-light text-left ${
+        :class="` pl-3 font-light  ${
           isLimitExceeded ? 'text-red-500' : 'text-secondary'
+        }  ${
+          selectedLanguage !== 'en' ? 'w-6/12 text-left' : 'w-full text-center'
         }`"
       >
         {{ text.length }} / 160</span

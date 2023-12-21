@@ -32,7 +32,7 @@ const links = ref([
     </p>
 
     <p class="w-full lg:w-[90%] text-[12px] mx-auto mb-5 font-light">
-      menucrush © 2024
+      menulance © 2024
     </p>
     <UDivider
       class="mt-4"
