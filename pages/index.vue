@@ -12,17 +12,19 @@
     <section id="section-3" class="w-full h-screen bg-secondary-bg snap-start">
       <CreateAccountSection />
     </section>
-    <!--    <section id="section-4" class="w-full h-screen bg-primary-bg snap-start">-->
-    <!--      section-->
-    <!--    </section>-->
-    <!--    <section class="w-full h-screen bg-secondary-bg snap-start">-->
-    <!--      section-->
-    <!--    </section>-->
+    <section id="section-4" class="w-full h-screen bg-primary-bg snap-start">
+      <ContactUsSection />
+    </section>
+    <section id="section-5" class="w-full bg-secondary-bg snap-start">
+      <ContactUsSocial />
+    </section>
   </main>
 </template>
 <script setup lang="ts">
 import TranslateSection from "~/components/sections/translate/TranslateSection.vue";
 import HistorySection from "~/components/sections/history/HistorySection.vue";
 import CreateAccountSection from "~/components/sections/CreateAccount/CreateAccountSection.vue";
+import ContactUsSection from "~/components/sections/contactUs/ContactUsSection.vue";
+import ContactUsSocial from "~/components/sections/contactUsSocial/ContactUsSocial.vue";
 </script>
 <style scoped></style>
