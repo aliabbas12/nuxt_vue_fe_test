@@ -9,13 +9,22 @@
     >
       <HistorySection />
     </section>
-    <section id="section-3" class="w-full h-screen bg-secondary-bg snap-start">
+    <section
+      id="section-3"
+      class="w-full h-screen bg-secondary-bg snap-start overflow-y-auto"
+    >
       <CreateAccountSection />
     </section>
-    <section id="section-4" class="w-full h-screen bg-primary-bg snap-start">
+    <section
+      id="section-4"
+      class="w-full h-screen bg-primary-bg snap-start overflow-y-auto"
+    >
       <ContactUsSection />
     </section>
-    <section id="section-5" class="w-full bg-secondary-bg snap-start">
+    <section
+      id="section-5"
+      class="w-full bg-secondary-bg snap-start overflow-y-auto"
+    >
       <ContactUsSocial />
     </section>
   </main>

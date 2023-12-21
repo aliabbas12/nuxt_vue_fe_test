@@ -11,9 +11,9 @@ const links = ref([
 </script>
 <template>
   <div
-    class="container lg:w-4/6 xl:w-3/6 pt-[6rem] text-center flex flex-col items-center justify-center"
+    class="container mt-5 lg:w-4/6 xl:w-3/6 lg:pt-[6rem] text-center flex flex-col items-center justify-center"
   >
-    <div class="w-full mb-12">
+    <div class="w-full lg:mb-12">
       <UAvatar
         src="/icons/facebook.svg"
         class="rounded-none mx-3"
@@ -24,7 +24,7 @@ const links = ref([
         :size="viewport.isLessThan('tablet') ? 'lg' : '2xl'"
       />
     </div>
-    <p class="text-center text-[12px] font-light w-4/6 mb-5 mx-auto">
+    <p class="text-center text-[12px] font-light w-4/6 mb-1 lg:mb-5 mx-auto">
       Titus® and Gemini® duis aute irure dolor in reprehenderit in voluptate
       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
