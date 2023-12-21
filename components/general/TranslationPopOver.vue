@@ -277,51 +277,56 @@ const translationLogo = computed(() => {
         </div>
       </div>
     </u-card>
-    <UButton
+    <UTooltip
       v-if="type !== TranslationPopOverType.BASIC"
-      size="sm"
-      square
-      variant="soft"
-      block
+      text="trash"
+      :popper="{ placement: 'bottom', strategy: 'absolute' }"
+      :ui="{
+        strategy: 'override',
+        rounded: 'rounded-3xl',
+        shadow: 'shadow-none',
+        ring: 'ring-0',
+      }"
       :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 ${
         expanded ? 'block' : ''
       } group-hover:block`"
     >
-      <template #leading>
-        <UAvatar
-          src="/icons/trash.svg"
-          class="rounded-none"
-          :ui="{
-            strategy: 'override',
-            rounded: 'rounded-none',
-          }"
-          :size="viewport.isLessThan('tablet') ? '2xs' : '2xs'"
-        />
-      </template>
-    </UButton>
-    <UButton
+      <UAvatar
+        src="/icons/trash.svg"
+        class="rounded-none"
+        :ui="{
+          strategy: 'override',
+          rounded: 'rounded-none',
+        }"
+        :size="viewport.isLessThan('tablet') ? '2xs' : '2xs'"
+      />
+    </UTooltip>
+
+    <UTooltip
       v-if="type !== TranslationPopOverType.BASIC"
-      size="sm"
-      square
-      variant="soft"
-      block
+      text="save"
+      :popper="{ placement: 'bottom', strategy: 'absolute' }"
+      :ui="{
+        strategy: 'override',
+        rounded: 'rounded-3xl',
+        shadow: 'shadow-none',
+        ring: 'ring-0',
+      }"
       :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 ${
         expanded ? 'block' : ''
       } group-hover:block`"
       @click="addHistory({ text, translation, type })"
     >
-      <template #leading>
-        <UAvatar
-          src="/icons/history.svg"
-          class="rounded-none"
-          :ui="{
-            strategy: 'override',
-            rounded: 'rounded-none',
-          }"
-          :size="viewport.isLessThan('tablet') ? '2xs' : '2xs'"
-        />
-      </template>
-    </UButton>
+      <UAvatar
+        src="/icons/history.svg"
+        class="rounded-none"
+        :ui="{
+          strategy: 'override',
+          rounded: 'rounded-none',
+        }"
+        :size="viewport.isLessThan('tablet') ? '2xs' : '2xs'"
+      />
+    </UTooltip>
   </div>
 </template>
 

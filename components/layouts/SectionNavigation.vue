@@ -79,6 +79,7 @@ function scrollToSection(sectionId: string) {
         strategy: 'override',
         rounded: 'rounded-3xl',
         shadow: 'shadow-none',
+        ring: 'ring-0',
       }"
     >
       <UButton

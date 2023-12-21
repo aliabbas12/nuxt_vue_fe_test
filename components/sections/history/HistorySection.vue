@@ -1,7 +1,15 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useLocalStorageService } from "~/localStorage";
+import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 const localStorageService = useLocalStorageService();
+
+function translationLogo(type: TranslationPopOverType) {
+  if (type === TranslationPopOverType.FOUND) return "verified";
+  else if (type === TranslationPopOverType.NOT_FOUND) return "unknown";
+  else if (type === TranslationPopOverType.NOT_VERIFIED) return "unverified";
+  else return null;
+}
 
 const translationHistory = computed(() => localStorageService.getHistory);
 </script>
@@ -73,7 +81,7 @@ const translationHistory = computed(() => localStorageService.getHistory);
         </div>
         <div class="flex-none">
           <UAvatar
-            src="/icons/verified.svg"
+            :src="`/icons/${translationLogo(translation?.type)}.svg`"
             class="rounded-none"
             :ui="{
               strategy: 'override',
