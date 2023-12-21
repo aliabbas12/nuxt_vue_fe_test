@@ -5,7 +5,7 @@ import NextButton from "~/components/general/NextButton.vue";
   <div
     class="container lg:w-4/6 xl:w-3/6 pt-[6rem] text-center flex flex-col items-center justify-center"
   >
-    <div class="text-3xl mb-10">email us</div>
+    <div class="text-3xl mt-10 lg:mt-0 lg:mb-10">email us</div>
     <div class="w-3/4 lg:w-2/4 flex flex-col">
       <u-input
         variant="outline"
@@ -36,7 +36,7 @@ import NextButton from "~/components/general/NextButton.vue";
         class="my-4"
         textarea-class="rounded-2xl bg-secondary-bg"
       />
-      <div class="w-full flex flex-col mt-12 items-center justify-center">
+      <div class="w-full flex flex-col lg:mt-12 items-center justify-center">
         <NextButton class="w-2/6 my-3" />
       </div>
     </div>
