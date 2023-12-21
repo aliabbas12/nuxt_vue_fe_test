@@ -39,21 +39,22 @@ const menu = ref([
   },
 ]);
 
-function changeHoverStatus(index, value) {
+function changeHoverStatus(index: number, value: boolean) {
   menu.value[index].hover = value;
 }
 
-function scrollToSection(sectionId) {
+function scrollToSection(sectionId: string) {
   const element = document.getElementById(sectionId);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
+  if (element == null) {
+    return;
   }
+  element.scrollIntoView({ behavior: "smooth" });
 }
 </script>
 
 <template>
   <div
-    class="flex flex-col py-[14px] fixed top-1/2 transform -translate-y-1/2 left-0 bg-secondary-bg rounded-r-[15px] py-1 shadow-xl navigations"
+    class="flex flex-col py-[14px] fixed top-1/2 transform -translate-y-1/2 left-0 bg-secondary-bg rounded-r-[15px] shadow-xl navigations"
   >
     <UTooltip
       v-for="(item, index) in menu"
