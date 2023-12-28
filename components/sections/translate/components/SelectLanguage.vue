@@ -1,13 +1,31 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import { useGeneralStore } from "~/store/general.ts";
 const isOpen = ref(false);
-const language = ref("english");
-const autoDedect = ref(true);
+const generalStore = useGeneralStore();
 const languages = [
-  { value: "english", label: "english" },
-  { value: "italian", label: "italian" },
-  { value: "spanish", label: "spanish" },
+  { value: "en", label: "english" },
+  { value: "it", label: "italian" },
+  { value: "es", label: "spanish" },
 ];
+const autoDetect = computed({
+  get: () => generalStore.getAutodetectTranslationLanguageState,
+  set: (value) => {
+    generalStore.setAutoDetectTranslationLanguageState(value);
+  },
+});
+
+const language = computed({
+  get: () => generalStore.getSelectedTranslationLanguageState,
+  set: (value) => {
+    generalStore.setTranslationLanguageState(value);
+  },
+});
+
+const languageLabel = computed(() => {
+  const index = languages.findIndex((e) => e.value === language.value);
+  return languages[index].label;
+});
 </script>
 
 <template>
@@ -20,7 +38,7 @@ const languages = [
       block
       class="h-12 px-0 py-0 bg-primary-bg text-base"
       @click="isOpen = true"
-      >{{ language.toUpperCase() }}</UButton
+      >{{ languageLabel.toUpperCase() }}</UButton
     >
     <UModal v-model="isOpen" class="w-[448px]">
       <div class="flex items-center justify-between">
@@ -50,7 +68,7 @@ const languages = [
         />
         <div class="w-full flex flex-col my-16 items-left justify-center px-5">
           <UToggle
-            v-model="autoDedect"
+            v-model="autoDetect"
             color="primary"
             size="xl"
             :ui="{

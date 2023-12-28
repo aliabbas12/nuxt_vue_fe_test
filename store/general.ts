@@ -6,14 +6,19 @@ export const useGeneralStore = defineStore("general", {
     listening: false,
     sideOverOpen: false,
     languageSelected: "en",
+    translationLanguage: "en",
+    autoDetectTranslation: true,
     tokens: [] as string[],
   }),
   getters: {
     getKeyboardState: (state) => state.keyboard,
     getTextTokens: (state) => state.tokens,
     getSideOverState: (state) => state.sideOverOpen,
+    getAutodetectTranslationLanguageState: (state) =>
+      state.autoDetectTranslation,
     getListeningState: (state) => state.listening,
     getSelectedLanguageState: (state) => state.languageSelected,
+    getSelectedTranslationLanguageState: (state) => state.translationLanguage,
   },
   actions: {
     setKeyboardState(value: boolean) {
@@ -30,6 +35,12 @@ export const useGeneralStore = defineStore("general", {
     },
     setSideOverState(value: boolean) {
       this.sideOverOpen = value;
+    },
+    setTranslationLanguageState(value: string) {
+      this.translationLanguage = value;
+    },
+    setAutoDetectTranslationLanguageState(value: boolean) {
+      this.autoDetectTranslation = value;
     },
   },
 });

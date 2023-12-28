@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import TranslationPopOver from "../general/TranslationPopOver.vue";
 import rice from "../../staticTranslations/rice.json";
 import agnello from "../../staticTranslations/agnello.json";
@@ -10,8 +10,16 @@ import riso from "../../staticTranslations/riso.json";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 import { useTranslationStore } from "~/store/translation";
 import type { TranslationData, WordData } from "~/interfaces/wordTranslation";
+import { useGeneralStore } from "~/store/general";
 
 const store = useTranslationStore();
+const generalStore = useGeneralStore();
+
+let languageSet = false;
+
+const isAutoDetectOn = computed(
+  () => generalStore.getAutodetectTranslationLanguageState,
+);
 
 const staticTranslations = {
   en: [rice, lamb],
@@ -27,7 +35,9 @@ const wordsTranslations = ref<
 >([]);
 
 const tokens = computed(() => {
+  // eslint-disable-next-line vue/no-side-effects-in-computed-properties
   wordsTranslations.value = [];
+  languageSet = false;
   store.getTokens.forEach((token) => {
     checkTranslationOfToken(token);
   });
@@ -40,12 +50,18 @@ const translationsPopUps = computed(() => {
 
 function checkTranslationOfToken(token: string) {
   let translationFound = false;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   Object.entries(staticTranslations).forEach(([key, value]) => {
     const index = value.findIndex((e) => e.word === token);
     if (index !== -1) {
       translationFound = true;
       const wordDetails = value[index];
-      const { translations } = wordDetails;
+      // eslint-disable-next-line camelcase
+      const { translations, lang_code } = wordDetails;
+      if (!languageSet && isAutoDetectOn.value) {
+        generalStore.setTranslationLanguageState(lang_code);
+        languageSet = true;
+      }
       if (translations?.length !== 0) {
         for (let i = 0; i < translations.length; i++) {
           const wordData: WordData = {
@@ -81,8 +97,6 @@ function checkTranslationOfToken(token: string) {
       },
     });
   }
-
-  console.log(translationsPopUps, "translationsPopUps");
 }
 </script>
 
