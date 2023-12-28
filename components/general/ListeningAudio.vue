@@ -21,7 +21,7 @@ watch(listeningState, (value) => {
 
 recognition.onresult = (event) => {
   const transcript = event.results[0][0].transcript;
-  translationStore.addText(translationText.value + transcript);
+  translationStore.addText(translationText.value + " " + transcript);
 };
 </script>
 

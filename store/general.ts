@@ -6,9 +6,11 @@ export const useGeneralStore = defineStore("general", {
     listening: false,
     sideOverOpen: false,
     languageSelected: "en",
+    tokens: [] as string[],
   }),
   getters: {
     getKeyboardState: (state) => state.keyboard,
+    getTextTokens: (state) => state.tokens,
     getSideOverState: (state) => state.sideOverOpen,
     getListeningState: (state) => state.listening,
     getSelectedLanguageState: (state) => state.languageSelected,
@@ -22,6 +24,9 @@ export const useGeneralStore = defineStore("general", {
     },
     setSelectedLanguageState(value: string) {
       this.languageSelected = value;
+    },
+    setTextTokensState(value: string[]) {
+      this.tokens = value;
     },
     setSideOverState(value: boolean) {
       this.sideOverOpen = value;

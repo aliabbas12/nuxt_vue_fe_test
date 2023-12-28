@@ -1,0 +1,123 @@
+{
+  "forms": [
+    {
+      "form": "lambs",
+      "tags": [
+        "plural"
+      ]
+    },
+    {
+      "form": "lamber",
+      "tags": [
+        "dialectal",
+        "plural"
+      ]
+    },
+    {
+      "form": "lambren",
+      "tags": [
+        "dialectal",
+        "plural"
+      ]
+    }
+  ],
+  "head_templates": [
+    {
+      "args": {
+        "1": "~",
+        "2": "s",
+        "3": "lamber",
+        "4": "lambren",
+        "pl3qual": "both dialectal"
+      },
+      "expansion": "lamb (countable and uncountable, plural lambs or (both dialectal) lamber or lambren)",
+      "name": "en-noun"
+    }
+  ],
+  "hyphenation": [],
+  "lang": "English",
+  "lang_code": "en",
+  "pos": "noun",
+  "sounds": [
+    {
+      "ipa": "/læm/"
+    },
+    {
+      "ipa": "[lɛəm]",
+      "tags": [
+        "æ-tensing"
+      ]
+    },
+    {
+      "rhymes": "-æm"
+    },
+    {
+      "audio": "en-us-lamb.ogg",
+      "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c0/En-us-lamb.ogg/En-us-lamb.ogg.mp3",
+      "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/En-us-lamb.ogg",
+      "tags": [
+        "US"
+      ],
+      "text": "Audio (US)"
+    }
+  ],
+  "word": "lamb",
+  "categories": [
+    "Baby animals",
+    "Fans (people)",
+    "Meats",
+    "People",
+    "Sheep"
+  ],
+  "etymology_text": "From Middle English lamb, from Old English lamb, from Proto-West Germanic *lamb, from Proto-Germanic *lambaz, probably from Proto-Indo-European *h₁l̥h₁onbʰos, enlargement of *h₁elh₁én, ultimately from *h₁el-.\nSee also Dutch lam, German Lamm, Swedish lamm, Finnish lammas, Scottish Gaelic lon (“elk”), Ancient Greek ἔλαφος (élaphos, “red deer”). More at elk.",
+  "translations": [
+    {
+      "code": "it",
+      "lang": "Italian",
+      "sense": "young sheep",
+      "tags": [
+        "masculine"
+      ],
+      "word": "agnello"
+    },
+    {
+      "code": "es",
+      "lang": "Spanish",
+      "sense": "flesh of lamb as food",
+      "tags": [
+        "masculine"
+      ],
+      "word": "cordero"
+    }
+  ],
+  "senses": [
+    {
+      "categories": [
+        "English uncountable nouns"
+      ],
+      "glosses": [
+        "The flesh of a lamb or sheep used as food."
+      ],
+      "links": [
+        [
+          "flesh",
+          "flesh"
+        ],
+        [
+          "sheep",
+          "sheep"
+        ],
+        [
+          "food",
+          "food"
+        ]
+      ],
+      "raw_glosses": [
+        "(uncountable) The flesh of a lamb or sheep used as food."
+      ],
+      "tags": [
+        "uncountable"
+      ]
+    }
+  ]
+}

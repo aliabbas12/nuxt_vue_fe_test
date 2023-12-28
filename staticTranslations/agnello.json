@@ -1,0 +1,93 @@
+{
+  "forms": [
+    {
+      "form": "agnelli",
+      "tags": [
+        "plural"
+      ]
+    },
+    {
+      "form": "agnella",
+      "tags": [
+        "feminine"
+      ]
+    }
+  ],
+  "head_templates": [
+    {
+      "args": {
+        "1": "m",
+        "f": "+"
+      },
+      "expansion": "agnello m (plural agnelli, feminine agnella)",
+      "name": "it-noun"
+    }
+  ],
+  "hyphenation": [
+    "a‧gnèl‧lo"
+  ],
+  "lang": "Italian",
+  "lang_code": "it",
+  "pos": "noun",
+  "sounds": [
+    {
+      "ipa": "/aɲˈɲɛl.lo/"
+    },
+    {
+      "rhymes": "-ɛllo"
+    }
+  ],
+  "word": "agnello",
+  "etymology_text": "From Latin agnellus, diminutive of agnus, ultimately from Proto-Indo-European *h₂egʷnós. Cognates include Catalan anyell, French agneau and Romanian miel.",
+  "categories": [
+    "syllables",
+    "words",
+    "lemmas",
+    "nouns"
+  ],
+  "translations": [
+    {
+      "code": "en",
+      "lang": "English",
+      "sense": "The flesh of a lamb or sheep used as food.",
+      "tags": [
+        "masculine"
+      ],
+      "word": "lamb"
+    },
+    {
+      "code": "es",
+      "lang": "Spanish",
+      "sense": "flesh of lamb as food",
+      "tags": [
+        "masculine"
+      ],
+      "word": "cordero"
+    }
+  ],
+  "senses": [
+    {
+      "glosses": [
+        "young sheep"
+      ],
+      "links": [
+        [
+          "lamb",
+          "lamb"
+        ]
+      ],
+      "synonyms": [
+        {
+          "tags": [
+            "literary",
+            "obsolete"
+          ],
+          "word": "agno"
+        }
+      ],
+      "tags": [
+        "masculine"
+      ]
+    }
+  ]
+}

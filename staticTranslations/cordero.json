@@ -1,0 +1,104 @@
+{
+  "forms": [
+    {
+      "form": "corderos",
+      "tags": [
+        "plural"
+      ]
+    },
+    {
+      "form": "cordera",
+      "tags": [
+        "feminine"
+      ]
+    },
+    {
+      "form": "corderas",
+      "tags": [
+        "feminine",
+        "plural"
+      ]
+    }
+  ],
+  "head_templates": [
+    {
+      "args": {
+        "1": "m",
+        "f": "+"
+      },
+      "expansion": "cordero m (plural corderos, feminine cordera, feminine plural corderas)",
+      "name": "es-noun"
+    }
+  ],
+  "hyphenation": [
+    "cor‧de‧ro"
+  ],
+  "lang": "Spanish",
+  "lang_code": "es",
+  "pos": "noun",
+  "sounds": [
+    {
+      "ipa": "/koɾˈdeɾo/"
+    },
+    {
+      "ipa": "[koɾˈð̞e.ɾo]"
+    },
+    {
+      "rhymes": "-eɾo"
+    }
+  ],
+  "word": "cordero",
+  "etymology_text": "Inherited from Vulgar Latin *cordārium (“late-born lamb”), from Latin chordus (“late-born”).",
+  "translations": [
+    {
+      "code": "it",
+      "lang": "Italian",
+      "sense": "young sheep",
+      "tags": [
+        "masculine"
+      ],
+      "word": "agnello"
+    },
+    {
+      "code": "en",
+      "lang": "English",
+      "sense": "The flesh of a lamb or sheep used as food.",
+      "tags": [
+        "masculine"
+      ],
+      "word": "lamb"
+    }
+  ],
+  "categories": [
+    "syllables",
+    "words",
+    "lemmas",
+    "nouns"
+
+  ],
+  "senses": [
+    {
+      "glosses": [
+        "The flesh of a lamb or sheep used as food."
+      ],
+      "links": [
+        [
+          "lamb",
+          "lamb"
+        ]
+      ],
+      "synonyms": [
+        {
+          "tags": [
+            "literary",
+            "obsolete"
+          ],
+          "word": "agno"
+        }
+      ],
+      "tags": [
+        "masculine"
+      ]
+    }
+  ]
+}

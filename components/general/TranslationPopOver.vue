@@ -2,9 +2,10 @@
 import { Carousel, Pagination, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 import type { PropType } from "vue";
-import { computed } from "vue";
+import { computed, watch } from "vue";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 import { useLocalStorageService } from "~/localStorage";
+import type { WordData } from "~/interfaces/wordTranslation";
 const localStorageService = useLocalStorageService();
 const toast = useToast();
 
@@ -19,17 +20,15 @@ const props = defineProps({
     required: false,
     default: TranslationPopOverType.BASIC,
   },
-  text: {
-    type: String,
-    required: true,
-  },
-  translation: {
-    type: String,
+  data: {
+    type: Object as PropType<WordData>,
     required: true,
   },
 });
-const { text, type, translation } = props;
+const { data, type } = props;
+const { word, translation, meaning, picture, categories, sound } = data;
 const expanded = ref(false);
+const audio = ref(null);
 const viewport = useViewport();
 
 const translationLogo = computed(() => {
@@ -38,6 +37,43 @@ const translationLogo = computed(() => {
   else if (type === TranslationPopOverType.NOT_VERIFIED) return "unverified";
   else return null;
 });
+
+const wordAudio = computed(() => {
+  let wordAudio = null;
+  if (sound !== null && sound !== undefined)
+    sound.forEach((track) => {
+      if (track.mp3_url !== null) {
+        wordAudio = track.mp3_url;
+      }
+    });
+  return wordAudio;
+});
+
+const toggleHighlightedText = (divID: string, state: boolean) => {
+  const contenteditableDiv = document.getElementById("individual-" + divID);
+  if (contenteditableDiv !== null) {
+    state
+      ? contenteditableDiv.classList.add(
+          type === TranslationPopOverType.FOUND ? "bg-success-bg" : "bg-error",
+        )
+      : contenteditableDiv.classList.remove(
+          type === TranslationPopOverType.FOUND ? "bg-success-bg" : "bg-error",
+        );
+  }
+};
+
+watch(expanded, (value) => {
+  if (value) {
+    toggleHighlightedText(word, true);
+  } else {
+    toggleHighlightedText(word, false);
+  }
+});
+const playAudio = () => {
+  if (audio?.value != null) {
+    audio.value.play();
+  }
+};
 </script>
 
 <template>
@@ -63,7 +99,7 @@ const translationLogo = computed(() => {
           />
         </div>
         <div class="flex items-center justify-center p-4">
-          {{ text }}
+          {{ word }}
         </div>
       </div>
       <div v-else class="w-full">
@@ -80,7 +116,7 @@ const translationLogo = computed(() => {
             />
           </div>
           <div class="py-4 flex flex-col justify-center">
-            <div class="leading-[18px]">{{ text }}</div>
+            <div class="leading-[18px]">{{ word }}</div>
             <div class="leading-[18px] text-secondary">{{ translation }}</div>
           </div>
         </div>
@@ -89,9 +125,10 @@ const translationLogo = computed(() => {
             v-if="type == TranslationPopOverType.FOUND"
             class="flex justify-between"
           >
-            <div>ca·prét·to</div>
+            <div>{{ word }}</div>
             <div>
               <UAvatar
+                v-show="wordAudio"
                 :src="`/icons/Speaker-solid2.svg`"
                 class="rounded-none"
                 :ui="{
@@ -99,7 +136,9 @@ const translationLogo = computed(() => {
                   rounded: 'rounded-none',
                 }"
                 size="xs"
+                @click="playAudio"
               />
+              <audio v-if="wordAudio" ref="audio" :src="wordAudio" />
             </div>
           </div>
           <UDivider
@@ -112,41 +151,40 @@ const translationLogo = computed(() => {
           />
           <div v-if="type == TranslationPopOverType.FOUND">
             <Carousel>
-              <Slide :key="text + '1'">
+              <Slide v-if="picture" :key="word + '1'">
                 <div class="carousel__item text-left w-full h-full">
                   <img src="/icons/baby-goat.svg" alt="image ref" />
                 </div>
               </Slide>
-              <Slide :key="text + '2'">
+              <Slide :key="word + '2'">
                 <div class="carousel__item text-left">
-                  <div>
+                  <div v-if="meaning">
                     <div class="text-secondary my-1">meaning</div>
                     <div class="my-2">
-                      Comes from young goats,usually around 6 to 8 weeks old,
-                      and is knwon for tender and mid flavour
+                      {{ meaning }}
                     </div>
                   </div>
                   <div>
                     <div class="text-secondary my-3">category</div>
-                    <span
-                      class="px-2 py-1 mr-1 my-4 rounded-full bg-primary-bg text-sm"
-                      >breakfast</span
-                    >
-                    <span
-                      class="px-2 py-1 mr-1 my-4 rounded-full bg-primary-bg text-sm"
-                      >breakfast</span
-                    >
+                    <div class="flex flex-wrap py-2">
+                      <span
+                        v-for="(category, index) in categories"
+                        :key="index"
+                        class="px-2 py-1 mr-1 my-1 rounded-full bg-primary-bg text-sm"
+                        >{{ category }}</span
+                      >
+                    </div>
                   </div>
                   <div>
                     <div class="text-secondary my-3">type</div>
                     <span
                       class="px-2 py-1 mr-1 my-4 rounded-full bg-primary-bg text-sm"
-                      >breakfast</span
+                      >types will come here</span
                     >
                   </div>
                 </div>
               </Slide>
-              <Slide :key="text + '3'">
+              <Slide :key="word + '3'">
                 <div class="carousel__item text-left w-full h-full">
                   <div>
                     <div>
@@ -160,27 +198,7 @@ const translationLogo = computed(() => {
                         size="xs"
                       />
                     </div>
-                    <div class="text-normal">
-                      You can do your victory dance or slaughter a goat, or
-                      whatever it is you do when you’re happy.
-                    </div>
-                  </div>
-                  <div>
-                    <div>
-                      <UAvatar
-                        :src="`/icons/speech_bubble.svg`"
-                        class="rounded-none mt-2"
-                        :ui="{
-                          strategy: 'override',
-                          rounded: 'rounded-none',
-                        }"
-                        size="xs"
-                      />
-                    </div>
-                    <div class="text-normal">
-                      You can do your victory dance or slaughter a goat, or
-                      whatever it is you do when you’re happy.
-                    </div>
+                    <div class="text-normal">senses will come here</div>
                   </div>
                 </div>
               </Slide>
@@ -191,7 +209,7 @@ const translationLogo = computed(() => {
           </div>
           <div v-if="type == TranslationPopOverType.NOT_FOUND">
             <Carousel>
-              <Slide :key="text + '1'" class="flex flex-col">
+              <Slide :key="word + '1'" class="flex flex-col">
                 <div class="flex justify-between text-left pb-3 w-full">
                   <div class="text-secondary text-normal">did you mean</div>
                 </div>
@@ -231,7 +249,7 @@ const translationLogo = computed(() => {
                   </div>
                 </div>
               </Slide>
-              <Slide :key="text + '2'" class="flex flex-col">
+              <Slide :key="word + '2'" class="flex flex-col">
                 <div class="flex justify-between text-left pb-3 w-full">
                   <div class="text-secondary text-normal">
                     suggest a translation
@@ -315,7 +333,7 @@ const translationLogo = computed(() => {
       :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 ${
         expanded ? 'block' : ''
       } group-hover:block`"
-      @click="addHistory({ text, translation, type })"
+      @click="addHistory({ word, translation, type })"
     >
       <UAvatar
         src="/icons/history.svg"

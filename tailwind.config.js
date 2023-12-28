@@ -10,7 +10,7 @@ export default {
       backgroundColor: {
         "primary-bg": "#f3f3f3",
         "secondary-bg": "#ffffff",
-        "success-500": "#99ffcc",
+        "success-bg": "#99ffcc",
         "success-400": "#99ffcc",
         success: "#99ffcc",
         error: "#FF6666",

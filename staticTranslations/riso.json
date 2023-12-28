@@ -1,0 +1,60 @@
+{
+  "forms": [],
+  "head_templates": [
+    {
+      "args": {
+        "1": "it",
+        "2": "verb form"
+      },
+      "expansion": "riso",
+      "name": "head"
+    }
+  ],
+  "hyphenation": [],
+  "lang": "Italian",
+  "lang_code": "it",
+  "pos": "verb",
+  "sounds": [],
+  "word": "riso",
+  "translations": [
+    {
+      "code": "en",
+      "lang": "English",
+      "sense": "plants",
+      "tags": [
+        "masculine"
+      ],
+      "word": "rice"
+    },
+    {
+      "code": "es",
+      "lang": "Spanish",
+      "sense": "plants",
+      "tags": [
+        "masculine"
+      ],
+      "word": "arroz"
+    }
+  ],
+  "categories": [
+    "nouns",
+    "syllables"
+  ],
+  "etymology_text": "From Late Latin oryza, from Ancient Greek ὄρυζα (óruza).",
+  "senses": [
+    {
+      "glosses": [
+        "rice"
+      ],
+      "links": [
+        [
+          "rice",
+          "rice"
+        ]
+      ],
+      "tags": [
+        "masculine"
+      ]
+    }
+  ]
+}

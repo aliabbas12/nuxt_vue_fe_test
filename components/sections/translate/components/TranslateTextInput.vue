@@ -8,6 +8,8 @@ const store = useTranslationStore();
 const generalStore = useGeneralStore();
 const isLimitExceeded = ref(false);
 const accentGroup = ref(["à", "è", "é", "ì", "ò", "ù"]);
+const inputDiv = ref(null);
+const timeoutId = ref(null);
 
 const textSizeAccordingToLength = computed(() => {
   if (text.value.length > 60 && text.value.length < 120) {
@@ -30,14 +32,73 @@ const isListening = computed({
   },
 });
 
+const createTokensOfString = (str: String) => {
+  store.setToken([]);
+  const tempTokens: string[] = [];
+  const contenteditableDiv = document.getElementById("inputTextBox");
+  if (str === "") {
+    return;
+  }
+  const regex = /[^\w\s]/g;
+  const wordsWithSpan = str
+    .split(" ")
+    .map((word: string) => {
+      tempTokens.push(word.replace(regex, ""));
+      return `<span id="individual-${word.replace(regex, "")}">${word}</span>`;
+    })
+    .join(" ");
+
+  store.setToken(tempTokens);
+
+  if (contenteditableDiv != null) {
+    contenteditableDiv.innerHTML = wordsWithSpan;
+    moveCursorToEnd();
+  }
+};
+
+const handleInput = (event) => {
+  text.value = event.target.innerText;
+};
+
 const text = computed({
-  get: () => store.text,
+  get: () => {
+    const text = store.text;
+    const contenteditableDiv = document.getElementById("inputTextBox");
+    if (contenteditableDiv != null) {
+      contenteditableDiv.innerHTML = text;
+      moveCursorToEnd();
+    }
+    return text;
+  },
   set: (value) => {
     store.addText(value);
   },
 });
 
+const moveCursorToEnd = () => {
+  if (inputDiv?.value != null) {
+    const range = document.createRange();
+    const selection = window.getSelection();
+
+    range.selectNodeContents(inputDiv.value);
+    range.collapse(false); // Move range to end
+    if (selection !== null) {
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+  }
+};
+
 watch(text, (value) => {
+  if (value === "") {
+    createTokensOfString(value);
+  }
+  if (timeoutId.value !== null) {
+    clearTimeout(timeoutId.value);
+  }
+  timeoutId.value = setTimeout(() => {
+    createTokensOfString(value);
+  }, 3000);
   if (value.length >= 160) {
     isLimitExceeded.value = true;
     if (value.length >= 160) {
@@ -72,19 +133,18 @@ watch(text, (value) => {
 
 <template>
   <div>
-    <UTextarea
-      v-model="text"
-      variant="none"
-      size="xl"
-      :maxlength="160"
-      :autoresize="true"
-      :textarea-class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem]  text-center tracking-wider`"
+    <div
+      id="inputTextBox"
+      ref="inputDiv"
+      contenteditable="true"
+      :class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem]  text-center h-[12rem]`"
       @focus="isListening = false"
-    />
+      @input="handleInput"
+    ></div>
     <div class="w-full flex flex-auto my-3 pr-1 text-center">
       <span
         v-if="selectedLanguage !== 'en'"
-        class="w-6/12 text-right tracking-wider text-primary"
+        class="w-6/12 text-right tracking-wider text-primary bg-success-bg h-"
       >
         <span
           v-for="(word, index) in accentGroup"

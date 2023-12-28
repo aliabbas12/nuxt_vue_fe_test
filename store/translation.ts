@@ -7,7 +7,9 @@ export const useTranslationStore = defineStore("translation", {
   }),
   getters: {
     getText: (state) => state.text,
-    getTokens: (state) => state.text,
+    getTokens(state): string[] {
+      return state.token;
+    },
   },
   actions: {
     addText(text: string) {

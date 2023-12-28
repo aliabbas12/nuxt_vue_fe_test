@@ -22,3 +22,10 @@
     height: 7px !important;
     border-radius: 5px !important;
 }
+
+.element:read-write:focus {
+    outline: none;
+}
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+}

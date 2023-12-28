@@ -1,0 +1,103 @@
+{
+  "forms": [
+    {
+      "form": "rices",
+      "tags": [
+        "plural"
+      ]
+    }
+  ],
+  "head_templates": [
+    {
+      "args": {
+        "1": "~"
+      },
+      "expansion": "rice (countable and uncountable, plural rices)",
+      "name": "en-noun"
+    }
+  ],
+  "hyphenation": [],
+  "lang": "English",
+  "lang_code": "en",
+  "pos": "noun",
+  "sounds": [
+    {
+      "ipa": "/ɹaɪs/"
+    },
+    {
+      "rhymes": "-aɪs"
+    },
+    {
+      "audio": "en-us-rice.ogg",
+      "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f9/En-us-rice.ogg/En-us-rice.ogg.mp3",
+      "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/En-us-rice.ogg",
+      "tags": [
+        "US"
+      ],
+      "text": "Audio (US)"
+    },
+    {
+      "audio": "en-uk-rice.ogg",
+      "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/6/62/En-uk-rice.ogg/En-uk-rice.ogg.mp3",
+      "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/En-uk-rice.ogg",
+      "tags": [
+        "UK"
+      ],
+      "text": "Audio (UK)"
+    }
+  ],
+  "word": "rice",
+  "etymology_text": "From Middle English rys, from Old French ris, from Old Italian riso, risi, from Byzantine Greek ὄρυζα (óruza), from an Eastern Iranian language related to Middle Persian blnj (*brinǰ), Northern Kurdish riz (beyond euphrates) and Zazaki riz. Theorized to come to Iranian languages from Sanskrit व्रीहि (vrīhi).\nPrior to Sanskrit, it is speculated to be possibly a borrowing from a Dravidian language (compare Proto-Dravidian *wariñci (“rice”)), or from Austroasiatic languages further east.\nAlternatively Byzantine Greek ὄρυζα (óruza) is said to be from Hebrew אורז (órez), from South Arabian areez ultimately from Old Tamil 𑀅𑀭𑀺𑀘𑀺 (arici).",
+  "translations": [
+    {
+      "code": "it",
+      "lang": "Italian",
+      "sense": "plants",
+      "tags": [
+        "masculine"
+      ],
+      "word": "riso"
+    },
+    {
+      "code": "es",
+      "lang": "Spanish",
+      "sense": "plants",
+      "tags": [
+        "masculine"
+      ],
+      "word": "arroz"
+    }
+  ],
+  "senses": [
+    {
+      "categories": [
+        "English terms with quotations",
+        "English uncountable nouns"
+      ],
+      "examples": [
+        {
+          "ref": "1831, Daniel Jay Browne, The Naturalist, volume 1, page 375",
+          "text": "Rice is a tropical plant; yet Carolina and Georgia grow the finest in the world; heavier grained, better filled, and more merchantable, than any imported into Europe from the Indies.",
+          "type": "quotation"
+        },
+        {
+          "ref": "1982, International Rice Research Institute, Drought Resistance in Crops with Emphasis on Rice",
+          "text": "Drought stress causes yield reductions and sometimes total crop failures in rainfed rice areas of Asia, Africa, and Latin America.",
+          "type": "quotation"
+        },
+        {
+          "ref": "2014, V. S. Rao, Transgenic Herbicide Resistance in Plants",
+          "text": "Rice transformed with genes encoding human CYP1a1, CYP2B6, and CYP2C19 are more tolerant of various herbicides than non-transgenic rice plants, due to increased metabolism by the introduced P450 enzymes [Kawwahigashi et al. 2005a, 2007, 2008; James et al. 2008].",
+          "type": "quotation"
+        }
+      ],
+      "glosses": [
+        "Cereal plants, Oryza sativa of the grass family whose seeds are used as food."
+      ]
+    }
+  ],
+  "categories": [
+    "Foods",
+    "Oryzeae tribe grasses"
+  ]
+}

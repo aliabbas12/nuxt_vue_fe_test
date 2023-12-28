@@ -1,0 +1,117 @@
+{
+  "forms": [
+    {
+      "form": "arroces",
+      "tags": [
+        "plural"
+      ]
+    }
+  ],
+  "head_templates": [
+    {
+      "args": {
+        "1": "ast",
+        "2": "nouns",
+        "3": "",
+        "4": "",
+        "5": "plural",
+        "6": "arroces",
+        "f2accel-form": "p",
+        "g": "f",
+        "g2": "",
+        "head": ""
+      },
+      "expansion": "arroz f (plural arroces)",
+      "name": "head"
+    },
+    {
+      "args": {
+        "1": "f",
+        "2": "arroces"
+      },
+      "expansion": "arroz f (plural arroces)",
+      "name": "ast-noun"
+    }
+  ],
+  "hyphenation": [],
+  "lang": "Asturian",
+  "lang_code": "ast",
+  "pos": "noun",
+  "sounds": [],
+  "word": "arroz",
+  "etymology_text": "Borrowed from Spanish arroz.",
+  "categories": [
+    "Foods",
+    "Plants"
+  ],
+  "sounds": [
+    {
+      "ipa": "/aˈʁo(j)s/",
+      "tags": [
+        "Brazil"
+      ]
+    },
+    {
+      "ipa": "[aˈho(ɪ̯)s]",
+      "tags": [
+        "Brazil"
+      ]
+    },
+    {
+      "ipa": "/aˈʁo(j)s/",
+      "tags": [
+        "Brazil"
+      ]
+    },
+    {
+      "ipa": "[aˈho(ɪ̯)s]",
+      "tags": [
+        "Brazil"
+      ]
+    },
+    {
+      "ipa": "/aˈʁo(j)ʃ/",
+      "tags": [
+        "Rio-de-Janeiro"
+      ]
+    },
+    {
+      "ipa": "[aˈχo(ɪ̯)ʃ]",
+      "tags": [
+        "Rio-de-Janeiro"
+      ]
+    },
+    {
+      "ipa": "/ɐˈʁoʃ/",
+      "tags": [
+        "Portugal"
+      ]
+    },
+    {
+      "audio": "Pt-arroz.ogg",
+      "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/9/94/Pt-arroz.ogg/Pt-arroz.ogg.mp3",
+      "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Pt-arroz.ogg",
+      "text": "Audio"
+    }
+  ],
+  "translations": [
+    {
+      "code": "it",
+      "lang": "Italian",
+      "sense": "plants",
+      "tags": [
+        "masculine"
+      ],
+      "word": "riso"
+    },
+    {
+      "code": "en",
+      "lang": "English",
+      "sense": "plants",
+      "tags": [
+        "masculine"
+      ],
+      "word": "rice"
+    }
+  ]
+}

@@ -14,6 +14,11 @@ const speak = () => {
 };
 
 const clearText = () => {
+  const contenteditableDiv = document.getElementById("inputTextBox");
+
+  if (contenteditableDiv != null) {
+    contenteditableDiv.innerHTML = "";
+  }
   store.clearText();
 };
 
