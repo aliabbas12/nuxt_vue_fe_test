@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { computed } from "vue";
+import { useGeneralStore } from "~/store/general";
+const generalStore = useGeneralStore();
+
 const viewport = useViewport();
 const links = ref([
   "translate",
@@ -8,6 +12,34 @@ const links = ref([
   "user agreement",
   "privacy policy",
 ]);
+
+const slideOverOpen = computed({
+  get: () => generalStore.getSideOverState,
+  set: (value) => {
+    generalStore.setSideOverState(value);
+  },
+});
+function scrollToSection(sectionId: string) {
+  if (sectionId === "section-5") {
+    slideOverOpen.value = !slideOverOpen.value;
+  } else {
+    const element = document.getElementById(sectionId);
+    if (element != null) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+}
+const getSectionIdAndScrollToTHatSection = (text: string) => {
+  if (text === "translate") {
+    scrollToSection("section-1");
+  } else if (text === "history") {
+    scrollToSection("section-2");
+  } else if (text === "sign-up") {
+    scrollToSection("section-3");
+  } else if (text === "contact us") {
+    scrollToSection("section-4");
+  }
+};
 </script>
 <template>
   <div
@@ -44,7 +76,8 @@ const links = ref([
     <p
       v-for="(link, index) in links"
       :key="index"
-      class="w-full text-[12px] flex-col flex justify-center items-center py-0.5 underline font-light"
+      class="w-full text-[12px] flex-col flex justify-center items-center py-0.5 underline font-light cursor-pointer"
+      @click="getSectionIdAndScrollToTHatSection(link)"
     >
       {{ link }}
     </p>

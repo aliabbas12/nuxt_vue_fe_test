@@ -144,7 +144,7 @@ watch(text, (value) => {
     <div class="w-full flex flex-auto my-3 pr-1 text-center">
       <span
         v-if="selectedLanguage !== 'en'"
-        class="w-6/12 text-right tracking-wider text-primary bg-success-bg h-"
+        class="w-6/12 text-right tracking-wider text-primary"
       >
         <span
           v-for="(word, index) in accentGroup"

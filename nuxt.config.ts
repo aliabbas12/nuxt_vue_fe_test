@@ -5,8 +5,13 @@ import { SystemLanguages } from "../global/constants/systemLanguages";
 export default defineNuxtConfig({
   devtools: { enabled: true },
   i18n: {
+    strategy: "prefix",
+    defaultLocale: "en",
     langDir: "lang/",
     locales: SystemLanguages,
+    detectBrowserLanguage: {
+      useCookie: false,
+    },
   },
   modules: [
     "@nuxtjs/color-mode",
