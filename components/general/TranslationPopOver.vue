@@ -198,7 +198,7 @@ const playAudio = () => {
                         size="xs"
                       />
                     </div>
-                    <div class="text-normal">senses will come here</div>
+                    <div class="text-normal">usage will come here</div>
                   </div>
                 </div>
               </Slide>
