@@ -14,10 +14,11 @@ const { text } = props;
     color="white"
     square
     variant="soft"
-    class="px-0 py-0 bg-secondary-bg rounded-3xl border-0 shadow group transition ease-in-out delay-50 duration-600"
+    class="px-0 py-0 bg-secondary-bg rounded-3xl border-0 shadow group"
     :ui="{
       strategy: 'override',
       inline: 'inline-flex items-center justify-center shadow-card',
+      base: 'focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed transition ease-in-out delay-50 duration-600 disabled:opacity-75 flex-shrink-0 shadow-card',
     }"
   >
     <img

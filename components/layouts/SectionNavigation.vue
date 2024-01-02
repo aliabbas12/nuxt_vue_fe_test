@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import { useGeneralStore } from "../../store/general";
+import { useGeneralStore } from "~/store/general";
 const generalStore = useGeneralStore();
 
 const currentSection = computed({

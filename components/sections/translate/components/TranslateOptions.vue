@@ -46,13 +46,14 @@ const isKeyboardOpen = computed({
     <div class="w-1/4 text-center">
       <UTooltip
         text="virtual keyboard"
-        :popper="{ placement: 'bottom-end' }"
+        :popper="{ placement: 'bottom', offsetSkid: 30 }"
         :ui="{
           strategy: 'override',
           rounded: 'rounded-3xl',
           color: 'text-[#999999] dark:text-white',
           shadow: 'shadow-card',
           ring: 'ring-0',
+          base: '[@media(pointer:coarse)]:hidden h-6 px-2 py-1 text-xs font-normal truncate relative ml-5',
         }"
         @click="isKeyboardOpen = !isKeyboardOpen"
       >
@@ -70,13 +71,12 @@ const isKeyboardOpen = computed({
     <div class="w-1/4 text-center">
       <UTooltip
         text="voice input"
-        :popper="{ placement: 'bottom-end' }"
+        :popper="{ placement: 'bottom', offsetSkid: 30 }"
         :ui="{
           strategy: 'override',
           rounded: 'rounded-3xl',
           color: 'text-[#999999] dark:text-white',
           shadow: 'shadow-card',
-          shadow: 'shadow-none',
           ring: 'ring-0',
         }"
         :class="`${isListening ? 'icon-listening' : ''}`"
@@ -98,7 +98,7 @@ const isKeyboardOpen = computed({
     <div class="w-1/4 text-center">
       <UTooltip
         text="play audio"
-        :popper="{ placement: 'bottom-end' }"
+        :popper="{ placement: 'bottom', offsetSkid: 30 }"
         :ui="{
           strategy: 'override',
           rounded: 'rounded-3xl',
@@ -122,7 +122,7 @@ const isKeyboardOpen = computed({
     <div class="w-1/4 text-center">
       <UTooltip
         text="restart"
-        :popper="{ placement: 'bottom-end' }"
+        :popper="{ placement: 'bottom', offsetSkid: 30 }"
         :ui="{
           strategy: 'override',
           rounded: 'rounded-3xl',
