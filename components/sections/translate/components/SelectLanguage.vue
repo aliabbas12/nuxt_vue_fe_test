@@ -37,7 +37,7 @@ const languageLabel = computed(() => {
       square
       variant="soft"
       block
-      class="h-12 px-0 py-0 bg-primary-bg text-base"
+      class="h-12 px-0 py-0 bg-primary-bg text-normal font-normal"
       @click="isOpen = true"
       >{{ languageLabel?.toUpperCase() }}</UButton
     >

@@ -63,8 +63,12 @@ const isKeyboardOpen = computed({
           :ui="{
             strategy: 'override',
             rounded: 'rounded-none',
+            size: {
+              xs: 'h-6 w-6 text-xs',
+              sm: 'h-7 w-7 text-normal font-normal',
+            },
           }"
-          :size="viewport.isLessThan('tablet') ? 'sm' : 'md'"
+          :size="viewport.isLessThan('tablet') ? 'xs' : 'sm'"
         />
       </UTooltip>
     </div>
@@ -90,8 +94,12 @@ const isKeyboardOpen = computed({
           :ui="{
             strategy: 'override',
             rounded: 'rounded-none',
+            size: {
+              xs: 'h-6 w-6 text-xs',
+              sm: 'h-7 w-7 text-normal font-normal',
+            },
           }"
-          :size="viewport.isLessThan('tablet') ? 'sm' : 'md'"
+          :size="viewport.isLessThan('tablet') ? 'xs' : 'sm'"
         />
       </UTooltip>
     </div>
@@ -114,8 +122,12 @@ const isKeyboardOpen = computed({
           :ui="{
             strategy: 'override',
             rounded: 'rounded-none',
+            size: {
+              xs: 'h-6 w-6 text-xs',
+              sm: 'h-7 w-7 text-normal font-normal',
+            },
           }"
-          :size="viewport.isLessThan('tablet') ? 'sm' : 'md'"
+          :size="viewport.isLessThan('tablet') ? 'xs' : 'sm'"
         />
       </UTooltip>
     </div>
@@ -138,8 +150,12 @@ const isKeyboardOpen = computed({
           :ui="{
             strategy: 'override',
             rounded: 'rounded-none',
+            size: {
+              xs: 'h-6 w-6 text-xs',
+              sm: 'h-7 w-7 text-normal font-normal',
+            },
           }"
-          :size="viewport.isLessThan('tablet') ? 'sm' : 'md'"
+          :size="viewport.isLessThan('tablet') ? 'xs' : 'sm'"
         />
       </UTooltip>
     </div>

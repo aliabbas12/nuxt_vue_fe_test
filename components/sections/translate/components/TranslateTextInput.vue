@@ -141,7 +141,9 @@ watch(text, (value) => {
       @focus="isListening = false"
       @input="handleInput"
     ></div>
-    <div class="w-full flex flex-auto my-3 pr-1 text-center">
+    <div
+      class="w-full flex flex-auto my-3 pr-1 text-center text-normal font-normal"
+    >
       <span
         v-if="selectedLanguage !== 'en'"
         class="w-6/12 text-right tracking-wider text-primary"
