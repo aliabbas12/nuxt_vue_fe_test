@@ -96,7 +96,7 @@ const translationHistory = computed(() => localStorageService.getHistory);
       class="p-0 rounded-3xl history-card bg-primary-bg col-span-1 m-[1.5rem]"
       :ui="{
         strategy: 'override',
-        ring: 'ring-0',
+        ring: 'ring-0 border-dashed border-8 border-[#999999]',
         shadow: 'shadow-none',
         body: {
           padding: 'p-0 h-full',
@@ -105,12 +105,12 @@ const translationHistory = computed(() => localStorageService.getHistory);
     >
       <div class="w-full flex items-center justify-center h-full">
         <UAvatar
-          src="/icons/add-history-card.svg"
+          src="/icons/add_history.svg"
           class="h-full"
           :ui="{
             strategy: 'override',
             size: {
-              '3xl': 'h-full w-full text-3xl',
+              '3xl': 'h-full w-full px-[3rem] py-[2.5rem] text-3xl',
             },
             rounded: 'rounded-none',
           }"

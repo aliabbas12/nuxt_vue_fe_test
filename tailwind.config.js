@@ -6,6 +6,9 @@ export default {
       colors: {
         success: "#99ffcc",
         error: "#FF6666",
+        gray: {
+          400: "#999999",
+        },
       },
       backgroundColor: {
         "primary-bg": "#f3f3f3",
@@ -28,7 +31,13 @@ export default {
         normal: "15px",
       },
       boxShadow: {
-        card: "1px 1px 0px 1px #ccc;",
+        card: "2px 2px 4px #00000029;",
+      },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+        bitter: ["Bitter", "sans-serif"],
+        ubuntu: ["Ubuntu", "sans-serif"],
+        sacramento: ["Sacramento", "sans-serif"],
       },
     },
   },

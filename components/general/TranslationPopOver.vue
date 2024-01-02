@@ -302,7 +302,8 @@ const playAudio = () => {
       :ui="{
         strategy: 'override',
         rounded: 'rounded-3xl',
-        shadow: 'shadow-none',
+        color: 'text-[#999999] dark:text-white',
+        shadow: 'shadow-card',
         ring: 'ring-0',
       }"
       :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 ${
@@ -327,7 +328,8 @@ const playAudio = () => {
       :ui="{
         strategy: 'override',
         rounded: 'rounded-3xl',
-        shadow: 'shadow-none',
+        color: 'text-[#999999] dark:text-white',
+        shadow: 'shadow-card',
         ring: 'ring-0',
       }"
       :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 ${

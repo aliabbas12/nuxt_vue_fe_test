@@ -3,6 +3,13 @@ import { ref, computed } from "vue";
 import { useGeneralStore } from "../../store/general";
 const generalStore = useGeneralStore();
 
+const currentSection = computed({
+  get: () => generalStore.getCurrentSectionState,
+  set: (value) => {
+    generalStore.setCurrentSectionState(value);
+  },
+});
+
 const slideOverOpen = computed({
   get: () => generalStore.getSideOverState,
   set: (value) => {
@@ -41,7 +48,7 @@ const menu = ref([
   },
   {
     icon: "/icons/account-locked.svg",
-    hoverIcon: "/icons/account-locked.svg",
+    hoverIcon: "/icons/account-locked-hover.svg",
     hover: false,
     section: "section-5",
     tooltip: "login or create account",
@@ -78,7 +85,8 @@ function scrollToSection(sectionId: string) {
       :ui="{
         strategy: 'override',
         rounded: 'rounded-3xl',
-        shadow: 'shadow-none',
+        color: 'text-[#999999] dark:text-white',
+        shadow: 'shadow-card',
         ring: 'ring-0',
       }"
     >
@@ -95,8 +103,12 @@ function scrollToSection(sectionId: string) {
       >
         <template #leading>
           <img
-            class="icon"
-            :src="menu[index].hover ? item.hoverIcon : item.icon"
+            :class="`icon ${currentSection === item.section ? ' active' : ''}`"
+            :src="
+              currentSection === item.section || menu[index].hover
+                ? item.hoverIcon
+                : item.icon
+            "
             style="height: 13px"
           />
         </template>
@@ -109,7 +121,16 @@ function scrollToSection(sectionId: string) {
 .navigations {
   .button:hover {
     .icon {
-      transform: scale(1.8);
+      &:not(.active) {
+        transform: scale(1.8);
+      }
+    }
+  }
+  .button {
+    .icon {
+      &.active {
+        transform: scale(1.8);
+      }
     }
   }
 }

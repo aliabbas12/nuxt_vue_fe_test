@@ -8,6 +8,7 @@ const proTips = ref(true);
 const autoDedect = ref(true);
 const notification = ref(true);
 const sound = ref(true);
+const dark = ref(false);
 
 const slideOverOpen = computed({
   get: () => generalStore.getSideOverState,
@@ -39,9 +40,11 @@ const slideOverOpen = computed({
       <Carousel>
         <Slide :key="'1'" class="flex flex-col">
           <div class="h-full w-full flex flex-col my-20">
-            <div class="w-full flex flex-col my-16 items-center justify-center">
+            <div
+              class="w-full flex flex-col my-16 items-center justify-center cursor-pointer"
+            >
               <UAvatar
-                src="/icons/button_profie_settings.svg"
+                src="/icons/profile-setting.svg"
                 class="rounded-none cursor-pointer"
                 :ui="{
                   strategy: 'override',
@@ -50,12 +53,13 @@ const slideOverOpen = computed({
                   },
                   rounded: 'rounded-none',
                 }"
-                size="3xl"
+                size="2xl"
               />
+              <span class="my-2">setting</span>
             </div>
             <div class="w-full flex flex-col my-16 items-center justify-center">
               <UAvatar
-                src="/icons/button_native_language.svg"
+                src="/icons/language.svg"
                 class="rounded-none cursor-pointer"
                 :ui="{
                   strategy: 'override',
@@ -64,12 +68,13 @@ const slideOverOpen = computed({
                   },
                   rounded: 'rounded-none',
                 }"
-                size="3xl"
+                size="2xl"
               />
+              <span class="my-2">native language</span>
             </div>
             <div class="w-full flex flex-col my-16 items-center justify-center">
               <UAvatar
-                src="/icons/button_font.svg"
+                src="/icons/font.svg"
                 class="rounded-none cursor-pointer"
                 :ui="{
                   strategy: 'override',
@@ -78,8 +83,9 @@ const slideOverOpen = computed({
                   },
                   rounded: 'rounded-none',
                 }"
-                size="3xl"
+                size="2xl"
               />
+              <span class="my-2">font</span>
             </div>
           </div>
         </Slide>
@@ -183,6 +189,25 @@ const slideOverOpen = computed({
                 }"
               />
               <div class="my-3">sound fx</div>
+            </div>
+            <div class="w-full flex flex-col my-16 items-center justify-center">
+              <UToggle
+                v-model="dark"
+                color="primary"
+                size="xl"
+                :ui="{
+                  strategy: 'override',
+                  active: 'bg-success dark:bg-success',
+                  base: 'relative inline-flex flex-shrink-0 border-2 border-black',
+                  container: {
+                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black',
+                    size: {
+                      xl: 'w-5 h-5 mt-0.5',
+                    },
+                  },
+                }"
+              />
+              <div class="my-3">dark mode</div>
             </div>
           </div></Slide
         >

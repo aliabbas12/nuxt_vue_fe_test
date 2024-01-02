@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed } from "vue";
 import { useGeneralStore } from "~/store/general";
 import { SystemLanguages } from "~/global/constants/systemLanguages";
 const generalStore = useGeneralStore();

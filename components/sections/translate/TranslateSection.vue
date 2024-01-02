@@ -8,17 +8,17 @@ import VirtualKeyboard from "~/components/general/VirtualKeyboard.vue";
 </script>
 
 <template>
-  <div class="relative ml-[40px] pt-[15rem] flex flex-col h-screen">
+  <div class="relative mx-[40px] pt-[15rem] flex flex-col h-screen">
     <TranslationPane />
-    <div class="container w-4/6 sm:w-6/12 md:w-5/12 lg:w-4/12 xl:w-1/4">
+    <div class="container w-5/6 sm:w-6/12 md:w-5/12 lg:w-4/12 xl:w-1/4">
       <SelectLanguage class="" />
       <VirtualKeyboard class="absolute bottom-0 left-0 w-full -ml-[20px]" />
     </div>
-    <div class="container w-4/6 sm:w-7/12 md:w-7/12 lg:w-5/12">
+    <div class="container w-5/6 sm:w-7/12 md:w-7/12 lg:w-5/12">
       <TranslateTextInput />
     </div>
     <div
-      class="container w-4/6 sm:w-6/12 md:w-5/12 lg:w-4/12 xl:w-1/4 mt-[2rem]"
+      class="container w-5/6 sm:w-6/12 md:w-5/12 lg:w-4/12 xl:w-1/4 mt-[2rem]"
     >
       <TranslateOptions />
     </div>

@@ -50,7 +50,8 @@ const isKeyboardOpen = computed({
         :ui="{
           strategy: 'override',
           rounded: 'rounded-3xl',
-          shadow: 'shadow-none',
+          color: 'text-[#999999] dark:text-white',
+          shadow: 'shadow-card',
           ring: 'ring-0',
         }"
         @click="isKeyboardOpen = !isKeyboardOpen"
@@ -73,6 +74,8 @@ const isKeyboardOpen = computed({
         :ui="{
           strategy: 'override',
           rounded: 'rounded-3xl',
+          color: 'text-[#999999] dark:text-white',
+          shadow: 'shadow-card',
           shadow: 'shadow-none',
           ring: 'ring-0',
         }"
@@ -99,7 +102,8 @@ const isKeyboardOpen = computed({
         :ui="{
           strategy: 'override',
           rounded: 'rounded-3xl',
-          shadow: 'shadow-none',
+          color: 'text-[#999999] dark:text-white',
+          shadow: 'shadow-card',
           ring: 'ring-0',
         }"
         @click="speak"
@@ -122,7 +126,8 @@ const isKeyboardOpen = computed({
         :ui="{
           strategy: 'override',
           rounded: 'rounded-3xl',
-          shadow: 'shadow-none',
+          color: 'text-[#999999] dark:text-white',
+          shadow: 'shadow-card',
           ring: 'ring-0',
         }"
         @click="clearText"

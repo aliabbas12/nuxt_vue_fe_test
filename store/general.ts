@@ -8,11 +8,13 @@ export const useGeneralStore = defineStore("general", {
     languageSelected: "en",
     translationLanguage: "en",
     autoDetectTranslation: true,
+    currentSection: "section-1",
     tokens: [] as string[],
   }),
   getters: {
     getKeyboardState: (state) => state.keyboard,
     getTextTokens: (state) => state.tokens,
+    getCurrentSectionState: (state) => state.currentSection,
     getSideOverState: (state) => state.sideOverOpen,
     getAutodetectTranslationLanguageState: (state) =>
       state.autoDetectTranslation,
@@ -26,6 +28,9 @@ export const useGeneralStore = defineStore("general", {
     },
     setListeningState(value: boolean) {
       this.listening = value;
+    },
+    setCurrentSectionState(value: string) {
+      this.currentSection = value;
     },
     setSelectedLanguageState(value: string) {
       this.languageSelected = value;

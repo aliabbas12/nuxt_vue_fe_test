@@ -24,7 +24,8 @@ const language = computed({
 
 const languageLabel = computed(() => {
   const index = languages.findIndex((e) => e.value === language.value);
-  return languages[index].label;
+  if (index !== -1) return languages[index].label;
+  return null;
 });
 </script>
 
@@ -38,7 +39,7 @@ const languageLabel = computed(() => {
       block
       class="h-12 px-0 py-0 bg-primary-bg text-base"
       @click="isOpen = true"
-      >{{ languageLabel.toUpperCase() }}</UButton
+      >{{ languageLabel?.toUpperCase() }}</UButton
     >
     <UModal v-model="isOpen" class="w-[448px]">
       <div class="flex items-center justify-between">
