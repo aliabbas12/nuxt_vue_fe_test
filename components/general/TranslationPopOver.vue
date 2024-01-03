@@ -79,7 +79,7 @@ const playAudio = () => {
 <template>
   <div class="group flex items-center justify-center">
     <u-card
-      class="flex-initial w-64 p-0 rounded-3xl history-card col-span-1 my-[1rem] transition ease-in-out delay-50 duration-600 group-hover:-translate-x-2 font-light cursor-pointer"
+      class="flex-initial md:w-60 lg:w-64 w-64 p-0 rounded-3xl history-card col-span-1 my-[1rem] transition ease-in-out delay-50 duration-600 group-hover:-translate-x-2 font-light cursor-pointer"
       :ui="{
         strategy: 'override',
         shadow: 'shadow-card',

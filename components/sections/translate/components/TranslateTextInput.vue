@@ -137,7 +137,7 @@ watch(text, (value) => {
       id="inputTextBox"
       ref="inputDiv"
       contenteditable="true"
-      :class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem]  text-center h-[12rem] font-roboto`"
+      :class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem] text-center h-[12rem] font-roboto`"
       @focus="isListening = false"
       @input="handleInput"
     ></div>
