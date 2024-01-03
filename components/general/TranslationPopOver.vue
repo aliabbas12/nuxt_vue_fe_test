@@ -139,7 +139,7 @@ const playAudio = () => {
             class="absolute right-0 top-0"
           />
         </div>
-        <div class="flex items-center justify-center p-4">
+        <div class="flex items-center justify-center p-4 font-normal">
           {{ word }}
         </div>
       </div>
@@ -157,8 +157,10 @@ const playAudio = () => {
             />
           </div>
           <div class="py-4 flex flex-col justify-center">
-            <div class="leading-[18px]">{{ word }}</div>
-            <div class="leading-[18px] text-secondary">{{ translation }}</div>
+            <div class="leading-[18px] text-normal">{{ word }}</div>
+            <div class="leading-[18px] text-secondary text-normal">
+              {{ translation }}
+            </div>
           </div>
         </div>
         <div v-if="expanded" class="expanded-section">
@@ -166,7 +168,7 @@ const playAudio = () => {
             v-if="type == TranslationPopOverType.FOUND"
             class="flex justify-between"
           >
-            <div>
+            <div class="text-normal">
               <span v-if="wordPronounce">
                 {{ wordPronounce }}
               </span>
@@ -204,7 +206,7 @@ const playAudio = () => {
               <Slide :key="word + '2'">
                 <div class="carousel__item text-left">
                   <div v-if="meaning">
-                    <div class="text-secondary my-1">meaning</div>
+                    <div class="text-secondary my-1 text-normal">meaning</div>
                     <div class="my-2">
                       {{ meaning }}
                     </div>
@@ -215,7 +217,7 @@ const playAudio = () => {
                       <span
                         v-for="(category, index) in categories"
                         :key="index"
-                        class="px-2 py-1 mr-1 my-1 rounded-full bg-primary-bg text-sm"
+                        class="px-2 py-1 mr-1 my-1 rounded-full bg-primary-bg text-normal"
                         >{{ category }}</span
                       >
                     </div>
@@ -223,7 +225,7 @@ const playAudio = () => {
                   <div>
                     <div class="text-secondary my-3">type</div>
                     <span
-                      class="px-2 py-1 mr-1 my-4 rounded-full bg-primary-bg text-sm"
+                      class="px-2 py-1 mr-1 my-4 rounded-full bg-primary-bg text-normal"
                       >types will come here</span
                     >
                   </div>

@@ -35,9 +35,7 @@ export default {
       },
       fontFamily: {
         roboto: ["Roboto Slab"],
-        bitter: ["Bitter", "sans-serif"],
-        ubuntu: ["Ubuntu", "sans-serif"],
-        sacramento: ["Sacramento", "sans-serif"],
+        sans: ["Open Sans"],
       },
     },
   },

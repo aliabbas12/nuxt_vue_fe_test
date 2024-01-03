@@ -3,6 +3,7 @@ import { computed, watch } from "vue";
 
 import { useTranslationStore } from "~/store/translation";
 import { useGeneralStore } from "~/store/general";
+const viewport = useViewport();
 
 const store = useTranslationStore();
 const generalStore = useGeneralStore();
@@ -12,10 +13,20 @@ const inputDiv = ref(null);
 const timeoutId = ref(null);
 
 const textSizeAccordingToLength = computed(() => {
-  if (text.value.length > 60 && text.value.length < 120) {
+  if (viewport.isLessThan("tablet")) {
+    if (text.value.length > 40 && text.value.length < 80) {
+      return "text-3xl";
+    } else if (text.value.length >= 80 && text.value.length < 120) {
+      return "text-2xl";
+    } else if (text.value.length >= 120) {
+      return "text-xl";
+    } else return "text-4xl";
+  } else if (text.value.length > 50 && text.value.length < 100) {
     return "text-4xl";
-  } else if (text.value.length >= 120) {
+  } else if (text.value.length >= 100 && text.value.length < 150) {
     return "text-3xl";
+  } else if (text.value.length >= 120) {
+    return "text-2xl";
   } else return "text-5xl";
 });
 

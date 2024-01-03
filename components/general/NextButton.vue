@@ -1,10 +1,14 @@
 <script setup lang="ts">
+const emit = defineEmits(["callEvent"]);
 const props = defineProps({
   text: {
     type: String,
     required: true,
   },
 });
+function buttonCLicked() {
+  emit("callEvent");
+}
 const { text } = props;
 </script>
 
@@ -20,6 +24,7 @@ const { text } = props;
       inline: 'inline-flex items-center justify-center shadow-card',
       base: 'focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed transition ease-in-out delay-50 duration-600 disabled:opacity-75 flex-shrink-0 shadow-card',
     }"
+    @click="buttonCLicked"
   >
     <img
       src="/icons/button-translate.svg"

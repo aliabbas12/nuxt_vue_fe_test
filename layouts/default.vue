@@ -12,7 +12,7 @@ import LeftSideOver from "~/components/layouts/LeftSideOver.vue";
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
       />
     </head>
-    <header class="w-full fixed top-0 bg-transparent flex justify-between">
+    <header class="w-full fixed top-0 bg-transparent flex justify-between z-50">
       <!-- Your header content goes here -->
       <div>
         <img

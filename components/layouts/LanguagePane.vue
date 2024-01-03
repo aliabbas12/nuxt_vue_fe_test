@@ -21,7 +21,7 @@ function setLanguage(code: string) {
 
 <template>
   <div
-    class="flex px-2 py-1 group hover:bg-secondary-bg m-3 rounded-full transition ease-in-out delay-50 duration-600 hover:-translate-x-2"
+    class="flex px-2 py-1 group hover:bg-secondary-bg m-3 rounded-full transition ease-in-out delay-50 duration-600 hover:-translate-x-2 z-50 md:mr-[2rem] lg:mr-[2rem] xl:mr-[2rem] 2xl:mr-[2rem]"
   >
     <UAvatar
       src="/icons/globe.svg"

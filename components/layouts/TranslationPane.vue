@@ -63,7 +63,6 @@ function checkTranslationOfToken(token: string) {
         // eslint-disable-next-line camelcase
         etymology_text,
         categories,
-        word,
         sounds,
         senses,
       } = wordDetails;
@@ -79,6 +78,7 @@ function checkTranslationOfToken(token: string) {
         const glosses = senses[0].glosses;
         if (glosses.length >= 1) wordData.translation = glosses[0];
       }
+      // eslint-disable-next-line camelcase
       wordData.meaning = etymology_text;
       wordData.categories = categories;
       wordData.sound = sounds;
@@ -101,9 +101,9 @@ function checkTranslationOfToken(token: string) {
 
 <template>
   <div
-    class="flex md:h-full md:max-h-screen flex-col sm:relative sm:overflow-y-auto max-h-[250px] sm:w-6/6 md:absolute bg-transparent md:w-4/12 md:px-3 md:right-0 md:top-0 md:mx-3 justify-center"
+    class="flex md:h-full md:max-h-screen flex-col sm:relative sm:overflow-y-auto max-h-[250px] sm:w-6/6 md:absolute bg-transparent md:w-4/12 lg:w-[24rem] xl:w-[29rem] 2xl:w-[33rem] md:px-3 md:right-0 md:top-0 lg:mr-[-3rem] justify-center"
   >
-    <div :key="tokens.length" class="overflow-y-auto inset-0 backdrop-blur-md">
+    <div :key="tokens.length" class="overflow-y-auto inset-0">
       <TranslationPopOver
         v-for="(word, index) in translationsPopUps"
         :key="index"
