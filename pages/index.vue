@@ -1,5 +1,7 @@
 <template>
-  <main class="max-h-screen overflow-y-scroll snap snap-y snap-mandatory">
+  <main
+    class="max-h-screen overflow-x-hidden w-[102vw] overflow-y-auto snap snap-y snap-mandatory"
+  >
     <section
       id="section-1"
       ref="div1"
