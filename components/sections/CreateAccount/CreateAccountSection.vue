@@ -5,7 +5,7 @@ const viewport = useViewport();
 
 <template>
   <div
-    class="container lg:w-4/6 xl:w-3/6 pt-[6rem] text-center flex flex-col items-center justify-center"
+    class="container md:w-3/6 lg:w-4/6 xl:w-3/6 pt-[6rem] text-center flex flex-col items-center justify-center"
   >
     <div class="text-3xl">create a free account</div>
     <div class="text-sm leading-6 m-8 lg:m-14">

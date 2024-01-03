@@ -16,7 +16,7 @@ const translationHistory = computed(() => localStorageService.getHistory);
 
 <template>
   <div
-    class="container w-4/6 sm:w-3/6 md:w-10/12 lg:w-8/12 xl:w-5/12 pt-[6rem] grid grid-cols-1 md:grid-cols-2"
+    class="container w-4/6 sm:w-3/6 md:w-8/12 lg:w-8/12 xl:w-5/12 pt-[6rem] grid grid-cols-1 md:grid-cols-2"
   >
     <u-card
       v-for="(translation, index) in translationHistory"

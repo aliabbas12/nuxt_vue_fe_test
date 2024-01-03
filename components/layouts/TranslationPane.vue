@@ -102,7 +102,7 @@ function checkTranslationOfToken(token: string) {
 
 <template>
   <div
-    class="flex h-full flex-col absolute bg-transparent w-3/12 right-0 top-0 justify-center"
+    class="flex md:h-full flex-col sm:relative sm:overflow-y-auto max-h-[300px] sm:w-6/6 md:absolute bg-transparent md:w-3/12 md:right-0 md:top-0 justify-center"
   >
     <div :key="tokens.length" class="overflow-y-auto inset-0 backdrop-blur-md">
       <TranslationPopOver

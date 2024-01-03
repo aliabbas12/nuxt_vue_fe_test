@@ -37,7 +37,9 @@ const handleInput = (event) => {
       @focusout="handleInput"
     ></div>
     <ul>
-      <li v-for="(token, index) in tokens" :key="index">{{ token }}</li>
+      <li v-for="(token, index) in tokens" :key="index">
+        {{ token }}
+      </li>
     </ul>
   </div>
 </template>

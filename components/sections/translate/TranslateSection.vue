@@ -8,13 +8,14 @@ import VirtualKeyboard from "~/components/general/VirtualKeyboard.vue";
 </script>
 
 <template>
-  <div class="relative mx-[40px] pt-[15rem] flex flex-col h-screen">
-    <TranslationPane />
+  <div
+    class="relative w-screen md:pt-[4rem] lg:pt-[15rem] flex flex-col h-screen"
+  >
     <div class="container w-5/6 sm:w-6/12 md:w-5/12 lg:w-4/12 xl:w-1/4">
       <SelectLanguage class="" />
       <VirtualKeyboard class="absolute bottom-0 left-0 w-full -ml-[20px]" />
     </div>
-    <div class="container w-5/6 sm:w-7/12 md:w-7/12 lg:w-5/12">
+    <div class="container w-5/6 sm:w-7/12 md:w-6/12 lg:w-5/12">
       <TranslateTextInput />
     </div>
     <div
@@ -22,10 +23,12 @@ import VirtualKeyboard from "~/components/general/VirtualKeyboard.vue";
     >
       <TranslateOptions />
     </div>
+    <div>
+      <TranslationPane />
+    </div>
     <div class="container w-3/6 sm:w-1/6 md:w-2/12 lg:w-2/12 my-10 text-center">
       <NextButton :text="$t('button.translate')" />
     </div>
-    <div></div>
   </div>
 </template>
 
