@@ -21,11 +21,11 @@ export interface Sense {
 interface Sound {
   ipa?: string;
   rhymes?: string;
-  audio: string;
+  audio?: string;
   mp3_url?: string;
-  ogg_url: string;
-  tags: string[];
-  text: string;
+  ogg_url?: string;
+  tags?: string[];
+  text?: string;
 }
 
 export interface TranslationData {

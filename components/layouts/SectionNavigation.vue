@@ -47,6 +47,13 @@ const menu = ref([
     tooltip: "contact us",
   },
   {
+    icon: "/icons/notification.svg",
+    hoverIcon: "/icons/notification-hover.svg",
+    hover: false,
+    section: "section-5",
+    tooltip: "notification",
+  },
+  {
     icon: "/icons/account-locked.svg",
     hoverIcon: "/icons/account-locked-hover.svg",
     hover: false,
@@ -73,7 +80,7 @@ function scrollToSection(sectionId: string) {
 
 <template>
   <div
-    :class="`flex flex-col py-[14px] fixed top-1/2 transform -translate-y-1/2 left-0 bg-secondary-bg rounded-r-[15px] shadow-xl navigations z-100 transition-all duration-200 ease-in-out ${
+    :class="`flex flex-col py-[18px] fixed top-1/2 transform -translate-y-1/2 left-0 bg-secondary-bg rounded-r-[15px] shadow-card navigations z-100 transition-all duration-200 ease-in-out pl-[3px]  ${
       slideOverOpen ? 'delay-100 ml-[20rem]' : ''
     }`"
   >
@@ -96,7 +103,7 @@ function scrollToSection(sectionId: string) {
         square
         variant="soft"
         block
-        class="px-4 py-3 bg-secondary-bg rounded-3xl border-0 button"
+        class="px-4 py-2 bg-secondary-bg rounded-3xl border-0 button"
         @click="scrollToSection(item.section)"
         @mouseover="changeHoverStatus(index, true)"
         @mouseleave="changeHoverStatus(index, false)"
@@ -109,7 +116,7 @@ function scrollToSection(sectionId: string) {
                 ? item.hoverIcon
                 : item.icon
             "
-            style="height: 13px"
+            :style="`height: ${item.section == 'section-5' ? '15px' : '13px'}`"
           />
         </template>
       </UButton>
@@ -122,14 +129,14 @@ function scrollToSection(sectionId: string) {
   .button:hover {
     .icon {
       &:not(.active) {
-        transform: scale(1.8);
+        transform: scale(1.5);
       }
     }
   }
   .button {
     .icon {
       &.active {
-        transform: scale(1.8);
+        transform: scale(1.5);
       }
     }
   }

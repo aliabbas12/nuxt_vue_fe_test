@@ -59,7 +59,7 @@ const isKeyboardOpen = computed({
       >
         <UAvatar
           src="/icons/keyboard.svg"
-          class="rounded-none"
+          class="rounded-none cursor-pointer"
           :ui="{
             strategy: 'override',
             rounded: 'rounded-none',
@@ -90,7 +90,7 @@ const isKeyboardOpen = computed({
           :src="
             isListening ? '/icons/microphone-red.svg' : '/icons/microphone.svg'
           "
-          class="rounded-none icon"
+          class="rounded-none icon cursor-pointer"
           :ui="{
             strategy: 'override',
             rounded: 'rounded-none',
@@ -118,7 +118,7 @@ const isKeyboardOpen = computed({
       >
         <UAvatar
           src="/icons/Speaker-solid2.svg"
-          class="rounded-none"
+          class="rounded-none cursor-pointer"
           :ui="{
             strategy: 'override',
             rounded: 'rounded-none',
@@ -146,7 +146,7 @@ const isKeyboardOpen = computed({
       >
         <UAvatar
           src="/icons/button-restart.svg"
-          class="rounded-none"
+          class="rounded-none cursor-pointer"
           :ui="{
             strategy: 'override',
             rounded: 'rounded-none',

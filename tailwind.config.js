@@ -34,7 +34,7 @@ export default {
         card: "2px 2px 4px #00000029;",
       },
       fontFamily: {
-        roboto: ["Roboto", "sans-serif"],
+        roboto: ["Roboto Slab"],
         bitter: ["Bitter", "sans-serif"],
         ubuntu: ["Ubuntu", "sans-serif"],
         sacramento: ["Sacramento", "sans-serif"],

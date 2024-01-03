@@ -9,7 +9,7 @@ import arroz from "../../staticTranslations/arroz.json";
 import riso from "../../staticTranslations/riso.json";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 import { useTranslationStore } from "~/store/translation";
-import type { TranslationData, WordData } from "~/interfaces/wordTranslation";
+import type { WordData } from "~/interfaces/wordTranslation";
 import { useGeneralStore } from "~/store/general";
 
 const store = useTranslationStore();
@@ -56,37 +56,36 @@ function checkTranslationOfToken(token: string) {
     if (index !== -1) {
       translationFound = true;
       const wordDetails = value[index];
-      // eslint-disable-next-line camelcase
-      const { translations, lang_code } = wordDetails;
+
+      const {
+        // eslint-disable-next-line camelcase
+        lang_code,
+        // eslint-disable-next-line camelcase
+        etymology_text,
+        categories,
+        word,
+        sounds,
+        senses,
+      } = wordDetails;
       if (!languageSet && isAutoDetectOn.value) {
         generalStore.setTranslationLanguageState(lang_code);
         languageSet = true;
       }
-      if (translations?.length !== 0) {
-        for (let i = 0; i < translations.length; i++) {
-          const wordData: WordData = {
-            word: token,
-          };
-          const { code, word } = translations[i];
-          const translationIndex = staticTranslations[code].findIndex(
-            (e: TranslationData) => e.word === word,
-          );
-          if (translationIndex !== -1) {
-            // eslint-disable-next-line camelcase
-            const { etymology_text, categories, word, sounds } =
-              staticTranslations[code][translationIndex];
-            // eslint-disable-next-line camelcase
-            wordData.meaning = etymology_text;
-            wordData.translation = word;
-            wordData.categories = categories;
-            wordData.sound = sounds;
-            wordsTranslations.value.push({
-              type: TranslationPopOverType.FOUND,
-              data: wordData,
-            });
-          }
-        }
+      const wordData: WordData = {
+        word: token,
+      };
+
+      if (senses?.length != null) {
+        const glosses = senses[0].glosses;
+        if (glosses.length >= 1) wordData.translation = glosses[0];
       }
+      wordData.meaning = etymology_text;
+      wordData.categories = categories;
+      wordData.sound = sounds;
+      wordsTranslations.value.push({
+        type: TranslationPopOverType.FOUND,
+        data: wordData,
+      });
     }
   });
   if (!translationFound) {

@@ -39,7 +39,7 @@ const createTokensOfString = (str: String) => {
   if (str === "") {
     return;
   }
-  const regex = /[^\w\s]/g;
+  const regex = /[^a-zA-Z-]/g;
   const wordsWithSpan = str
     .split(" ")
     .map((word: string) => {
@@ -109,6 +109,25 @@ watch(text, (value) => {
   }
 });
 
+const selectedWord = computed({
+  get: () => {
+    return store.getSelectedWord;
+  },
+  set: (value) => {
+    store.setSelectedWord(value);
+  },
+});
+
+function selectWordOnClick(event) {
+  if (event.target.tagName === "SPAN") {
+    if (event.target.textContent) {
+      const regex = /[^a-zA-Z-]/g;
+      const word = event.target.textContent.replace(regex, "");
+      selectedWord.value = word === selectedWord.value ? "" : word;
+    }
+  }
+}
+
 /**
  * const { $api } = useNuxtApp();
  *
@@ -137,9 +156,10 @@ watch(text, (value) => {
       id="inputTextBox"
       ref="inputDiv"
       contenteditable="true"
-      :class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem]  text-center h-[12rem] font-roboto`"
+      :class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem]  text-center h-[12rem] font-roboto font-light`"
       @focus="isListening = false"
       @input="handleInput"
+      @click="selectWordOnClick"
     ></div>
     <div
       class="w-full flex flex-auto my-3 pr-1 text-center text-normal font-normal"

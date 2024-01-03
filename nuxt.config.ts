@@ -13,6 +13,16 @@ export default defineNuxtConfig({
       useCookie: false,
     },
   },
+  app: {
+    head: {
+      link: [
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600&display=swap",
+        },
+      ],
+    },
+  },
   modules: [
     "@nuxtjs/color-mode",
     "@nuxtjs/eslint-module",

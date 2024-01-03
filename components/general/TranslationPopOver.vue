@@ -2,16 +2,42 @@
 import { Carousel, Pagination, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 import type { PropType } from "vue";
-import { computed, watch } from "vue";
+import { computed, watch, ref } from "vue";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 import { useLocalStorageService } from "~/localStorage";
+import { useTranslationStore } from "~/store/translation";
 import type { WordData } from "~/interfaces/wordTranslation";
+
+const translationStore = useTranslationStore();
 const localStorageService = useLocalStorageService();
 const toast = useToast();
+const isHoverOnTrash = ref(false);
+const isHoverOnHistory = ref(false);
+
+const selectedWord = computed({
+  get: () => {
+    return translationStore.getSelectedWord;
+  },
+  set: (value) => {
+    translationStore.setSelectedWord(value);
+  },
+});
+
+watch(selectedWord, (value) => {
+  expanded.value = value === word;
+});
 
 function addHistory(history: any) {
   localStorageService.setHistory({ value: history });
   toast.add({ title: "history added", timeout: 1000 });
+}
+
+function handleHover(type: "trash" | "history", value: boolean) {
+  if (type === "trash") {
+    isHoverOnTrash.value = value;
+  } else {
+    isHoverOnHistory.value = value;
+  }
 }
 
 const props = defineProps({
@@ -49,6 +75,17 @@ const wordAudio = computed(() => {
   return wordAudio;
 });
 
+const wordPronounce = computed(() => {
+  let wordAudio = null;
+  if (sound !== null && sound !== undefined && sound.length >= 1) {
+    const index = sound.findIndex((e) => e.ipa !== null);
+    if (index !== -1) {
+      wordAudio = sound[index].ipa;
+    }
+  }
+  return wordAudio;
+});
+
 const toggleHighlightedText = (divID: string, state: boolean) => {
   const contenteditableDiv = document.getElementById("individual-" + divID);
   if (contenteditableDiv !== null) {
@@ -65,8 +102,12 @@ const toggleHighlightedText = (divID: string, state: boolean) => {
 watch(expanded, (value) => {
   if (value) {
     toggleHighlightedText(word, true);
+    selectedWord.value = word;
   } else {
     toggleHighlightedText(word, false);
+    if (selectedWord.value === word) {
+      selectedWord.value = "";
+    }
   }
 });
 const playAudio = () => {
@@ -125,7 +166,11 @@ const playAudio = () => {
             v-if="type == TranslationPopOverType.FOUND"
             class="flex justify-between"
           >
-            <div>{{ word }}</div>
+            <div>
+              <span v-if="wordPronounce">
+                {{ wordPronounce }}
+              </span>
+            </div>
             <div>
               <UAvatar
                 v-show="wordAudio"
@@ -306,12 +351,14 @@ const playAudio = () => {
         shadow: 'shadow-card',
         ring: 'ring-0',
       }"
-      :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 ${
+      :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 cursor-pointer ${
         expanded ? 'block' : ''
       } group-hover:block`"
+      @mouseover="handleHover('trash', true)"
+      @mouseout="handleHover('trash', false)"
     >
       <UAvatar
-        src="/icons/trash.svg"
+        :src="isHoverOnTrash ? '/icons/trash-hover.svg' : '/icons/trash.svg'"
         class="rounded-none"
         :ui="{
           strategy: 'override',
@@ -332,13 +379,17 @@ const playAudio = () => {
         shadow: 'shadow-card',
         ring: 'ring-0',
       }"
-      :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 ${
+      :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 cursor-pointer ${
         expanded ? 'block' : ''
       } group-hover:block`"
+      @mouseover="handleHover('history', true)"
+      @mouseout="handleHover('history', false)"
       @click="addHistory({ word, translation, type })"
     >
       <UAvatar
-        src="/icons/history.svg"
+        :src="
+          isHoverOnHistory ? '/icons/history-hover.svg' : '/icons/history.svg'
+        "
         class="rounded-none"
         :ui="{
           strategy: 'override',
