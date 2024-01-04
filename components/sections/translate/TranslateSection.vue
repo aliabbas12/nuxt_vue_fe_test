@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from "vue";
 import SelectLanguage from "~/components/sections/translate/components/SelectLanguage.vue";
 import TranslateTextInput from "~/components/sections/translate/components/TranslateTextInput.vue";
@@ -22,12 +22,19 @@ function translate() {
     checkTranslationOfToken(token);
   });
 }
+
+const text = computed({
+  get: () => translationStore.text,
+  set: (value) => {
+    translationStore.addText(value);
+  },
+});
 const staticTranslations = {
   en: [rice, lamb],
   it: [riso, agnello],
   es: [arroz, cordero],
 };
-function checkTranslationOfToken(token) {
+function checkTranslationOfToken(token: string) {
   const wordSpan = document.getElementById("individual-" + token);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   Object.entries(staticTranslations).forEach(([key, value]) => {
@@ -46,8 +53,10 @@ function checkTranslationOfToken(token) {
           e.code === (lang_code === "en" ? "it" : "en"),
       );
       if (italianTranslationIndex !== -1 && wordSpan != null) {
-        wordSpan.innerText = translations[italianTranslationIndex].word;
-        wordSpan.id = "individual-" + token;
+        text.value = text.value.replace(
+          token,
+          translations[italianTranslationIndex].word,
+        );
       }
     }
   });
