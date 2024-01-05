@@ -1,6 +1,7 @@
 <template>
   <main
-    class="max-h-screen overflow-x-hidden w-[102vw] overflow-y-auto snap snap-y snap-mandatory"
+    id="custom-scroll"
+    class="max-h-screen w-[100vw] overflow-y-auto snap snap-y snap-mandatory"
   >
     <section
       id="section-1"
@@ -78,4 +79,8 @@ onMounted(() => {
   observer.observe(div4.value);
 });
 </script>
-<style scoped></style>
+<style scoped>
+#custom-scroll::-webkit-scrollbar {
+  width: 0.1px;
+}
+</style>
