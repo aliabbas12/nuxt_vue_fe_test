@@ -23,42 +23,42 @@ const menu = ref([
     hoverIcon: "/icons/button-vertical-navigation-hover.svg",
     hover: false,
     section: "section-1",
-    tooltip: "translate",
+    tooltip: "tooltip.translate",
   },
   {
     icon: "/icons/button-vertical-nav.svg",
     hoverIcon: "/icons/button-vertical-navigation-hover.svg",
     hover: false,
     section: "section-2",
-    tooltip: "history",
+    tooltip: "tooltip.history",
   },
   {
     icon: "/icons/button-vertical-nav.svg",
     hoverIcon: "/icons/button-vertical-navigation-hover.svg",
     hover: false,
     section: "section-3",
-    tooltip: "sign-in",
+    tooltip: "tooltip.sign_up",
   },
   {
     icon: "/icons/button-vertical-nav.svg",
     hoverIcon: "/icons/button-vertical-navigation-hover.svg",
     hover: false,
     section: "section-4",
-    tooltip: "contact us",
+    tooltip: "tooltip.contact_us",
   },
   {
     icon: "/icons/notification.svg",
     hoverIcon: "/icons/notification-hover.svg",
     hover: false,
     section: "section-5",
-    tooltip: "notification",
+    tooltip: "tooltip.notifications",
   },
   {
     icon: "/icons/account-locked.svg",
     hoverIcon: "/icons/account-locked-hover.svg",
     hover: false,
     section: "section-5",
-    tooltip: "login or create account",
+    tooltip: "tooltip.account",
   },
 ]);
 
@@ -87,7 +87,7 @@ function scrollToSection(sectionId: string) {
     <UTooltip
       v-for="(item, index) in menu"
       :key="index"
-      :text="item.tooltip"
+      :text="$t(item.tooltip)"
       :popper="{ placement: 'right' }"
       :ui="{
         strategy: 'override',

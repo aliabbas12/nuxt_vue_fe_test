@@ -45,7 +45,7 @@ const isKeyboardOpen = computed({
   <div class="container flex flex-wrap md:px-3 lg:px-5 w-3/4">
     <div class="w-1/4 text-center">
       <UTooltip
-        text="virtual keyboard"
+        :text="$t('tooltip.virtual_keyboard')"
         :popper="{ placement: 'bottom', offsetSkid: 30 }"
         :ui="{
           strategy: 'override',
@@ -74,7 +74,7 @@ const isKeyboardOpen = computed({
     </div>
     <div class="w-1/4 text-center">
       <UTooltip
-        text="voice input"
+        :text="$t('tooltip.voice_input')"
         :popper="{ placement: 'bottom', offsetSkid: 30 }"
         :ui="{
           strategy: 'override',
@@ -105,7 +105,7 @@ const isKeyboardOpen = computed({
     </div>
     <div class="w-1/4 text-center">
       <UTooltip
-        text="play audio"
+        :text="$t('tooltip.play_audio')"
         :popper="{ placement: 'bottom', offsetSkid: 30 }"
         :ui="{
           strategy: 'override',
@@ -133,7 +133,7 @@ const isKeyboardOpen = computed({
     </div>
     <div class="w-1/4 text-center">
       <UTooltip
-        text="restart"
+        :text="$t('tooltip.restart')"
         :popper="{ placement: 'bottom', offsetSkid: 30 }"
         :ui="{
           strategy: 'override',
