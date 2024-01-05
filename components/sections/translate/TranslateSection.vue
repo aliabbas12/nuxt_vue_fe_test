@@ -61,6 +61,12 @@ function checkTranslationOfToken(token: string) {
     }
   });
 }
+const handleMouse = (event: MouseEvent) => {
+  console.log("Hello Dear");
+  const posX = event.clientX;
+  const posY = event.clientY;
+  console.log(window.scrollTo(posX, posY));
+};
 </script>
 
 <template>
@@ -79,7 +85,7 @@ function checkTranslationOfToken(token: string) {
     >
       <TranslateOptions />
     </div>
-    <div class="md:px-5">
+    <div class="md:px-5" @mousemove="handleMouse">
       <TranslationPane />
     </div>
     <div class="container w-3/6 sm:w-1/6 md:w-2/12 lg:w-2/12 my-10 text-center">

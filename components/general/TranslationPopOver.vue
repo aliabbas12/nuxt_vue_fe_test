@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Carousel, Pagination, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
-import type { PropType } from "vue";
+import { onMounted, type PropType } from "vue";
 import { computed, watch, ref } from "vue";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 import { useLocalStorageService } from "~/localStorage";
@@ -115,10 +115,28 @@ const playAudio = () => {
     audio.value.play();
   }
 };
+const myElement = ref(null);
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        entry.target.classList.add("blur-sm");
+      } else {
+        entry.target.classList.remove("blur-sm");
+      }
+    });
+  },
+  {
+    threshold: 1,
+  },
+);
+onMounted(() => {
+  observer.observe(myElement.value);
+});
 </script>
 
 <template>
-  <div class="group flex items-center justify-center">
+  <div ref="myElement" class="group flex items-center justify-center py-3">
     <u-card
       class="flex-initial md:w-60 lg:w-64 w-64 p-0 rounded-3xl history-card col-span-1 my-[1rem] transition ease-in-out delay-50 duration-600 group-hover:-translate-x-2 font-light cursor-pointer"
       :ui="{
@@ -129,6 +147,7 @@ const playAudio = () => {
           padding: 'px-4 py-2',
         },
       }"
+      :class="{ 'blur-sm': isBlur }"
     >
       <div v-if="type === TranslationPopOverType.BASIC">
         <div class="relative items-center justify-between">
