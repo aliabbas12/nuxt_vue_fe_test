@@ -35,7 +35,6 @@ const wordsTranslations = ref<
 >([]);
 
 const tokens = computed(() => {
-  // eslint-disable-next-line vue/no-side-effects-in-computed-properties
   wordsTranslations.value = [];
   languageSet = false;
   store.getTokens.forEach((token) => {
@@ -97,23 +96,15 @@ function checkTranslationOfToken(token: string) {
     });
   }
 }
-const list = ref(null);
-
+const x = 0;
+const y = 0;
+const handleScroll = (event: MouseEvent) => {
+  const posX = event.clientX;
+  const posY = event.clientY;
+  window.scrollBy(posX - x, posY - y);
+};
 onMounted(() => {
-  console.log("event is working");
-  document.addEventListener("mousemove", (e) => {
-    // Get the mouse position relative to the center of the window
-    const x = e.clientX - window.innerWidth / 2;
-    const y = e.clientY - window.innerHeight / 2;
-
-    // Calculate the rotation angle based on the mouse position
-    const angleX = y * 0.1;
-    const angleY = x * -0.1;
-    console.log("x", x);
-
-    // Update the list style with the rotation angle
-    list.value.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-  });
+  document.addEventListener("mousemove", handleScroll);
 });
 </script>
 
@@ -124,11 +115,9 @@ onMounted(() => {
     <div :key="tokens.length" class="overflow-y-auto inset-0">
       <TranslationPopOver
         v-for="(word, index) in translationsPopUps"
-        ref="list"
         :key="index"
         :data="word.data"
         :type="word.type"
-        :class="{ 'blur-sm': isBlur }"
       />
     </div>
   </div>
