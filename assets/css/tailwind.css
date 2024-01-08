@@ -22,6 +22,61 @@
     height: 7px !important;
     border-radius: 5px !important;
 }
+@font-face {
+    font-family: 'Elsie';
+    src: url("../fonts/elsie/elsier.ttf");
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Heebo';
+    src: url("../fonts/heebo/heebo.ttf");
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Gowun';
+    src: url("../fonts/gowun/gowun.ttf");
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Grotes';
+    src: url("../fonts/grotes/grotes.ttf");
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url("../fonts/roboto/roboto.ttf");
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Prata';
+    src: url("../fonts/prata/prata.ttf");
+    font-weight: normal;
+}
+.font-elsie {
+    font-family: 'Elsie', sans-serif;
+    font-weight: normal;
+
+}
+.font-heebo {
+    font-family: 'Heebo', sans-serif;
+    font-weight: normal;
+
+}
+.font-gowun {
+    font-family: 'Gowun', sans-serif;
+    font-weight: normal;
+
+}
+.font-grotes {
+    font-family: 'Grotes', sans-serif;
+    font-weight: normal;
+
+}
+.font-prate {
+    font-family: 'Prata', sans-serif;
+    font-weight: normal;
+
+}
 
 .element:read-write:focus {
     outline: none;
@@ -44,5 +99,5 @@ body::-webkit-scrollbar-thumb {
 }
 
 body::-webkit-scrollbar-track {
-    background-color: transparent !important; /* Hide scrollbar track */
+    background-color: transparent !important;
 }

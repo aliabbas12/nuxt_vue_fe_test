@@ -139,6 +139,13 @@ function selectWordOnClick(event) {
   }
 }
 
+const currentFontSelected = computed({
+  get: () => generalStore.getCurrentTextFontState,
+  set: (value) => {
+    generalStore.setCurrentTextFontState(value);
+  },
+});
+
 /**
  * const { $api } = useNuxtApp();
  *
@@ -167,7 +174,7 @@ function selectWordOnClick(event) {
       id="inputTextBox"
       ref="inputDiv"
       contenteditable="true"
-      :class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem]  text-center h-[12rem] font-roboto font-light`"
+      :class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem]  text-center h-[12rem] ${currentFontSelected} font-light`"
       @focus="isListening = false"
       @input="handleInput"
       @click="selectWordOnClick"

@@ -42,7 +42,9 @@ const isKeyboardOpen = computed({
 </script>
 
 <template>
-  <div class="container flex flex-wrap md:px-3 lg:px-5 w-3/4">
+  <div
+    class="container flex flex-wrap md:px-3 lg:px-5 w-4/5 md:w-full lg:w-4/5 xl:w-4/5"
+  >
     <div class="w-1/4 text-center">
       <UTooltip
         :text="$t('tooltip.virtual_keyboard')"

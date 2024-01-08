@@ -10,6 +10,13 @@ const notification = ref(true);
 const sound = ref(true);
 const dark = ref(false);
 
+const isOpenFontChangeModel = computed({
+  get: () => generalStore.getIsOpenChangeFontModelState,
+  set: (value) => {
+    generalStore.setIsOpenChangeFontModelState(value);
+  },
+});
+
 const slideOverOpen = computed({
   get: () => generalStore.getSideOverState,
   set: (value) => {
@@ -84,6 +91,7 @@ const slideOverOpen = computed({
                   rounded: 'rounded-none',
                 }"
                 size="2xl"
+                @click="isOpenFontChangeModel = true"
               />
               <span class="my-2">font</span>
             </div>
@@ -101,7 +109,7 @@ const slideOverOpen = computed({
                   active: 'bg-success dark:bg-success',
                   base: 'relative inline-flex flex-shrink-0 border-2 border-black',
                   container: {
-                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black',
+                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black ml-[0.15rem]',
                     size: {
                       xl: 'w-5 h-5 mt-0.5',
                     },
@@ -120,7 +128,7 @@ const slideOverOpen = computed({
                   active: 'bg-success dark:bg-success',
                   base: 'relative inline-flex flex-shrink-0 border-2 border-black',
                   container: {
-                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black',
+                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black ml-[0.15rem]',
                     size: {
                       xl: 'w-5 h-5 mt-0.5',
                     },
@@ -158,7 +166,7 @@ const slideOverOpen = computed({
                   active: 'bg-success dark:bg-success',
                   base: 'relative inline-flex flex-shrink-0 border-2 border-black',
                   container: {
-                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black',
+                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black ml-[0.15rem]',
                     size: {
                       xl: 'w-5 h-5 mt-0.5',
                     },
@@ -200,7 +208,7 @@ const slideOverOpen = computed({
                   active: 'bg-success dark:bg-success',
                   base: 'relative inline-flex flex-shrink-0 border-2 border-black',
                   container: {
-                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black',
+                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black ml-[0.15rem]',
                     size: {
                       xl: 'w-5 h-5 mt-0.5',
                     },

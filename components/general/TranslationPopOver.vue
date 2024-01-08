@@ -363,7 +363,7 @@ onMounted(() => {
     </u-card>
     <UTooltip
       v-if="type !== TranslationPopOverType.BASIC"
-      text="trash"
+      :text="$t('tooltip.trash')"
       :popper="{ placement: 'bottom', strategy: 'absolute' }"
       :ui="{
         strategy: 'override',
@@ -391,7 +391,7 @@ onMounted(() => {
 
     <UTooltip
       v-if="type !== TranslationPopOverType.BASIC"
-      text="save"
+      :text="$t('tooltip.save')"
       :popper="{ placement: 'bottom', strategy: 'absolute' }"
       :ui="{
         strategy: 'override',

@@ -3,6 +3,7 @@ import LanguagePane from "~/components/layouts/LanguagePane.vue";
 import SectionNavigation from "~/components/layouts/SectionNavigation.vue";
 import ListeningAudio from "~/components/general/ListeningAudio.vue";
 import LeftSideOver from "~/components/layouts/LeftSideOver.vue";
+import SelectFontModel from "~/components/models/SelectFontModel.vue";
 </script>
 <template>
   <div class="default-layout bg-transparent light-mode font-sans">
@@ -31,6 +32,7 @@ import LeftSideOver from "~/components/layouts/LeftSideOver.vue";
     </main>
     <ListeningAudio />
     <UNotifications />
+    <SelectFontModel />
   </div>
 </template>
 
