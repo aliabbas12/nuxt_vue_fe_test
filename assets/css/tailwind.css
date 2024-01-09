@@ -30,7 +30,7 @@
     outline: 0px solid transparent;
 }
 body {
-    overflow-x: hidden;
+    overflow: hidden !important;
     scrollbar-width: none; /* Firefox */
     scrollbar-color: transparent transparent;
 }
@@ -40,9 +40,9 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-    background-color: transparent; /* Hide scrollbar thumb */
+    background-color: transparent !important; /* Hide scrollbar thumb */
 }
 
 body::-webkit-scrollbar-track {
-    background-color: transparent; /* Hide scrollbar track */
+    background-color: transparent !important; /* Hide scrollbar track */
 }

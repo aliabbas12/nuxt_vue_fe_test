@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { computed, onMounted, ref } from "vue";
+
 import TranslationPopOver from "../general/TranslationPopOver.vue";
 import rice from "../../staticTranslations/rice.json";
 import agnello from "../../staticTranslations/agnello.json";
@@ -35,7 +36,6 @@ const wordsTranslations = ref<
 >([]);
 
 const tokens = computed(() => {
-  // eslint-disable-next-line vue/no-side-effects-in-computed-properties
   wordsTranslations.value = [];
   languageSet = false;
   store.getTokens.forEach((token) => {
@@ -101,17 +101,33 @@ function checkTranslationOfToken(token: string) {
 
 <template>
   <div
-    class="flex md:h-full md:max-h-screen flex-col sm:relative sm:overflow-y-auto max-h-[250px] sm:w-6/6 md:absolute bg-transparent md:w-4/12 lg:w-[24rem] xl:w-[29rem] 2xl:w-[33rem] md:px-3 md:right-0 md:top-0 lg:mr-[-3rem] justify-center"
+    class="flex md:h-full md:min-h-screen flex-col sm:relative sm:overflow-y-auto max-h-[250px] sm:w-6/6 md:absolute bg-transparent md:w-4/12 lg:w-[24rem] xl:w-[29rem] 2xl:w-[33rem] md:px-3 md:right-0 md:top-0 lg:mr-[-3rem] justify-center"
   >
-    <div :key="tokens.length" class="overflow-y-auto inset-0">
+    <div
+      id="custom-scroll"
+      ref="scrollDiv"
+      :key="tokens.length"
+      class="inset-0 overflow-y-auto h-[100%]"
+    >
       <TranslationPopOver
         v-for="(word, index) in translationsPopUps"
+        ref=" contentDiv"
         :key="index"
         :data="word.data"
         :type="word.type"
       />
+      <div
+        class="top w-[100%] h-24 absolute top-0 bg-primary-bg left-0 blur-2xl rounded-[30%]"
+      ></div>
+      <div
+        class="bottom w-[100%] h-24 bg-primary-bg blur-2xl rounded-[30%] absolute bottom-0 left-0"
+      ></div>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+#custom-scroll::-webkit-scrollbar {
+  width: 0.1px;
+}
+</style>

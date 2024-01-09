@@ -27,6 +27,7 @@ const languageLabel = computed(() => {
   if (index !== -1) return languages[index].label;
   return null;
 });
+const width = ref("w-[449px]");
 </script>
 
 <template>
@@ -41,21 +42,28 @@ const languageLabel = computed(() => {
       @click="isOpen = true"
       >{{ languageLabel?.toUpperCase() }}</UButton
     >
-    <UModal v-model="isOpen" class="w-[448px]">
-      <div class="flex items-center justify-between">
-        <div></div>
+    <UModal
+      v-model="isOpen"
+      class="relative"
+      :ui="{
+        strategy: 'override',
+        rounded: 'rounded-[22px]',
+        background: 'bg-white',
+        width: 'max-w-[453px]',
+        height: 'max-h-[449px]',
+      }"
+    >
+      <div class="absolute top-5 right-6 w-[20px] h-[20px]">
         <UButton
           color="gray"
           variant="ghost"
           icon="i-heroicons-x-mark-20-solid"
-          class="my-2 mx-2"
+          class="-my-1 text-gray-500 text-[12px]"
           @click="isOpen = false"
         />
       </div>
-      <div
-        class="p-4 h-[448px] w-full flex flex-col items-center justify-center px-8"
-      >
-        <div class="mb-[30px] -mt-[45px]">Choose an input language</div>
+      <div class="w-full h-full flex flex-col items-center justify-center px-8">
+        <p class="text-black py-[2rem]">Choose an input language</p>
         <URadio
           v-for="lang of languages"
           :key="lang.value"
@@ -64,10 +72,11 @@ const languageLabel = computed(() => {
           :ui="{
             strategy: 'override',
             wrapper:
-              'relative mx-[20px] w-full flex items-start py-[28px] px-[25px] my-[10px] border-2 rounded-3xl',
+              'relative mx-[20px] w-full flex items-start py-[21px] px-[25px] my-[10px] border border-gray-400 rounded-[22px]',
           }"
         />
-        <div class="w-full flex flex-col my-16 items-left justify-center px-5">
+
+        <div class="w-full flex my-6 items-center justify-start px-2">
           <UToggle
             v-model="autoDetect"
             color="primary"
@@ -75,7 +84,7 @@ const languageLabel = computed(() => {
             :ui="{
               strategy: 'override',
               active: 'bg-success dark:bg-success',
-              base: 'relative inline-flex flex-shrink-0 border-2 border-black',
+              base: 'relative inline-flex flex-shrink-0 border-2 border-black mr-5',
               container: {
                 base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black',
                 size: {
@@ -89,7 +98,7 @@ const languageLabel = computed(() => {
       </div>
     </UModal>
     <UDivider
-      class="mt-0"
+      class="mt-2"
       :ui="{
         strategy: 'override',
         border: { base: 'flex border-gray-600 dark:border-gray-800' },

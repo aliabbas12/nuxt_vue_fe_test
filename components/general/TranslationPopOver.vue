@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Carousel, Pagination, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
-import type { PropType } from "vue";
+import { type PropType } from "vue";
 import { computed, watch, ref } from "vue";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 import { useLocalStorageService } from "~/localStorage";
@@ -118,7 +118,7 @@ const playAudio = () => {
 </script>
 
 <template>
-  <div class="group flex items-center justify-center">
+  <div ref="myElement" class="group flex items-center justify-center py-3">
     <u-card
       class="flex-initial md:w-60 lg:w-64 w-64 p-0 rounded-3xl history-card col-span-1 my-[1rem] transition ease-in-out delay-50 duration-600 group-hover:-translate-x-2 font-light cursor-pointer"
       :ui="{
