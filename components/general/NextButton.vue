@@ -3,7 +3,8 @@ const emit = defineEmits(["callEvent"]);
 const props = defineProps({
   text: {
     type: String,
-    required: true,
+    default: null,
+    required: false,
   },
 });
 function buttonCLicked() {
@@ -32,9 +33,13 @@ const { text } = props;
       width="128"
       style="height: 70px"
       alt="Translate"
+      :class="`${text ? '' : 'w-full'}`"
     />
 
-    <div class="hidden group-hover:block mr-12 -mx-5 text-actual font-normal">
+    <div
+      v-if="text"
+      class="hidden group-hover:block mr-12 -mx-5 text-actual font-normal"
+    >
       {{ text }}
     </div>
   </UButton>

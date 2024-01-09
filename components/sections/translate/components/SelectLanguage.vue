@@ -27,7 +27,6 @@ const languageLabel = computed(() => {
   if (index !== -1) return languages[index].label;
   return null;
 });
-const width = ref("w-[449px]");
 </script>
 
 <template>
@@ -71,10 +70,19 @@ const width = ref("w-[449px]");
           v-bind="lang"
           :ui="{
             strategy: 'override',
+            default: {
+              color: 'black',
+            },
+            container: 'flex items-center h-10',
             wrapper:
-              'relative mx-[20px] w-full flex items-start py-[21px] px-[25px] my-[10px] border border-gray-400 rounded-[22px]',
+              'relative mx-[20px] w-full flex items-start px-[25px] my-[10px] border border-gray-400 rounded-[22px] radio-button',
+            inner: 'ms-3 flex flex-col w-full h-6',
           }"
         />
+        <!--          container: 'flex items-center h-6',-->
+        <!--        ,-->
+        <!--        label:-->
+        <!--        'text-sm font-medium text-gray-700 dark:text-gray-200 h-full flex items-center',-->
 
         <div class="w-full flex my-6 items-center justify-start px-2">
           <UToggle
@@ -86,7 +94,7 @@ const width = ref("w-[449px]");
               active: 'bg-success dark:bg-success',
               base: 'relative inline-flex flex-shrink-0 border-2 border-black mr-5',
               container: {
-                base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black',
+                base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black ml-[0.15rem]',
                 size: {
                   xl: 'w-5 h-5 mt-0.5',
                 },
@@ -111,6 +119,23 @@ const width = ref("w-[449px]");
 .select-language {
   span {
     width: 100%;
+  }
+}
+.radio-button {
+  div:nth-child(2) {
+    width: 100%;
+  }
+  div {
+    height: 63px;
+    label {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+    .form-radio {
+      color: black;
+    }
   }
 }
 </style>

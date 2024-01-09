@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
-
+import { ref, computed, onMounted, watch } from "vue";
 import TranslationPopOver from "../general/TranslationPopOver.vue";
 import rice from "../../staticTranslations/rice.json";
 import agnello from "../../staticTranslations/agnello.json";
@@ -17,10 +16,18 @@ const store = useTranslationStore();
 const generalStore = useGeneralStore();
 
 let languageSet = false;
+let issues = [] as string[];
+const popUpsKeys = ref(11111);
 
 const isAutoDetectOn = computed(
   () => generalStore.getAutodetectTranslationLanguageState,
 );
+
+const tokens = computed(() => store.getTokens);
+
+watch(tokens, (value) => {
+  popUpsKeys.value = Math.random();
+});
 
 const staticTranslations = {
   en: [rice, lamb],
@@ -28,33 +35,27 @@ const staticTranslations = {
   es: [arroz, cordero],
 };
 
-const wordsTranslations = ref<
-  Array<{
+const translationsPopUps = computed(() => {
+  let wordsTranslations: Array<{
     type: TranslationPopOverType;
     data: WordData;
-  }>
->([]);
-
-const tokens = computed(() => {
-  wordsTranslations.value = [];
+  }> = [];
+  issues = [];
   languageSet = false;
-  store.getTokens.forEach((token) => {
-    checkTranslationOfToken(token);
+  wordsTranslations = store.getTokens.map((token) => {
+    return checkTranslationOfToken(token);
   });
-  return store.getTokens;
-});
-
-const translationsPopUps = computed(() => {
-  return wordsTranslations.value;
+  store.setIssues(issues);
+  return wordsTranslations;
 });
 
 function checkTranslationOfToken(token: string) {
-  let translationFound = false;
+  let translationFound = null;
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   Object.entries(staticTranslations).forEach(([key, value]) => {
     const index = value.findIndex((e) => e.word === token);
     if (index !== -1) {
-      translationFound = true;
       const wordDetails = value[index];
 
       const {
@@ -82,33 +83,32 @@ function checkTranslationOfToken(token: string) {
       wordData.meaning = etymology_text;
       wordData.categories = categories;
       wordData.sound = sounds;
-      wordsTranslations.value.push({
+      translationFound = {
         type: TranslationPopOverType.FOUND,
         data: wordData,
-      });
+      };
     }
   });
-  if (!translationFound) {
-    wordsTranslations.value.push({
+  if (translationFound) {
+    return translationFound;
+  } else {
+    issues.push(token);
+    return {
       type: TranslationPopOverType.NOT_FOUND,
       data: {
         word: token,
       },
-    });
+    };
   }
 }
 </script>
 
 <template>
   <div
-    class="flex md:h-full md:min-h-screen flex-col sm:relative sm:overflow-y-auto max-h-[250px] sm:w-6/6 md:absolute bg-transparent md:w-4/12 lg:w-[24rem] xl:w-[29rem] 2xl:w-[33rem] md:px-3 md:right-0 md:top-0 lg:mr-[-3rem] justify-center"
+    :key="popUpsKeys"
+    class="flex md:h-full md:max-h-screen flex-col sm:relative sm:overflow-y-auto max-h-[250px] sm:w-6/6 md:absolute bg-transparent md:w-4/12 lg:w-[24rem] xl:w-[29rem] 2xl:w-[33rem] md:px-3 md:right-0 md:top-0 lg:mr-[-3rem] justify-center"
   >
-    <div
-      id="custom-scroll"
-      ref="scrollDiv"
-      :key="tokens.length"
-      class="inset-0 overflow-y-auto h-[100%]"
-    >
+    <div id="custom-scroll" class="overflow-y-auto inset-0 h-[100%]" ref="scrollDiv">
       <TranslationPopOver
         v-for="(word, index) in translationsPopUps"
         ref=" contentDiv"
