@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Carousel, Pagination, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
-import { onMounted, type PropType } from "vue";
+import { type PropType } from "vue";
 import { computed, watch, ref } from "vue";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 import { useLocalStorageService } from "~/localStorage";
@@ -115,24 +115,6 @@ const playAudio = () => {
     audio.value.play();
   }
 };
-const myElement = ref(null);
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        entry.target.classList.add("blur-sm");
-      } else {
-        entry.target.classList.remove("blur-sm");
-      }
-    });
-  },
-  {
-    threshold: 1,
-  },
-);
-onMounted(() => {
-  observer.observe(myElement.value);
-});
 </script>
 
 <template>
@@ -147,7 +129,6 @@ onMounted(() => {
           padding: 'px-4 py-2',
         },
       }"
-      :class="{ 'blur-sm': isBlur }"
     >
       <div v-if="type === TranslationPopOverType.BASIC">
         <div class="relative items-center justify-between">
