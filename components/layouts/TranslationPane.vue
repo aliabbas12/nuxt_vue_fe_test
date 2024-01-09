@@ -105,13 +105,11 @@ function checkTranslationOfToken(token: string) {
   >
     <div
       id="custom-scroll"
-      ref="scrollDiv"
       :key="tokens.length"
-      class="inset-0 overflow-y-auto h-[100%]"
+      class="inset-0 overflow-y-auto"
     >
       <TranslationPopOver
         v-for="(word, index) in translationsPopUps"
-        ref=" contentDiv"
         :key="index"
         :data="word.data"
         :type="word.type"
