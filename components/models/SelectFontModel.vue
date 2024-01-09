@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { useGeneralStore } from "~/store/general";
 
 const fonts = [
@@ -82,20 +82,6 @@ const currentFontSelected = computed({
               />
             </template>
           </u-select>
-          <u-checkbox
-            variant="outline"
-            size="2xl"
-            :ui="{
-              strategy: 'overide',
-            }"
-            class="mt-5"
-            checkbox-class="h-16  rounded-medium bg-black px-3"
-            @change="isOpenFontChangeModel = false"
-          >
-            <template #label>
-              <span class="text-[15px] font-light">Don't show this again</span>
-            </template>
-          </u-checkbox>
         </div>
       </UCard>
     </UModal>
