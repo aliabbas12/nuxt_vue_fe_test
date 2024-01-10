@@ -35,6 +35,7 @@ watch(selectedLanguageForTranslation, () => {
     checkTranslationOfToken(token);
   });
   modelStore.setSelectLanguageModelValue(false);
+  translationStore.setTextTranslatedState(true);
 });
 
 function translate() {

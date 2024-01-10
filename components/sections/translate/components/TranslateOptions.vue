@@ -7,7 +7,6 @@ const store = useTranslationStore();
 const generalStore = useGeneralStore();
 const text = computed(() => store.text);
 const synth = window.speechSynthesis;
-const isHover = ref(false);
 const speak = () => {
   const utterance = new SpeechSynthesisUtterance(text.value);
   synth.speak(utterance);
@@ -20,6 +19,7 @@ const clearText = () => {
     contenteditableDiv.innerHTML = "";
   }
   store.clearText();
+  store.setTextTranslatedState(false);
 };
 const isListening = computed({
   get: () => generalStore.getListeningState,
@@ -44,7 +44,7 @@ const isKeyboardOpen = computed({
   <div
     class="container flex flex-wrap md:px-3 lg:px-5 w-4/5 md:w-full lg:w-4/5 xl:w-4/5"
   >
-    <div v-if="store.getTranslationButtionState" class="w-1/5 text-center">
+    <div v-if="store.getTextTranslatedState" class="w-1/5 text-center">
       <UTooltip
         :text="$t('tooltip.copy')"
         :popper="{ placement: 'bottom', offsetSkid: 30 }"
@@ -101,7 +101,7 @@ const isKeyboardOpen = computed({
         />
       </UTooltip>
     </div>
-    <div v-if="store.getTranslationButtionState" class="w-1/5 text-center">
+    <div v-if="store.getTextTranslatedState" class="w-1/5 text-center">
       <UTooltip
         :text="$t('tooltip.voice_input')"
         :popper="{ placement: 'bottom', offsetSkid: 30 }"
@@ -200,8 +200,6 @@ const isKeyboardOpen = computed({
           ring: 'ring-0',
         }"
         @click="clearText"
-        @mouseover="isHover = true"
-        @mouseleave="isHover = false"
       >
         <UAvatar
           src="/icons/button-restart.svg"

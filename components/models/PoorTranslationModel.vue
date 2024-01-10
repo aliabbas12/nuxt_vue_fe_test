@@ -52,7 +52,10 @@ const isOpenTranslationWithIssueMoreThenTwoModel = computed({
             Ooh! Unverified words may cause a poor translation.
           </p>
           <div class="my-4 w-full text-center flex justify-center items-center">
-            <NextButton class="w-2/6" />
+            <NextButton
+              class="w-2/6"
+              @call-event="isOpenTranslationWithIssueMoreThenTwoModel = false"
+            />
           </div>
           <u-checkbox
             variant="outline"
