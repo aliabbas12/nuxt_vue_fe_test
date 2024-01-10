@@ -31,6 +31,9 @@ function addHistory(history: any) {
   localStorageService.setHistory({ value: history });
   toast.add({ title: "history added", timeout: 1000 });
 }
+function removeWordFromText(word: string) {
+  translationStore.removeWordFromText(word);
+}
 
 function handleHover(type: "trash" | "history", value: boolean) {
   if (type === "trash") {
@@ -358,6 +361,7 @@ const playAudio = () => {
       } group-hover:block`"
       @mouseover="handleHover('trash', true)"
       @mouseout="handleHover('trash', false)"
+      @click="removeWordFromText(word)"
     >
       <UAvatar
         :src="isHoverOnTrash ? '/icons/trash-hover.svg' : '/icons/trash.svg'"

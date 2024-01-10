@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, watch } from "vue";
 import SelectLanguage from "~/components/sections/translate/components/SelectLanguage.vue";
 import TranslateTextInput from "~/components/sections/translate/components/TranslateTextInput.vue";
 import NextButton from "~/components/general/NextButton.vue";
@@ -7,21 +7,51 @@ import TranslateOptions from "~/components/sections/translate/components/Transla
 import TranslationPane from "~/components/layouts/TranslationPane.vue";
 import VirtualKeyboard from "~/components/general/VirtualKeyboard.vue";
 import { useTranslationStore } from "~/store/translation";
+import { useModelStore } from "~/store/models";
 import rice from "~/staticTranslations/rice.json";
 import lamb from "~/staticTranslations/lamb.json";
 import riso from "~/staticTranslations/riso.json";
 import agnello from "~/staticTranslations/agnello.json";
 import arroz from "~/staticTranslations/arroz.json";
 import cordero from "~/staticTranslations/cordero.json";
+import { TranslationIssues } from "~/global/enums/translationIssues";
 const translationStore = useTranslationStore();
+const modelStore = useModelStore();
 const tokens = computed(() => {
   return translationStore.getTokens;
 });
-function translate() {
+
+const selectedLanguageForTranslation = computed({
+  get: () => translationStore.getTranslationLanguageState,
+  set: (value) => {
+    translationStore.setTranslationLanguageState(value);
+  },
+});
+
+watch(selectedLanguageForTranslation, () => {
   tokens.value.forEach((token) => {
     checkTranslationOfToken(token);
   });
+  modelStore.setSelectLanguageModelValue(false);
+});
+
+function translate() {
+  if (issueType.value === TranslationIssues.NOT_FOUND) {
+    modelStore.setSuccessModelState(true);
+  } else {
+    modelStore.setIssueModelState(true);
+  }
+  // tokens.value.forEach((token) => {
+  //   checkTranslationOfToken(token);
+  // });
 }
+
+const issueType = computed({
+  get: () => translationStore.getIssuesTypeState,
+  set: (value) => {
+    translationStore.setIssuesTypeState(value);
+  },
+});
 
 const text = computed({
   get: () => translationStore.text,
@@ -29,6 +59,26 @@ const text = computed({
     translationStore.addText(value);
   },
 });
+
+const issues = computed({
+  get: () => translationStore.getIssues,
+  set: (value) => {
+    translationStore.setIssues(value);
+  },
+});
+
+watch(issues, (value) => {
+  if (value.length === 0) {
+    issueType.value = TranslationIssues.NOT_FOUND;
+  } else if (value.length === 1) {
+    issueType.value = TranslationIssues.ONE;
+  } else if (value.length === 2) {
+    issueType.value = TranslationIssues.TWO;
+  } else {
+    issueType.value = TranslationIssues.THREE_OR_MORE;
+  }
+});
+
 const staticTranslations = {
   en: [rice, lamb],
   it: [riso, agnello],
@@ -83,7 +133,11 @@ function checkTranslationOfToken(token: string) {
       <TranslationPane />
     </div>
     <div class="container w-3/6 sm:w-1/6 md:w-2/12 lg:w-2/12 my-10 text-center">
-      <NextButton :text="$t('button.translate')" @call-event="translate" />
+      <NextButton
+        v-if="text.length"
+        :text="$t('button.translate')"
+        @call-event="translate"
+      />
     </div>
   </div>
 </template>
