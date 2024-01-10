@@ -3,12 +3,14 @@ import { defineStore } from "pinia";
 export const useTranslationStore = defineStore("translation", {
   state: () => ({
     text: "",
+    isTranslationButtonClicked: false,
     selectedWord: "",
     token: [] as string[],
     issues: [] as string[],
   }),
   getters: {
     getText: (state) => state.text,
+    getTranslationButtionState: (state) => state.isTranslationButtonClicked,
     getSelectedWord: (state) => state.selectedWord,
     getTokens(state): string[] {
       return state.token;
@@ -23,6 +25,9 @@ export const useTranslationStore = defineStore("translation", {
     },
     setSelectedWord(text: string) {
       this.selectedWord = text;
+    },
+    setTranslartiobButionState(value: boolean) {
+      this.isTranslationButtonClicked = value;
     },
     setToken(tokens: string[]) {
       this.token = tokens;

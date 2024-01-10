@@ -7,7 +7,7 @@ const store = useTranslationStore();
 const generalStore = useGeneralStore();
 const text = computed(() => store.text);
 const synth = window.speechSynthesis;
-
+const isHover = ref(false);
 const speak = () => {
   const utterance = new SpeechSynthesisUtterance(text.value);
   synth.speak(utterance);
@@ -21,7 +21,6 @@ const clearText = () => {
   }
   store.clearText();
 };
-
 const isListening = computed({
   get: () => generalStore.getListeningState,
   set: (value) => {
@@ -45,7 +44,35 @@ const isKeyboardOpen = computed({
   <div
     class="container flex flex-wrap md:px-3 lg:px-5 w-4/5 md:w-full lg:w-4/5 xl:w-4/5"
   >
-    <div class="w-1/4 text-center">
+    <div v-if="store.getTranslationButtionState" class="w-1/5 text-center">
+      <UTooltip
+        :text="$t('tooltip.copy')"
+        :popper="{ placement: 'bottom', offsetSkid: 30 }"
+        :ui="{
+          strategy: 'override',
+          rounded: 'rounded-3xl',
+          color: 'text-[#999999] dark:text-white',
+          shadow: 'shadow-card',
+          ring: 'ring-0',
+          base: '[@media(pointer:coarse)]:hidden h-6 px-2 py-1 text-xs font-normal truncate relative ml-5',
+        }"
+      >
+        <UAvatar
+          src="/icons/copy.svg"
+          class="rounded-none cursor-pointer"
+          :ui="{
+            strategy: 'override',
+            rounded: 'rounded-none',
+            size: {
+              xs: 'h-6 w-6 text-xs',
+              sm: 'h-7 w-7 text-normal font-normal',
+            },
+          }"
+          :size="viewport.isLessThan('tablet') ? 'xs' : 'sm'"
+        />
+      </UTooltip>
+    </div>
+    <div v-else class="w-1/4 text-center">
       <UTooltip
         :text="$t('tooltip.virtual_keyboard')"
         :popper="{ placement: 'bottom', offsetSkid: 30 }"
@@ -74,7 +101,35 @@ const isKeyboardOpen = computed({
         />
       </UTooltip>
     </div>
-    <div class="w-1/4 text-center">
+    <div v-if="store.getTranslationButtionState" class="w-1/5 text-center">
+      <UTooltip
+        :text="$t('tooltip.voice_input')"
+        :popper="{ placement: 'bottom', offsetSkid: 30 }"
+        :ui="{
+          strategy: 'override',
+          rounded: 'rounded-3xl',
+          color: 'text-[#999999] dark:text-white',
+          shadow: 'shadow-card',
+          ring: 'ring-0',
+          base: '[@media(pointer:coarse)]:hidden h-6 px-2 py-1 text-xs font-normal truncate relative ml-5',
+        }"
+      >
+        <UAvatar
+          src="/icons/keyboard.svg"
+          class="rounded-none cursor-pointer"
+          :ui="{
+            strategy: 'override',
+            rounded: 'rounded-none',
+            size: {
+              xs: 'h-6 w-6 text-xs',
+              sm: 'h-7 w-7 text-normal font-normal',
+            },
+          }"
+          :size="viewport.isLessThan('tablet') ? 'xs' : 'sm'"
+        />
+      </UTooltip>
+    </div>
+    <div v-else class="w-1/4 text-center">
       <UTooltip
         :text="$t('tooltip.voice_input')"
         :popper="{ placement: 'bottom', offsetSkid: 30 }"
@@ -145,6 +200,8 @@ const isKeyboardOpen = computed({
           ring: 'ring-0',
         }"
         @click="clearText"
+        @mouseover="isHover = true"
+        @mouseleave="isHover = false"
       >
         <UAvatar
           src="/icons/button-restart.svg"
