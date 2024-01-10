@@ -152,7 +152,7 @@ const updateSoundFx = computed({
                   active: 'bg-success dark:bg-success',
                   base: 'relative inline-flex flex-shrink-0 border-2 border-black',
                   container: {
-                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black',
+                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black ml-[0.15rem]',
                     size: {
                       xl: 'w-5 h-5 mt-0.5',
                     },

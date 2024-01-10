@@ -46,7 +46,9 @@
     "@pinia/nuxt": "^0.5.1",
     "ohmyfetch": "^0.4.21",
     "pinia": "^2.1.7",
+    "react-dnd-html5-backend": "^16.0.1",
     "typeface-roboto": "^1.1.13",
-    "vue3-carousel-nuxt": "^1.1.0"
+    "vue3-carousel-nuxt": "^1.1.0",
+    "vue3-dnd": "^2.0.4"
   }
 }

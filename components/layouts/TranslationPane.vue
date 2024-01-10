@@ -89,7 +89,7 @@ function checkTranslationOfToken(token: string) {
       };
     }
   });
-  if (translationFound) {
+  if (translationFound !== null) {
     return translationFound;
   } else {
     issues.push(token);
@@ -117,10 +117,10 @@ function checkTranslationOfToken(token: string) {
         :type="word.type"
       />
       <div
-        class="top w-[100%] h-24 absolute top-0 bg-primary-bg left-0 blur-2xl rounded-[30%]"
+        class="top w-[100%] h-24 absolute top-0 bg-primary-bg left-0 blur-2xl rounded-[30%] pointer-events-none"
       ></div>
       <div
-        class="bottom w-[100%] h-24 bg-primary-bg blur-2xl rounded-[30%] absolute bottom-0 left-0"
+        class="bottom w-[100%] h-24 bg-primary-bg blur-2xl rounded-[30%] absolute bottom-0 left-0 pointer-events-none"
       ></div>
     </div>
   </div>
