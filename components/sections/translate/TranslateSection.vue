@@ -61,6 +61,10 @@ function checkTranslationOfToken(token: string) {
     }
   });
 }
+const handleSound = () => {
+  const audio = new Audio("/sounds/soft/unlock-door.mp3");
+  audio.play();
+};
 </script>
 
 <template>
@@ -83,7 +87,11 @@ function checkTranslationOfToken(token: string) {
       <TranslationPane />
     </div>
     <div class="container w-3/6 sm:w-1/6 md:w-2/12 lg:w-2/12 my-10 text-center">
-      <NextButton :text="$t('button.translate')" @call-event="translate" />
+      <NextButton
+        :text="$t('button.translate')"
+        @call-event="translate"
+        @click="handleSound"
+      />
     </div>
   </div>
 </template>

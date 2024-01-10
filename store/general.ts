@@ -12,6 +12,7 @@ export const useGeneralStore = defineStore("general", {
     currentTextFont: "font-roboto",
     tokens: [] as string[],
     isOpenChangeFontModel: false,
+    isSoundEnabled: true,
   }),
   getters: {
     getKeyboardState: (state) => state.keyboard,
@@ -25,6 +26,7 @@ export const useGeneralStore = defineStore("general", {
     getSelectedTranslationLanguageState: (state) => state.translationLanguage,
     getIsOpenChangeFontModelState: (state) => state.isOpenChangeFontModel,
     getCurrentTextFontState: (state) => state.currentTextFont,
+    getSoundEnabled: (state) => state.isSoundEnabled,
   },
   actions: {
     setKeyboardState(value: boolean) {
@@ -56,6 +58,9 @@ export const useGeneralStore = defineStore("general", {
     },
     setCurrentTextFontState(value: string) {
       this.currentTextFont = value;
+    },
+    setSoundEnabled(value: boolean) {
+      this.isSoundEnabled = value;
     },
   },
 });

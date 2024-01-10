@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import { Carousel, Pagination, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
-import { type PropType } from "vue";
+import { onMounted, type PropType } from "vue";
 import { computed, watch, ref } from "vue";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 import { useLocalStorageService } from "~/localStorage";
 import { useTranslationStore } from "~/store/translation";
 import type { WordData } from "~/interfaces/wordTranslation";
+import { useGeneralStore } from "~/store/general";
 
 const translationStore = useTranslationStore();
 const localStorageService = useLocalStorageService();
 const toast = useToast();
+const generalStore = useGeneralStore();
 const isHoverOnTrash = ref(false);
 const isHoverOnHistory = ref(false);
-
 const selectedWord = computed({
   get: () => {
     return translationStore.getSelectedWord;
@@ -115,10 +116,33 @@ const playAudio = () => {
     audio.value.play();
   }
 };
+const trashSound = "/sounds/loud/bubble-trash.mp3";
+const glassSound = "/sounds/loud/bubble-spawn.mp3";
+const paginationSound = "/sounds/loud/button-click-wood.mp3";
+const categorySound = "/sounds/loud/success-glassy-mallet.mp3";
+const handleSound = () => {
+  expanded.value = !expanded.value;
+  if (generalStore.getSoundEnabled) {
+    let audio = null;
+    if (expanded.value) {
+      audio = new Audio("/sounds/loud/bubble-close-2.mp3");
+    } else {
+      audio = new Audio("/sounds/loud/bubble-open-2.mp3");
+    }
+    audio.play();
+  }
+};
+
+const handleSounds = (soundValue: string) => {
+  if (generalStore.getSoundEnabled) {
+    const audio = new Audio(soundValue);
+    audio.play();
+  }
+};
 </script>
 
 <template>
-  <div ref="myElement" class="group flex items-center justify-center py-3">
+  <div class="group flex items-center justify-center py-3">
     <u-card
       class="flex-initial md:w-60 lg:w-64 w-64 p-0 rounded-3xl history-card col-span-1 my-[1rem] transition ease-in-out delay-50 duration-600 group-hover:-translate-x-2 font-light cursor-pointer"
       :ui="{
@@ -144,7 +168,7 @@ const playAudio = () => {
         </div>
       </div>
       <div v-else class="w-full">
-        <div class="flex h-full" @click="expanded = !expanded">
+        <div class="flex h-full" @click="handleSound">
           <div class="flex-none flex items-center justify-center px-2">
             <UAvatar
               :src="`/icons/${translationLogo}.svg`"
@@ -218,6 +242,7 @@ const playAudio = () => {
                         v-for="(category, index) in categories"
                         :key="index"
                         class="px-2 py-1 mr-1 my-1 rounded-full bg-primary-bg text-normal"
+                        @click="handleSounds(categorySound)"
                         >{{ category }}</span
                       >
                     </div>
@@ -250,7 +275,7 @@ const playAudio = () => {
                 </div>
               </Slide>
               <template #addons>
-                <Pagination />
+                <Pagination @click="handleSounds(paginationSound)" />
               </template>
             </Carousel>
           </div>
@@ -275,6 +300,7 @@ const playAudio = () => {
                     <div class="flex w-full justify-between">
                       <span
                         class="px-2 py-1 mr-1 my-4 rounded-full bg-success text-sm"
+                        @click="handleSounds(paginationSound)"
                         >alla</span
                       >
                       <div class="flex items-center justify-center">
@@ -286,6 +312,7 @@ const playAudio = () => {
                             rounded: 'rounded-none',
                           }"
                           size="xs"
+                          @click="handleSounds(glassSound)"
                         />
                       </div>
                     </div>
@@ -335,7 +362,7 @@ const playAudio = () => {
                 </div>
               </Slide>
               <template #addons>
-                <Pagination />
+                <Pagination @click="handleSounds(paginationSound)" />
               </template>
             </Carousel>
           </div>
@@ -367,6 +394,7 @@ const playAudio = () => {
           rounded: 'rounded-none',
         }"
         :size="viewport.isLessThan('tablet') ? '2xs' : '2xs'"
+        @click="handleSounds(trashSound)"
       />
     </UTooltip>
 
