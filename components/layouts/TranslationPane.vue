@@ -25,7 +25,7 @@ const isAutoDetectOn = computed(
 
 const tokens = computed(() => store.getTokens);
 
-watch(tokens, (value) => {
+watch(tokens, () => {
   popUpsKeys.value = Math.random();
 });
 
@@ -89,7 +89,7 @@ function checkTranslationOfToken(token: string) {
       };
     }
   });
-  if (translationFound) {
+  if (translationFound !== null) {
     return translationFound;
   } else {
     issues.push(token);
@@ -108,18 +108,19 @@ function checkTranslationOfToken(token: string) {
     :key="popUpsKeys"
     class="flex md:h-full md:max-h-screen flex-col sm:relative sm:overflow-y-auto max-h-[250px] sm:w-6/6 md:absolute bg-transparent md:w-4/12 lg:w-[24rem] xl:w-[29rem] 2xl:w-[33rem] md:px-3 md:right-0 md:top-0 lg:mr-[-3rem] justify-center"
   >
-    <div id="custom-scroll" class="overflow-y-auto inset-0">
+    <div id="custom-scroll" ref="scrollDiv" class="overflow-y-auto inset-0">
       <TranslationPopOver
         v-for="(word, index) in translationsPopUps"
+        ref=" contentDiv"
         :key="index"
         :data="word.data"
         :type="word.type"
       />
       <div
-        class="top w-[100%] h-24 absolute top-0 bg-primary-bg left-0 blur-2xl rounded-[30%]"
+        class="top w-[100%] h-24 absolute top-0 bg-primary-bg left-0 blur-2xl rounded-[30%] pointer-events-none"
       ></div>
       <div
-        class="bottom w-[100%] h-24 bg-primary-bg blur-2xl rounded-[30%] absolute bottom-0 left-0"
+        class="bottom w-[100%] h-24 bg-primary-bg blur-2xl rounded-[30%] absolute bottom-0 left-0 pointer-events-none"
       ></div>
     </div>
   </div>

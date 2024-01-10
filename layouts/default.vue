@@ -4,6 +4,10 @@ import SectionNavigation from "~/components/layouts/SectionNavigation.vue";
 import ListeningAudio from "~/components/general/ListeningAudio.vue";
 import LeftSideOver from "~/components/layouts/LeftSideOver.vue";
 import SelectFontModel from "~/components/models/SelectFontModel.vue";
+import SuccessModel from "~/components/models/SuccessModel.vue";
+import IssueModel from "~/components/models/IssueModel.vue";
+import PoorTranslationModel from "~/components/models/PoorTranslationModel.vue";
+import SelectLanguageModel from "~/components/models/SelectLanguageModel.vue";
 </script>
 <template>
   <div class="default-layout bg-transparent light-mode font-sans">
@@ -33,6 +37,10 @@ import SelectFontModel from "~/components/models/SelectFontModel.vue";
     <ListeningAudio />
     <UNotifications />
     <SelectFontModel />
+    <SuccessModel />
+    <IssueModel />
+    <PoorTranslationModel />
+    <SelectLanguageModel />
   </div>
 </template>
 
