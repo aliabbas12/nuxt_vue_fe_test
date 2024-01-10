@@ -7,7 +7,6 @@ const wizard = ref(true);
 const proTips = ref(true);
 const autoDedect = ref(true);
 const notification = ref(true);
-const sound = ref(true);
 const dark = ref(false);
 
 const isOpenFontChangeModel = computed({
@@ -21,6 +20,12 @@ const slideOverOpen = computed({
   get: () => generalStore.getSideOverState,
   set: (value) => {
     generalStore.setSideOverState(value);
+  },
+});
+const updateSoundFx = computed({
+  get: () => generalStore.getSoundEnabled,
+  set: (value) => {
+    generalStore.setSoundEnabled(value);
   },
 });
 </script>
@@ -181,7 +186,7 @@ const slideOverOpen = computed({
           <div class="h-full w-full flex flex-col my-10">
             <div class="w-full flex flex-col my-16 items-center justify-center">
               <UToggle
-                v-model="sound"
+                v-model="updateSoundFx"
                 color="primary"
                 size="xl"
                 :ui="{
@@ -195,6 +200,7 @@ const slideOverOpen = computed({
                     },
                   },
                 }"
+                @click="handleChange"
               />
               <div class="my-3">sound fx</div>
             </div>

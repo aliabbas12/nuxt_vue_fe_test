@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, watch } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import TranslationPopOver from "../general/TranslationPopOver.vue";
 import rice from "../../staticTranslations/rice.json";
 import agnello from "../../staticTranslations/agnello.json";

@@ -111,6 +111,10 @@ function checkTranslationOfToken(token: string) {
     }
   });
 }
+const handleSound = () => {
+  const audio = new Audio("/sounds/soft/unlock-door.mp3");
+  audio.play();
+};
 </script>
 
 <template>
