@@ -86,15 +86,26 @@ const buttonNotClickedTooptips = [
     isHover: false,
     icon: "/icons/keyboard.svg",
     hoverIcon: "/icons/keyboard-hover.svg",
-    myFunction: function () {},
+    myFunction: function () {
+      isKeyboardOpen.value = !isKeyboardOpen.value;
+    },
   },
   {
     id: 2,
     tooltip: "tooltip.voice_input",
     isHover: false,
     icon: "/icons/microphone.svg",
-    hoverIcon: "/microphone-hover.svg",
-    myFunction: function () {},
+    hoverIcon: "icons/microphone-hover.svg",
+    myFunction: function () {
+      isListening.value = !isListening.value;
+      if (isListening.value) {
+        this.icon = "icons/microphone-red.svg";
+        this.hoverIcon = "icons/microphone-red.svg";
+      } else {
+        this.icon = "icons/microphone.svg";
+        this.hoverIcon = "icons/microphone-hover.svg";
+      }
+    },
   },
   {
     id: 3,
@@ -102,7 +113,10 @@ const buttonNotClickedTooptips = [
     isHover: false,
     icon: "/icons/speaker-solid2.svg",
     hoverIcon: "/icons/speaker-solid2-hover.svg",
-    myFunction: function () {},
+    myFunction: function () {
+      const utterance = new SpeechSynthesisUtterance(text.value);
+      synth.speak(utterance);
+    },
   },
 
   {
@@ -124,10 +138,6 @@ const buttonNotClickedTooptips = [
 onUnmounted(() => {
   synth.cancel();
 });
-function addHistory(history: any) {
-  localStorageService.setHistory({ value: history });
-  toast.add({ title: "history added", timeout: 1000 });
-}
 </script>
 
 <template>

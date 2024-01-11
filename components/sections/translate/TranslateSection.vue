@@ -8,6 +8,7 @@ import NextButton from "~/components/general/NextButton.vue";
 import TranslateOptions from "~/components/sections/translate/components/TranslateOptions.vue";
 import TranslationPane from "~/components/layouts/TranslationPane.vue";
 import VirtualKeyboard from "~/components/general/VirtualKeyboard.vue";
+import { useLocalStorageService } from "~/localStorage";
 import { useTranslationStore } from "~/store/translation";
 import { useModelStore } from "~/store/models";
 import rice from "~/staticTranslations/rice.json";
@@ -17,7 +18,10 @@ import agnello from "~/staticTranslations/agnello.json";
 import arroz from "~/staticTranslations/arroz.json";
 import cordero from "~/staticTranslations/cordero.json";
 import { TranslationIssues } from "~/global/enums/translationIssues";
+import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
+import type { WordData } from "~/interfaces/wordTranslation";
 const translationStore = useTranslationStore();
+const localStorageService = useLocalStorageService();
 const modelStore = useModelStore();
 const tokens = computed(() => {
   return translationStore.getTokens;
