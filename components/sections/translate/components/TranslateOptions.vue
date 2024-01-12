@@ -154,7 +154,7 @@ const getTooltipArray = computed(() => {
       v-for="tooltip in getTooltipArray"
       :key="tooltip.id"
       :class="[
-        store.getTranslationButtonState === true
+        store.getTranslationButtonState
           ? 'w-1/5 text-center'
           : 'w-1/4 text-center',
       ]"

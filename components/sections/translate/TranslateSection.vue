@@ -35,11 +35,22 @@ const selectedLanguageForTranslation = computed({
 });
 
 watch(selectedLanguageForTranslation, () => {
+  const dateToday = new Date();
+  const data = {
+    textBeforeTranslate: translationStore.getText,
+    textAfterTranslate: "",
+    languageBeforeTranslate: translationStore.translationLanguage,
+    languageAfterTranslate: "",
+    timestamp: dateToday,
+  };
+  translationStore.setTranslationButtonState(true);
   tokens.value.forEach((token) => {
     checkTranslationOfToken(token);
   });
+  (data.textAfterTranslate = translationStore.getText),
+    (data.languageAfterTranslate = translationStore.translationLanguage);
+  localStorageService.setHistory({ value: data });
   modelStore.setSelectLanguageModelValue(false);
-  translationStore.setTranslationButtonState(true);
 });
 
 function translate() {

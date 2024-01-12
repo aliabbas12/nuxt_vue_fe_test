@@ -31,64 +31,21 @@ const translationHistory = computed(() => localStorageService.getHistory);
         },
       }"
     >
-      <div class="w-full">
-        <div class="my-3.5">{{ translation?.text }}</div>
-        <UDivider
-          :ui="{
-            strategy: 'override',
-            border: { base: 'flex border-gray-200 ' },
-          }"
-        />
-      </div>
-      <div class="w-full">
-        <div class="my-4">{{ translation.translation }}</div>
-        <div class="py-2">
-          <span class="px-3 py-2 mr-1 rounded-full bg-primary-bg"
-            >breakfast</span
-          >
-          <span class="px-3 py-2 mx-2 rounded-full bg-primary-bg">meat</span>
+      <div class="w-full flex flex-col py-5">
+        <div class="text-lg">
+          {{ translation.text }}
         </div>
-      </div>
-      <div class="w-full flex flex-row mt-6">
-        <div class="flex-1">
-          <UAvatar
-            src="/icons/card.svg"
-            class="rounded-none mr-1"
-            :ui="{
-              strategy: 'override',
-              rounded: 'rounded-none',
-            }"
-            size="xs"
-          />
-          <UAvatar
-            src="/icons/trash.svg"
-            class="rounded-none mx-1"
-            :ui="{
-              strategy: 'override',
-              rounded: 'rounded-none',
-            }"
-            size="xs"
-          />
-          <UAvatar
-            src="/icons/notification.svg"
-            class="rounded-none mx-1"
-            :ui="{
-              strategy: 'override',
-              rounded: 'rounded-none',
-            }"
-            size="xs"
-          />
+        <div class="text-sm text-gray-500">
+          {{ translation.translatedText }}
         </div>
-        <div class="flex-none">
-          <UAvatar
-            :src="`/icons/${translationLogo(translation?.type)}.svg`"
-            class="rounded-none"
-            :ui="{
-              strategy: 'override',
-              rounded: 'rounded-none',
-            }"
-            size="xs"
-          />
+        <div class="text-lg">
+          {{ translation.language }}
+        </div>
+        <div class="text-sm text-gray-500">
+          {{ translation.translatedLanguage }}
+        </div>
+        <div class="text-sm text-gray-500">
+          {{ translation.timestamp }}
         </div>
       </div>
     </u-card>
