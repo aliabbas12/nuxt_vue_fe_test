@@ -14,7 +14,7 @@ export const useTranslationStore = defineStore("translation", {
   }),
   getters: {
     getText: (state) => state.text,
-    getTranslationButtionState: (state) => state.isTranslationButtonClicked,
+    getTranslationButtonState: (state) => state.isTranslationButtonClicked,
     getSelectedWord: (state) => state.selectedWord,
     getTranslationLikeState: (state) => state.isTranslationLike,
     getTokens(state): string[] {
@@ -40,7 +40,7 @@ export const useTranslationStore = defineStore("translation", {
     setSelectedWord(text: string) {
       this.selectedWord = text;
     },
-    setTranslartiobButionState(value: boolean) {
+    setTranslatiobButtionState(value: boolean) {
       this.isTranslationButtonClicked = value;
     },
     setToken(tokens: string[]) {
