@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, watch } from "vue";
+import { computed, transformVNodeArgs, watch } from "vue";
 import { DndProvider } from "vue3-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import SelectLanguage from "~/components/sections/translate/components/SelectLanguage.vue";
@@ -48,9 +48,6 @@ function translate() {
   } else {
     modelStore.setIssueModelState(true);
   }
-  // tokens.value.forEach((token) => {
-  //   checkTranslationOfToken(token);
-  // });
 }
 
 const issueType = computed({

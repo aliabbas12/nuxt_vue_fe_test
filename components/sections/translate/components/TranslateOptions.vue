@@ -137,7 +137,7 @@ onUnmounted(() => {
   synth.cancel();
 });
 const getTooltipArray = computed(() => {
-  if (store.getTranslationButtionState) {
+  if (store.getTranslationButtonState) {
     return buttonClickedTooptips;
   } else {
     return buttonNotClickedTooptips;
@@ -153,7 +153,7 @@ const getTooltipArray = computed(() => {
       v-for="tooltip in getTooltipArray"
       :key="tooltip.id"
       :class="[
-        store.getTranslationButtionState === true
+        store.getTranslationButtonState === true
           ? 'w-1/5 text-center'
           : 'w-1/4 text-center',
       ]"
@@ -161,6 +161,11 @@ const getTooltipArray = computed(() => {
       <UTooltip
         :text="$t(tooltip.tooltip)"
         :popper="{ placement: 'bottom', offsetSkid: 30 }"
+        :class="[
+          !store.isTranslationButtonClicked && isListening && tooltip.id === 2
+            ? 'icon-listening'
+            : '',
+        ]"
         :ui="{
           strategy: 'override',
           rounded: 'rounded-3xl',
@@ -184,7 +189,11 @@ const getTooltipArray = computed(() => {
               sm: 'h-7 w-7 text-normal font-normal',
             },
           }"
-          :class="[isListening ? 'icon-listening icon' : '']"
+          :class="[
+            !store.isTranslationButtonClicked && isListening && tooltip.id === 2
+              ? 'icon'
+              : '',
+          ]"
           :size="viewport.isLessThan('tablet') ? 'xs' : 'sm'"
         />
       </UTooltip>
