@@ -136,6 +136,13 @@ const buttonNotClickedTooptips = [
 onUnmounted(() => {
   synth.cancel();
 });
+const getTooltipArray = computed(() => {
+  if (store.getTranslationButtionState) {
+    return buttonClickedTooptips;
+  } else {
+    return buttonNotClickedTooptips;
+  }
+});
 </script>
 
 <template>
@@ -143,12 +150,15 @@ onUnmounted(() => {
     class="container flex flex-wrap md:px-3 lg:px-5 w-4/5 md:w-full lg:w-4/5 xl:w-4/5"
   >
     <div
-      v-for="tooltip in buttonClickedTooptips"
-      v-if="store.isTranslationButtonClicked"
-      class="w-1/5 text-center"
+      v-for="tooltip in getTooltipArray"
+      :key="tooltip.id"
+      :class="[
+        store.getTranslationButtionState === true
+          ? 'w-1/5 text-center'
+          : 'w-1/4 text-center',
+      ]"
     >
       <UTooltip
-        :key="tooltip.id"
         :text="$t(tooltip.tooltip)"
         :popper="{ placement: 'bottom', offsetSkid: 30 }"
         :ui="{
@@ -170,46 +180,11 @@ onUnmounted(() => {
             strategy: 'override',
             rounded: 'rounded-none',
             size: {
-              xs: 'h-6 w-6 text-xs',
+              xs: 'h-5 w-5 text-xs',
               sm: 'h-7 w-7 text-normal font-normal',
             },
           }"
-          :size="viewport.isLessThan('tablet') ? 'xs' : 'sm'"
-        />
-      </UTooltip>
-    </div>
-    <div
-      v-for="tooltip in buttonNotClickedTooptips"
-      v-else
-      class="w-1/4 text-center"
-    >
-      <UTooltip
-        :key="tooltip.id"
-        :text="$t(tooltip.tooltip)"
-        :popper="{ placement: 'bottom', offsetSkid: 30 }"
-        :ui="{
-          strategy: 'override',
-          rounded: 'rounded-3xl',
-          color: 'text-[#999999] dark:text-white',
-          shadow: 'shadow-card',
-          ring: 'ring-0',
-          base: '[@media(pointer:coarse)]:hidden h-6 px-2 py-1 text-xs font-normal truncate relative ml-5',
-        }"
-        @mouseover="tooltip.isHover = true"
-        @mouseleave="tooltip.isHover = false"
-        @click="tooltip.myFunction()"
-      >
-        <UAvatar
-          :src="[tooltip.isHover ? tooltip.hoverIcon : tooltip.icon]"
-          class="rounded-none cursor-pointer"
-          :ui="{
-            strategy: 'override',
-            rounded: 'rounded-none',
-            size: {
-              xs: 'h-6 w-6 text-xs',
-              sm: 'h-7 w-7 text-normal font-normal',
-            },
-          }"
+          :class="[isListening ? 'icon-listening icon' : '']"
           :size="viewport.isLessThan('tablet') ? 'xs' : 'sm'"
         />
       </UTooltip>
