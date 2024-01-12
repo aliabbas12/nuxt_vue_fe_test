@@ -17,6 +17,12 @@ const generalStore = useGeneralStore();
 
 let languageSet = false;
 let issues = [] as string[];
+const proTips = ref<
+  Array<{
+    type: TranslationPopOverType;
+    data: WordData;
+  }>
+>([]);
 const popUpsKeys = ref(11111);
 
 const isAutoDetectOn = computed(
@@ -27,6 +33,21 @@ const tokens = computed(() => store.getTokens);
 
 watch(tokens, () => {
   popUpsKeys.value = Math.random();
+});
+
+onMounted(() => {
+  proTips.value.push({
+    type: TranslationPopOverType.PRO_TIPS,
+    data: {
+      word: "We use cookies for a better experience and to gather usage metrics for translation improvement. No ads, no data sharing. Learn more.",
+    },
+  });
+  proTips.value.push({
+    type: TranslationPopOverType.PRO_TIPS,
+    data: {
+      word: "Translate food and ingredient terms between English, Spanish and Italian.",
+    },
+  });
 });
 
 const staticTranslations = {
@@ -46,6 +67,7 @@ const translationsPopUps = computed(() => {
     return checkTranslationOfToken(token);
   });
   store.setIssues(issues);
+  Array.prototype.unshift.apply(wordsTranslations, proTips.value);
   return wordsTranslations;
 });
 

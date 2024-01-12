@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, watch } from "vue";
+import { computed, watch } from "vue";
 import { useNuxtApp } from "#app";
 import { useTranslationStore } from "~/store/translation";
 import { useGeneralStore } from "~/store/general";
@@ -29,8 +29,6 @@ watch(isKeyboardOpen, (value) => {
     closeKeybaord();
   }
 });
-
-onMounted(() => {});
 
 function openKeyboard() {
   keyboard = new $virtualKeyboard("keyboardClass", {

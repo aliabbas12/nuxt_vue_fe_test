@@ -49,7 +49,7 @@ const props = defineProps({
   type: {
     type: String as PropType<TranslationPopOverType>,
     required: false,
-    default: TranslationPopOverType.BASIC,
+    default: TranslationPopOverType.PRO_TIPS,
   },
   data: {
     type: Object as PropType<WordData>,
@@ -202,7 +202,7 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
           },
         }"
       >
-        <div v-if="type === TranslationPopOverType.BASIC">
+        <div v-if="type === TranslationPopOverType.PRO_TIPS">
           <div class="relative items-center justify-between">
             <UButton
               color="gray"
@@ -419,7 +419,7 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
       </u-card>
     </div>
     <UTooltip
-      v-if="type !== TranslationPopOverType.BASIC"
+      v-if="type !== TranslationPopOverType.PRO_TIPS"
       :text="$t('tooltip.trash')"
       :popper="{ placement: 'bottom', strategy: 'absolute' }"
       :ui="{
@@ -448,7 +448,7 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
       />
     </UTooltip>
     <UTooltip
-      v-if="type !== TranslationPopOverType.BASIC"
+      v-if="type !== TranslationPopOverType.PRO_TIPS"
       :text="$t('tooltip.save')"
       :popper="{ placement: 'bottom', strategy: 'absolute' }"
       :ui="{
