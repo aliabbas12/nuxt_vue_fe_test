@@ -4,6 +4,7 @@ import { TranslationIssues } from "~/global/enums/translationIssues";
 export const useTranslationStore = defineStore("translation", {
   state: () => ({
     text: "",
+    isTranslationLike: false,
     isTranslationButtonClicked: false,
     selectedWord: "",
     translationLanguage: "en" as "en" | "it" | "se",
@@ -15,6 +16,7 @@ export const useTranslationStore = defineStore("translation", {
     getText: (state) => state.text,
     getTranslationButtionState: (state) => state.isTranslationButtonClicked,
     getSelectedWord: (state) => state.selectedWord,
+    getTranslationLikeState: (state) => state.isTranslationLike,
     getTokens(state): string[] {
       return state.token;
     },
@@ -31,6 +33,9 @@ export const useTranslationStore = defineStore("translation", {
   actions: {
     addText(text: string) {
       this.text = text;
+    },
+    setTranslationLikeState(value: boolean) {
+      this.isTranslationLike = value;
     },
     setSelectedWord(text: string) {
       this.selectedWord = text;
