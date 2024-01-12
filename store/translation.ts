@@ -40,7 +40,7 @@ export const useTranslationStore = defineStore("translation", {
     setSelectedWord(text: string) {
       this.selectedWord = text;
     },
-    setTranslatiobButtionState(value: boolean) {
+    setTranslationButtonState(value: boolean) {
       this.isTranslationButtonClicked = value;
     },
     setToken(tokens: string[]) {

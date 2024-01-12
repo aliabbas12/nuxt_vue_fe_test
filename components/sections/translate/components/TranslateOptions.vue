@@ -73,7 +73,7 @@ const buttonClickedTooptips = [
         contenteditableDiv.innerHTML = "";
       }
       store.clearText();
-      store.setTextTranslatedState(false);
+      store.setTranslationButtonState(false);
     },
   },
 ];
@@ -130,6 +130,7 @@ const buttonNotClickedTooptips = [
         contenteditableDiv.innerHTML = "";
       }
       store.clearText();
+      store.setTranslationButtonState(false);
     },
   },
 ];
