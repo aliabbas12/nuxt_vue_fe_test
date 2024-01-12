@@ -19,7 +19,7 @@ export const useLocalStorageService = defineStore({
               translatedText: value.textAfterTranslate,
               language: value.languageBeforeTranslate,
               translatedLanguage: value.languageAfterTranslate,
-              timestamp: value.timestamp.toISOString(,
+              timestamp: value.timestamp,
             };
           });
           state.history = history;
