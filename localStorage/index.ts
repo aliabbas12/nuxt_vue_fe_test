@@ -9,17 +9,8 @@ export const useLocalStorageService = defineStore({
     getHistory: (state): any[] => {
       const storageHistory = localStorage.getItem("menulance");
       if (storageHistory !== null) {
-        let { history } = JSON.parse(storageHistory);
+        const { history } = JSON.parse(storageHistory);
         if (history != null) {
-          history = history.map((value) => {
-            return {
-              text: value.textBeforeTranslate,
-              translatedText: value.textAfterTranslate,
-              language: value.languageBeforeTranslate,
-              translatedLanguage: value.languageAfterTranslate,
-              timestamp: value.timestamp,
-            };
-          });
           state.history = history;
         }
       }

@@ -2,8 +2,7 @@
 import { useDrag, useDrop } from "vue3-dnd";
 import { Carousel, Pagination, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
-import { onMounted, type PropType } from "vue";
-import { computed, watch, ref, unref } from "vue";
+import { computed, type PropType, ref, unref, watch } from "vue";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 import { useLocalStorageService } from "~/localStorage";
 import { useTranslationStore } from "~/store/translation";
@@ -13,6 +12,9 @@ import { useGeneralStore } from "~/store/general";
 const translationStore = useTranslationStore();
 const localStorageService = useLocalStorageService();
 const toast = useToast();
+const showOverlayDiv = ref(false);
+const showCheckboxDiv = ref(false);
+
 const generalStore = useGeneralStore();
 const isHoverOnTrash = ref(false);
 const isHoverOnHistory = ref(false);
@@ -188,7 +190,7 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
       class="bg-transparent rounded-3xl group-hover:-translate-x-2"
     >
       <u-card
-        class="flex-initial md:w-60 lg:w-64 w-64 p-0 rounded-3xl history-card col-span-1 my-[1rem] transition ease-in-out delay-50 duration-600 group-hover:-translate-x-2 font-light cursor-pointer"
+        class="relative overflow-hidden flex-initial md:w-60 lg:w-64 w-64 p-0 rounded-3xl history-card col-span-1 my-[1rem] transition ease-in-out group-hover:-translate-x-2 font-light cursor-pointer border-gray-600"
         :ui="{
           strategy: 'override',
           shadow: 'shadow-card',
@@ -197,7 +199,45 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
             padding: 'px-4 py-2',
           },
         }"
+        :class="[
+          type === TranslationPopOverType.PRO_TIPS
+            ? 'group-hover:border-[1px]'
+            : '',
+        ]"
+        @mouseover="showOverlayDiv = true"
+        @mouseout="showOverlayDiv = false"
       >
+        <div
+          v-show="showOverlayDiv"
+          class="overlay absolute w-[100%] h-[100%] inset-0 bg-white text-black flex items-center justify-center flex-col"
+        >
+          <span
+            class="uppercase px-5 py-2 mb-5 text-black font-medium text-[14px] delay-300"
+            :class="[showCheckboxDiv ? 'delay-300' : '']"
+            @mouseover="showCheckboxDiv = true"
+            @mouseout="showCheckboxDiv = false"
+          >
+            protip
+          </span>
+          <div v-show="showCheckboxDiv">
+            <u-checkbox
+              :checked="true"
+              variant="outline"
+              size="sm"
+              :ui="{
+                strategy: 'overide',
+              }"
+              checkbox-class=" my-5 w-full h-16 rounded-medium bg-secondary-bg px-3"
+            >
+              <template #label>
+                <span class="text-[14px] text-gray-500 font-light"
+                  >Don't show <br />
+                  this again</span
+                >
+              </template>
+            </u-checkbox>
+          </div>
+        </div>
         <div v-if="type === TranslationPopOverType.PRO_TIPS">
           <div class="relative items-center justify-between">
             <UButton
@@ -207,6 +247,7 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
               class="absolute right-0 top-0"
             />
           </div>
+
           <div class="flex items-center justify-center p-4 font-normal">
             {{ word }}
           </div>
