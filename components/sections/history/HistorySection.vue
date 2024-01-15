@@ -32,21 +32,7 @@ const translationHistory = computed(() => localStorageService.getHistory);
       }"
     >
       <div class="w-full flex flex-col py-5">
-        <div class="text-lg">
-          {{ translation.text }}
-        </div>
-        <div class="text-sm text-gray-500">
-          {{ translation.translatedText }}
-        </div>
-        <div class="text-lg">
-          {{ translation.language }}
-        </div>
-        <div class="text-sm text-gray-500">
-          {{ translation.translatedLanguage }}
-        </div>
-        <div class="text-sm text-gray-500">
-          {{ translation.timestamp }}
-        </div>
+        {{ translation }}
       </div>
     </u-card>
     <u-card

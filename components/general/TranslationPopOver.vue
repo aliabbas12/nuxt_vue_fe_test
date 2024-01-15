@@ -29,10 +29,6 @@ watch(selectedWord, (value) => {
   expanded.value = value === word;
 });
 
-function addHistory(history: any) {
-  localStorageService.setHistory({ value: history });
-  toast.add({ title: "history added", timeout: 1000 });
-}
 function removeWordFromText(word: string) {
   translationStore.removeWordFromText(word);
 }
@@ -445,36 +441,6 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
         }"
         :size="viewport.isLessThan('tablet') ? '2xs' : '2xs'"
         @click="handleSounds(trashSound)"
-      />
-    </UTooltip>
-    <UTooltip
-      v-if="type !== TranslationPopOverType.PRO_TIPS"
-      :text="$t('tooltip.save')"
-      :popper="{ placement: 'bottom', strategy: 'absolute' }"
-      :ui="{
-        strategy: 'override',
-        rounded: 'rounded-3xl',
-        color: 'text-[#999999] dark:text-white',
-        shadow: 'shadow-card',
-        ring: 'ring-0',
-      }"
-      :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 cursor-pointer ${
-        expanded ? 'block' : ''
-      } group-hover:block`"
-      @mouseover="handleHover('history', true)"
-      @mouseout="handleHover('history', false)"
-      @click="addHistory({ word, translation, type })"
-    >
-      <UAvatar
-        :src="
-          isHoverOnHistory ? '/icons/history-hover.svg' : '/icons/history.svg'
-        "
-        class="rounded-none"
-        :ui="{
-          strategy: 'override',
-          rounded: 'rounded-none',
-        }"
-        :size="viewport.isLessThan('tablet') ? '2xs' : '2xs'"
       />
     </UTooltip>
   </div>

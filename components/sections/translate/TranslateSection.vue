@@ -41,7 +41,11 @@ watch(selectedLanguageForTranslation, () => {
     textAfterTranslate: "",
     languageBeforeTranslate: translationStore.translationLanguage,
     languageAfterTranslate: "",
-    timestamp: dateToday,
+    timestamp: dateToday.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }),
   };
   translationStore.setTranslationButtonState(true);
   tokens.value.forEach((token) => {
@@ -49,8 +53,8 @@ watch(selectedLanguageForTranslation, () => {
   });
   (data.textAfterTranslate = translationStore.getText),
     (data.languageAfterTranslate = translationStore.translationLanguage);
-  localStorageService.setHistory({ value: data });
   modelStore.setSelectLanguageModelValue(false);
+  localStorageService.setHistory({ value: data });
 });
 
 function translate() {

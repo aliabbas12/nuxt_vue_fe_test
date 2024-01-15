@@ -11,9 +11,7 @@ export const useLocalStorageService = defineStore({
       if (storageHistory !== null) {
         let { history } = JSON.parse(storageHistory);
         if (history != null) {
-          // Object.assign(state.history, history);
-
-          history = history.map((value: any) => {
+          history = history.map((value) => {
             return {
               text: value.textBeforeTranslate,
               translatedText: value.textAfterTranslate,

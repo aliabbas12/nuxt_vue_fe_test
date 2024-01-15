@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import TranslationPopOver from "../general/TranslationPopOver.vue";
 import rice from "../../staticTranslations/rice.json";
 import agnello from "../../staticTranslations/agnello.json";
@@ -14,13 +14,13 @@ import { useGeneralStore } from "~/store/general";
 
 const store = useTranslationStore();
 const generalStore = useGeneralStore();
-
+const checkText = ref<string | null>(store.getText);
 let languageSet = false;
 let issues = [] as string[];
 const proTips = ref<
   Array<{
-    type: TranslationPopOverType;
-    data: WordData;
+    type: TranslationPopOverType.PRO_TIPS;
+    data: any;
   }>
 >([]);
 const popUpsKeys = ref(11111);
