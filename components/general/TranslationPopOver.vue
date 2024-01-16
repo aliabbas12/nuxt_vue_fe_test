@@ -2,17 +2,20 @@
 import { useDrag, useDrop } from "vue3-dnd";
 import { Carousel, Pagination, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
-import { onMounted, type PropType } from "vue";
-import { computed, watch, ref, unref } from "vue";
+import { computed, type PropType, ref, unref, watch } from "vue";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 import { useLocalStorageService } from "~/localStorage";
 import { useTranslationStore } from "~/store/translation";
 import type { WordData } from "~/interfaces/wordTranslation";
 import { useGeneralStore } from "~/store/general";
-
+import { proTips } from "~/store/proTips";
+const useTipStore = proTips();
 const translationStore = useTranslationStore();
 const localStorageService = useLocalStorageService();
 const toast = useToast();
+const showOverlayDiv = ref(false);
+const showCheckboxDiv = ref(false);
+
 const generalStore = useGeneralStore();
 const isHoverOnTrash = ref(false);
 const isHoverOnHistory = ref(false);
@@ -29,10 +32,6 @@ watch(selectedWord, (value) => {
   expanded.value = value === word;
 });
 
-function addHistory(history: any) {
-  localStorageService.setHistory({ value: history });
-  toast.add({ title: "history added", timeout: 1000 });
-}
 function removeWordFromText(word: string) {
   translationStore.removeWordFromText(word);
 }
@@ -160,7 +159,6 @@ const isActive = computed(() => unref(canDrop) && unref(isOver));
 const backgroundColor = computed(() =>
   unref(isActive) ? "darkgreen" : unref(canDrop) ? "darkkhaki" : "#222",
 );
-
 const [collect, drag] = useDrag(() => ({
   type: "Box",
   item: () => ({
@@ -179,8 +177,15 @@ const [collect, drag] = useDrag(() => ({
   }),
 }));
 const isDragging = computed(() => collect.value.isDragging);
-
+const handleMouseOver = () => {
+  setTimeout(() => {
+    showCheckboxDiv.value = true;
+  }, 500);
+};
 const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
+const handleDelete = (data: WordData) => {
+  useTipStore.removeTip({ value: data });
+};
 </script>
 
 <template>
@@ -192,7 +197,7 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
       class="bg-transparent rounded-3xl group-hover:-translate-x-2"
     >
       <u-card
-        class="flex-initial md:w-60 lg:w-64 w-64 p-0 rounded-3xl history-card col-span-1 my-[1rem] transition ease-in-out delay-50 duration-600 group-hover:-translate-x-2 font-light cursor-pointer"
+        class="relative overflow-hidden flex-initial md:w-60 lg:w-64 w-64 p-0 rounded-3xl history-card col-span-1 my-[1rem] transition ease-in-out group-hover:-translate-x-2 font-light cursor-pointer border-gray-600"
         :ui="{
           strategy: 'override',
           shadow: 'shadow-card',
@@ -201,7 +206,50 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
             padding: 'px-4 py-2',
           },
         }"
+        :class="[
+          type === TranslationPopOverType.PRO_TIPS
+            ? 'group-hover:border-[1px]'
+            : '',
+        ]"
+        @mouseover="showOverlayDiv = true"
+        @mouseleave="[(showOverlayDiv = false), (showCheckboxDiv = false)]"
       >
+        <div
+          v-if="
+            showOverlayDiv &&
+            !data.option &&
+            type === TranslationPopOverType.PRO_TIPS
+          "
+          class="overlay absolute w-[100%] h-[100%] inset-0 bg-white text-black flex items-center justify-center flex-col group"
+        >
+          <span
+            class="uppercase transition-all ease-in-out duration-500 px-10 py-1 mb-6 text-black font-medium text-[14px] group-hover:delay-300"
+            @mouseover="handleMouseOver"
+          >
+            protip
+          </span>
+          <div v-show="showCheckboxDiv">
+            <u-checkbox
+              v-if="!data.option"
+              :checked="true"
+              variant="outline"
+              size="lg"
+              :ui="{
+                strategy: 'overide',
+                background: 'bg-black',
+              }"
+              checkbox-class=" my-5 w-full h-16 rounded-medium bg-black px-3"
+            >
+              <template #label>
+                <span class="text-[14px] text-gray-500 font-medium w-[70%]"
+                  >Don't show <br />
+                  this again</span
+                >
+              </template>
+            </u-checkbox>
+          </div>
+        </div>
+
         <div v-if="type === TranslationPopOverType.PRO_TIPS">
           <div class="relative items-center justify-between">
             <UButton
@@ -209,10 +257,31 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
               variant="ghost"
               icon="i-heroicons-x-mark-20-solid"
               class="absolute right-0 top-0"
+              @click="handleDelete(data)"
             />
           </div>
+
           <div class="flex items-center justify-center p-4 font-normal">
             {{ word }}
+          </div>
+          <div
+            v-if="data.option === 'cookies'"
+            class="flex justify-between items-center w-[100%] p-5"
+          >
+            <UButton
+              size="sm"
+              color=""
+              variant="soft"
+              class="mr-5 rounded-3xl bg-success"
+              >Agree</UButton
+            >
+            <UButton
+              size="sm"
+              color="white"
+              variant="soft"
+              class="rounded-3xl bg-success"
+              >No</UButton
+            >
           </div>
         </div>
         <div v-else class="w-full">
@@ -445,36 +514,6 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
         }"
         :size="viewport.isLessThan('tablet') ? '2xs' : '2xs'"
         @click="handleSounds(trashSound)"
-      />
-    </UTooltip>
-    <UTooltip
-      v-if="type !== TranslationPopOverType.PRO_TIPS"
-      :text="$t('tooltip.save')"
-      :popper="{ placement: 'bottom', strategy: 'absolute' }"
-      :ui="{
-        strategy: 'override',
-        rounded: 'rounded-3xl',
-        color: 'text-[#999999] dark:text-white',
-        shadow: 'shadow-card',
-        ring: 'ring-0',
-      }"
-      :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 cursor-pointer ${
-        expanded ? 'block' : ''
-      } group-hover:block`"
-      @mouseover="handleHover('history', true)"
-      @mouseout="handleHover('history', false)"
-      @click="addHistory({ word, translation, type })"
-    >
-      <UAvatar
-        :src="
-          isHoverOnHistory ? '/icons/history-hover.svg' : '/icons/history.svg'
-        "
-        class="rounded-none"
-        :ui="{
-          strategy: 'override',
-          rounded: 'rounded-none',
-        }"
-        :size="viewport.isLessThan('tablet') ? '2xs' : '2xs'"
       />
     </UTooltip>
   </div>

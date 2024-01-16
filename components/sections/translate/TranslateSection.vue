@@ -18,8 +18,6 @@ import agnello from "~/staticTranslations/agnello.json";
 import arroz from "~/staticTranslations/arroz.json";
 import cordero from "~/staticTranslations/cordero.json";
 import { TranslationIssues } from "~/global/enums/translationIssues";
-import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
-import type { WordData } from "~/interfaces/wordTranslation";
 const translationStore = useTranslationStore();
 const localStorageService = useLocalStorageService();
 const modelStore = useModelStore();
@@ -35,11 +33,26 @@ const selectedLanguageForTranslation = computed({
 });
 
 watch(selectedLanguageForTranslation, () => {
+  const dateToday = new Date();
+  const data = {
+    textBeforeTranslate: translationStore.getText,
+    textAfterTranslate: "",
+    languageBeforeTranslate: translationStore.translationLanguage,
+    languageAfterTranslate: "",
+    timestamp: dateToday.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }),
+  };
+  translationStore.setTranslationButtonState(true);
   tokens.value.forEach((token) => {
     checkTranslationOfToken(token);
   });
+  (data.textAfterTranslate = translationStore.getText),
+    (data.languageAfterTranslate = translationStore.translationLanguage);
   modelStore.setSelectLanguageModelValue(false);
-  translationStore.setTranslationButtonState(true);
+  localStorageService.setHistory({ value: data });
 });
 
 function translate() {

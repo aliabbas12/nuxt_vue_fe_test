@@ -32,7 +32,7 @@ const translationHistory = computed(() => localStorageService.getHistory);
       }"
     >
       <div class="w-full">
-        <div class="my-3.5">{{ translation?.text }}</div>
+        <div class="my-3.5">{{ translation.textBeforeTranslate }}</div>
         <UDivider
           :ui="{
             strategy: 'override',
@@ -41,7 +41,7 @@ const translationHistory = computed(() => localStorageService.getHistory);
         />
       </div>
       <div class="w-full">
-        <div class="my-4">{{ translation.translation }}</div>
+        <div class="my-4">{{ translation.textAfterTranslate }}</div>
         <div class="py-2">
           <span class="px-3 py-2 mr-1 rounded-full bg-primary-bg"
             >breakfast</span

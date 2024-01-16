@@ -6,12 +6,12 @@ export const useLocalStorageService = defineStore({
     history: [] as string[],
   }),
   getters: {
-    getHistory: (state) => {
+    getHistory: (state): any[] => {
       const storageHistory = localStorage.getItem("menulance");
       if (storageHistory !== null) {
         const { history } = JSON.parse(storageHistory);
         if (history != null) {
-          Object.assign(state.history, history);
+          state.history = history;
         }
       }
       return state.history;
