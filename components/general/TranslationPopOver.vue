@@ -8,7 +8,8 @@ import { useLocalStorageService } from "~/localStorage";
 import { useTranslationStore } from "~/store/translation";
 import type { WordData } from "~/interfaces/wordTranslation";
 import { useGeneralStore } from "~/store/general";
-
+import { proTips } from "~/store/proTips";
+const useTipStore = proTips();
 const translationStore = useTranslationStore();
 const localStorageService = useLocalStorageService();
 const toast = useToast();
@@ -182,6 +183,9 @@ const handleMouseOver = () => {
   }, 500);
 };
 const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
+const handleDelete = (data: WordData) => {
+  useTipStore.removeTip({ value: data });
+};
 </script>
 
 <template>
@@ -253,6 +257,7 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
               variant="ghost"
               icon="i-heroicons-x-mark-20-solid"
               class="absolute right-0 top-0"
+              @click="handleDelete(data)"
             />
           </div>
 

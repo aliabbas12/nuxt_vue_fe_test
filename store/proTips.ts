@@ -18,5 +18,8 @@ export const proTips = defineStore("protips", {
     updateTipsState: function ({ value }: { value: proTips[] }) {
       this.tips = value;
     },
+    removeTip: function ({ value }: { value: WordData }) {
+      this.tips = this.tips.filter((item) => item.data.word !== value.word);
+    },
   },
 });
