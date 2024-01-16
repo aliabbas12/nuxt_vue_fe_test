@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, transformVNodeArgs, watch } from "vue";
+import { computed, watch } from "vue";
 import { DndProvider } from "vue3-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import SelectLanguage from "~/components/sections/translate/components/SelectLanguage.vue";
@@ -18,8 +18,6 @@ import agnello from "~/staticTranslations/agnello.json";
 import arroz from "~/staticTranslations/arroz.json";
 import cordero from "~/staticTranslations/cordero.json";
 import { TranslationIssues } from "~/global/enums/translationIssues";
-import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
-import type { WordData } from "~/interfaces/wordTranslation";
 const translationStore = useTranslationStore();
 const localStorageService = useLocalStorageService();
 const modelStore = useModelStore();

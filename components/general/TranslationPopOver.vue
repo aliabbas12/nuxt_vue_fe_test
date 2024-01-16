@@ -158,7 +158,6 @@ const isActive = computed(() => unref(canDrop) && unref(isOver));
 const backgroundColor = computed(() =>
   unref(isActive) ? "darkgreen" : unref(canDrop) ? "darkkhaki" : "#222",
 );
-
 const [collect, drag] = useDrag(() => ({
   type: "Box",
   item: () => ({
@@ -177,7 +176,11 @@ const [collect, drag] = useDrag(() => ({
   }),
 }));
 const isDragging = computed(() => collect.value.isDragging);
-
+const handleMouseOver = () => {
+  setTimeout(() => {
+    showCheckboxDiv.value = true;
+  }, 500);
+};
 const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
 </script>
 
@@ -205,32 +208,36 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
             : '',
         ]"
         @mouseover="showOverlayDiv = true"
-        @mouseout="showOverlayDiv = false"
+        @mouseleave="[(showOverlayDiv = false), (showCheckboxDiv = false)]"
       >
         <div
-          v-show="showOverlayDiv"
-          class="overlay absolute w-[100%] h-[100%] inset-0 bg-white text-black flex items-center justify-center flex-col"
+          v-if="
+            showOverlayDiv &&
+            !data.option &&
+            type === TranslationPopOverType.PRO_TIPS
+          "
+          class="overlay absolute w-[100%] h-[100%] inset-0 bg-white text-black flex items-center justify-center flex-col group"
         >
           <span
-            class="uppercase px-5 py-2 mb-5 text-black font-medium text-[14px] delay-300"
-            :class="[showCheckboxDiv ? 'delay-300' : '']"
-            @mouseover="showCheckboxDiv = true"
-            @mouseout="showCheckboxDiv = false"
+            class="uppercase transition-all ease-in-out duration-500 px-10 py-1 mb-6 text-black font-medium text-[14px] group-hover:delay-300"
+            @mouseover="handleMouseOver"
           >
             protip
           </span>
           <div v-show="showCheckboxDiv">
             <u-checkbox
+              v-if="!data.option"
               :checked="true"
               variant="outline"
-              size="sm"
+              size="lg"
               :ui="{
                 strategy: 'overide',
+                background: 'bg-black',
               }"
-              checkbox-class=" my-5 w-full h-16 rounded-medium bg-secondary-bg px-3"
+              checkbox-class=" my-5 w-full h-16 rounded-medium bg-black px-3"
             >
               <template #label>
-                <span class="text-[14px] text-gray-500 font-light"
+                <span class="text-[14px] text-gray-500 font-medium w-[70%]"
                   >Don't show <br />
                   this again</span
                 >
@@ -238,6 +245,7 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
             </u-checkbox>
           </div>
         </div>
+
         <div v-if="type === TranslationPopOverType.PRO_TIPS">
           <div class="relative items-center justify-between">
             <UButton
@@ -250,6 +258,25 @@ const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
 
           <div class="flex items-center justify-center p-4 font-normal">
             {{ word }}
+          </div>
+          <div
+            v-if="data.option === 'cookies'"
+            class="flex justify-between items-center w-[100%] p-5"
+          >
+            <UButton
+              size="sm"
+              color=""
+              variant="soft"
+              class="mr-5 rounded-3xl bg-success"
+              >Agree</UButton
+            >
+            <UButton
+              size="sm"
+              color="white"
+              variant="soft"
+              class="rounded-3xl bg-success"
+              >No</UButton
+            >
           </div>
         </div>
         <div v-else class="w-full">

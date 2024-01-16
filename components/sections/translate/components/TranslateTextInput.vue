@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { computed, watch } from "vue";
-
+import { proTips } from "~/store/proTips";
 import { useTranslationStore } from "~/store/translation";
 import { useGeneralStore } from "~/store/general";
-const viewport = useViewport();
+import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
+import { proTipsType } from "~/global/enums/proTipsType";
 
+const viewport = useViewport();
+const useTipStore = proTips();
 const store = useTranslationStore();
 const generalStore = useGeneralStore();
 const isLimitExceeded = ref(false);
@@ -69,6 +72,23 @@ const createTokensOfString = (str: String) => {
 
 const handleInput = (event) => {
   text.value = event.target.innerText;
+  const data = [
+    {
+      type: TranslationPopOverType.PRO_TIPS,
+      data: {
+        word: "Click on words or phrases to explore meaning and alternatives.",
+        tipType: proTipsType.TEXT_INPUT,
+      },
+    },
+    {
+      type: TranslationPopOverType.PRO_TIPS,
+      data: {
+        word: "Replace words by dragging and dropping words and phrases onto your translation.",
+        tipType: proTipsType.TEXT_INPUT,
+      },
+    },
+  ];
+  useTipStore.updateTipsState({ value: data });
 };
 
 const text = computed({

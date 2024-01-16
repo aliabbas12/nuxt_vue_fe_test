@@ -48,6 +48,8 @@ export interface TranslationData {
 }
 export interface WordData {
   word: string;
+  option?: string;
+  tipType?: string;
   translation?: string;
   categories?: string[];
   meaning?: string;

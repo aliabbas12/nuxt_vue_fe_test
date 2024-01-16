@@ -1,9 +1,9 @@
 import { defineStore } from "pinia";
 import { TranslationIssues } from "~/global/enums/translationIssues";
-
 export const useTranslationStore = defineStore("translation", {
   state: () => ({
     text: "",
+
     isTranslationLike: false,
     isTranslationButtonClicked: false,
     selectedWord: "",

@@ -8,16 +8,16 @@ import lamb from "../../staticTranslations/lamb.json";
 import arroz from "../../staticTranslations/arroz.json";
 import riso from "../../staticTranslations/riso.json";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
-import { proTipsType } from "~/global/enums/proTipsType";
 import { useTranslationStore } from "~/store/translation";
-import type { WordData, proTips } from "~/interfaces/wordTranslation";
+import type { WordData } from "~/interfaces/wordTranslation";
 import { useGeneralStore } from "~/store/general";
-
+import { proTipsType } from "~/global/enums/proTipsType";
+import { proTips } from "~/store/proTips";
+const tipsStore = proTips();
 const store = useTranslationStore();
 const generalStore = useGeneralStore();
 let languageSet = false;
 let issues = [] as string[];
-const popoverTips = ref<proTips[]>([]);
 const popUpsKeys = ref(11111);
 const isAutoDetectOn = computed(
   () => generalStore.getAutodetectTranslationLanguageState,
@@ -32,6 +32,29 @@ const staticTranslations = {
   es: [arroz, cordero],
 };
 
+onMounted(() => {
+  const data = [
+    {
+      type: TranslationPopOverType.PRO_TIPS,
+      data: {
+        word:
+          "We use cookies for a better experience and to gather usage metrics " +
+          "for translation improvement. No ads, no data sharing. Learn more.",
+        option: "cookies",
+        tipType: proTipsType.FIRST_TIME_VISITOR,
+      },
+    },
+    {
+      type: TranslationPopOverType.PRO_TIPS,
+      data: {
+        word: "Translate food and ingredient terms between English, Spanish and Italian.",
+        tipType: proTipsType.FIRST_TIME_VISITOR,
+      },
+    },
+  ];
+  tipsStore.updateTipsState({ value: data });
+});
+
 const translationsPopUps = computed(() => {
   let wordsTranslations: Array<{
     type: TranslationPopOverType;
@@ -43,6 +66,7 @@ const translationsPopUps = computed(() => {
     return checkTranslationOfToken(token);
   });
   store.setIssues(issues);
+  wordsTranslations.unshift.apply(wordsTranslations, tipsStore.getProTipsState);
   return wordsTranslations;
 });
 function checkTranslationOfToken(token: string) {

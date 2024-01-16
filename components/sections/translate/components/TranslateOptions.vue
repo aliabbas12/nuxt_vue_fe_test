@@ -2,6 +2,10 @@
 import { onUnmounted, computed } from "vue";
 import { useTranslationStore } from "~/store/translation";
 import { useGeneralStore } from "~/store/general";
+import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
+import { proTipsType } from "~/global/enums/proTipsType";
+import { proTips } from "~/store/proTips";
+const useTipStore = proTips();
 const viewport = useViewport();
 const store = useTranslationStore();
 const generalStore = useGeneralStore();
@@ -13,6 +17,25 @@ const isListening = computed({
     generalStore.setListeningState(value);
   },
 });
+const initialPopOverData = [
+  {
+    type: TranslationPopOverType.PRO_TIPS,
+    data: {
+      word:
+        "We use cookies for a better experience and to gather usage metrics " +
+        "for translation improvement. No ads, no data sharing. Learn more.",
+      option: "cookies",
+      tipType: proTipsType.FIRST_TIME_VISITOR,
+    },
+  },
+  {
+    type: TranslationPopOverType.PRO_TIPS,
+    data: {
+      word: "Translate food and ingredient terms between English, Spanish and Italian.",
+      tipType: proTipsType.FIRST_TIME_VISITOR,
+    },
+  },
+];
 const isKeyboardOpen = computed({
   get: () => generalStore.keyboard,
   set: (value) => {
@@ -74,6 +97,7 @@ const buttonClickedTooptips = [
       }
       store.clearText();
       store.setTranslationButtonState(false);
+      useTipStore.updateTipsState({ value: initialPopOverData });
     },
   },
 ];
@@ -131,6 +155,7 @@ const buttonNotClickedTooptips = [
       }
       store.clearText();
       store.setTranslationButtonState(false);
+      useTipStore.updateTipsState({ value: initialPopOverData });
     },
   },
 ];
