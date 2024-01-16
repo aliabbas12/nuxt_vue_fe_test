@@ -22,28 +22,28 @@ const menu = ref([
     icon: "/icons/button-vertical-nav.svg",
     hoverIcon: "/icons/button-vertical-navigation-hover.svg",
     hover: false,
-    section: "section-1",
+    section: "translate",
     tooltip: "tooltip.translate",
   },
   {
     icon: "/icons/button-vertical-nav.svg",
     hoverIcon: "/icons/button-vertical-navigation-hover.svg",
     hover: false,
-    section: "section-2",
+    section: "history",
     tooltip: "tooltip.history",
   },
   {
     icon: "/icons/button-vertical-nav.svg",
     hoverIcon: "/icons/button-vertical-navigation-hover.svg",
     hover: false,
-    section: "section-3",
+    section: "sign-up",
     tooltip: "tooltip.sign_up",
   },
   {
     icon: "/icons/button-vertical-nav.svg",
     hoverIcon: "/icons/button-vertical-navigation-hover.svg",
     hover: false,
-    section: "section-4",
+    section: "contact-us",
     tooltip: "tooltip.contact_us",
   },
   {
@@ -70,6 +70,7 @@ function scrollToSection(sectionId: string) {
   if (sectionId === "section-5") {
     slideOverOpen.value = !slideOverOpen.value;
   } else {
+    currentSection.value = sectionId;
     const element = document.getElementById(sectionId);
     if (element != null) {
       element.scrollIntoView({ behavior: "smooth" });

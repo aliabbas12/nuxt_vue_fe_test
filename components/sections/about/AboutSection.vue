@@ -31,13 +31,13 @@ function scrollToSection(sectionId: string) {
 }
 const getSectionIdAndScrollToTHatSection = (text: string) => {
   if (text === "translate") {
-    scrollToSection("section-1");
+    scrollToSection("translate");
   } else if (text === "history") {
-    scrollToSection("section-2");
+    scrollToSection("history");
   } else if (text === "sign-up") {
-    scrollToSection("section-3");
+    scrollToSection("sign-up");
   } else if (text === "contact us") {
-    scrollToSection("section-4");
+    scrollToSection("contact-us");
   }
 };
 </script>

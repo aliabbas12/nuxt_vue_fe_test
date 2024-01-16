@@ -7,6 +7,9 @@ import ContactUsSection from "~/components/sections/contactUs/ContactUsSection.v
 import ContactUsSocial from "~/components/sections/about/AboutSection.vue";
 import { useGeneralStore } from "~/store/general";
 const generalStore = useGeneralStore();
+const route = useRoute();
+const router = useRouter();
+const timeoutId = ref(null);
 
 const currentSection = computed({
   get: () => generalStore.getCurrentSectionState,
@@ -37,6 +40,31 @@ onMounted(() => {
   observer.observe(div3.value);
   observer.observe(div4.value);
 });
+watch(currentSection, (value) => {
+  if (timeoutId.value !== null) {
+    clearTimeout(timeoutId.value);
+  }
+  timeoutId.value = setTimeout(() => {
+    void router.push({
+      path: route.path,
+      hash: `#${value}`,
+    });
+  }, 1500);
+});
+// watch(
+//   () => route.hash,
+//   (value) => {
+//     if (value !== "" && value[0] === "#") {
+//       const routeHash = value.substring(1);
+//       const element = document.getElementById(routeHash);
+//       console.log(element, "element");
+//       if (element != null) {
+//         element.scrollIntoView({ behavior: "smooth" });
+//       }
+//     }
+//   },
+//   { immediate: true }, // Trigger the handler immediately when the component is created
+// );
 </script>
 <template>
   <main
@@ -44,28 +72,28 @@ onMounted(() => {
     class="max-h-screen w-[100vw] overflow-y-auto snap snap-y snap-mandatory"
   >
     <section
-      id="section-1"
+      id="translate"
       ref="div1"
       class="w-full h-screen bg-primary-bg snap-start"
     >
       <TranslateSection />
     </section>
     <section
-      id="section-2"
+      id="history"
       ref="div2"
       class="w-full h-screen bg-primary-bg snap-start overflow-y-auto"
     >
       <HistorySection />
     </section>
     <section
-      id="section-3"
+      id="sign-up"
       ref="div3"
       class="w-full h-screen bg-secondary-bg snap-start overflow-y-auto"
     >
       <CreateAccountSection />
     </section>
     <section
-      id="section-4"
+      id="contact-us"
       ref="div4"
       class="w-full h-screen bg-primary-bg snap-start overflow-y-auto"
     >
