@@ -8,48 +8,24 @@ import lamb from "../../staticTranslations/lamb.json";
 import arroz from "../../staticTranslations/arroz.json";
 import riso from "../../staticTranslations/riso.json";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
+import { proTipsType } from "~/global/enums/proTipsType";
 import { useTranslationStore } from "~/store/translation";
-import type { WordData } from "~/interfaces/wordTranslation";
+import type { WordData, proTips } from "~/interfaces/wordTranslation";
 import { useGeneralStore } from "~/store/general";
 
 const store = useTranslationStore();
 const generalStore = useGeneralStore();
-const checkText = ref<string | null>(store.getText);
 let languageSet = false;
 let issues = [] as string[];
-const proTips = ref<
-  Array<{
-    type: TranslationPopOverType.PRO_TIPS;
-    data: any;
-  }>
->([]);
+const popoverTips = ref<proTips[]>([]);
 const popUpsKeys = ref(11111);
-
 const isAutoDetectOn = computed(
   () => generalStore.getAutodetectTranslationLanguageState,
 );
-
 const tokens = computed(() => store.getTokens);
-
 watch(tokens, () => {
   popUpsKeys.value = Math.random();
 });
-
-onMounted(() => {
-  proTips.value.push({
-    type: TranslationPopOverType.PRO_TIPS,
-    data: {
-      word: "We use cookies for a better experience and to gather usage metrics for translation improvement. No ads, no data sharing. Learn more.",
-    },
-  });
-  proTips.value.push({
-    type: TranslationPopOverType.PRO_TIPS,
-    data: {
-      word: "Translate food and ingredient terms between English, Spanish and Italian.",
-    },
-  });
-});
-
 const staticTranslations = {
   en: [rice, lamb],
   it: [riso, agnello],
@@ -67,10 +43,8 @@ const translationsPopUps = computed(() => {
     return checkTranslationOfToken(token);
   });
   store.setIssues(issues);
-  Array.prototype.unshift.apply(wordsTranslations, proTips.value);
   return wordsTranslations;
 });
-
 function checkTranslationOfToken(token: string) {
   let translationFound = null;
 

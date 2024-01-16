@@ -46,7 +46,6 @@ export interface TranslationData {
   senses: Sense[];
   categories: string[];
 }
-
 export interface WordData {
   word: string;
   translation?: string;
