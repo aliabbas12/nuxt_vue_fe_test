@@ -46,6 +46,9 @@ export const useTranslationStore = defineStore("translation", {
     setToken(tokens: string[]) {
       this.token = tokens;
     },
+    insertTokenAfterSpecificIndex(word: string, index: number) {
+      this.token.splice(index + 1, 0, word);
+    },
     setIssues(issues: string[]) {
       this.issues = issues;
     },

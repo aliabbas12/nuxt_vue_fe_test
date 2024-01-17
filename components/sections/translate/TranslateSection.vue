@@ -108,16 +108,10 @@ function checkTranslationOfToken(token: string) {
     const index = value.findIndex((e) => e.word === token);
     if (index !== -1) {
       const wordDetails = value[index];
-      const {
-        // eslint-disable-next-line camelcase
-        lang_code,
-        translations,
-      } = wordDetails;
+      const { translations } = wordDetails;
 
       const italianTranslationIndex = translations.findIndex(
-        (e) =>
-          // eslint-disable-next-line camelcase
-          e.code === (lang_code === "en" ? "it" : "en"),
+        (e) => e.code === selectedLanguageForTranslation.value,
       );
       if (italianTranslationIndex !== -1 && wordSpan != null) {
         text.value = text.value.replace(

@@ -34,6 +34,11 @@ const isWordAddedForTranslationModel = computed({
   },
 });
 
+function addTokenOnSpecificIndex(word: string, index: number) {
+  handleSounds(glassSound);
+  translationStore.insertTokenAfterSpecificIndex(word, index);
+}
+
 watch(selectedWord, (value) => {
   expanded.value = value === word;
 });
@@ -280,14 +285,14 @@ const handleDelete = (word: string) => {
               size="sm"
               color=""
               variant="soft"
-              class="mr-5 rounded-3xl bg-success"
+              class="mr-5 rounded-3xl bg-success text-sm font-normal"
               >Agree</UButton
             >
             <UButton
               size="sm"
               color="white"
               variant="soft"
-              class="rounded-3xl bg-success"
+              class="rounded-3xl bg-success text-sm font-normal"
               >No</UButton
             >
           </div>
@@ -437,7 +442,7 @@ const handleDelete = (word: string) => {
                               rounded: 'rounded-none',
                             }"
                             size="xs"
-                            @click="handleSounds(glassSound)"
+                            @click="addTokenOnSpecificIndex('rice', 1)"
                           />
                         </div>
                       </div>
@@ -466,7 +471,7 @@ const handleDelete = (word: string) => {
                       class="w-full text-left flex flex-col items-center justify-center"
                     >
                       <div class="flex w-full justify-between">
-                        <span class="text-base font-normal"
+                        <span class="text-base font-normal text-normal"
                           >May be you know how to translate this word. Provide
                           us a translation and we will try adding it to our
                           dictionary.</span

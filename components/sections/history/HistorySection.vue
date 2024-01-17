@@ -93,7 +93,7 @@ const translationHistory = computed(() => localStorageService.getHistory);
       </div>
     </u-card>
     <u-card
-      class="p-0 rounded-3xl history-card bg-primary-bg col-span-1 m-[1.5rem]"
+      class="p-0 rounded-3xl history-card bg-primary-bg col-span-1 m-[1.5rem] max-h-[230px]"
       :ui="{
         strategy: 'override',
         ring: 'ring-0 border-dashed border-8 border-[#999999]',
