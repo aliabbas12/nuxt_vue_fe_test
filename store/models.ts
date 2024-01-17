@@ -7,6 +7,8 @@ export const useModelStore = defineStore("models", {
       isIssueModelOpen: false,
       isHaveMoreThenTwoIssueModelOpen: false,
       isSuccessModelOpen: false,
+      isOpenChangeFontModel: false,
+      wordTranslationGoingToAdd: null as string | null,
     };
   },
   getters: {
@@ -15,6 +17,9 @@ export const useModelStore = defineStore("models", {
     getIssueModelState: (state) => state.isIssueModelOpen,
     getMoreThenTwoIssuesModelState: (state) =>
       state.isHaveMoreThenTwoIssueModelOpen,
+    getIsOpenChangeFontModelState: (state) => state.isOpenChangeFontModel,
+    getIsWordTranslationGoingToAddState: (state) =>
+      state.wordTranslationGoingToAdd,
   },
   actions: {
     setSelectLanguageModelValue(value: boolean) {
@@ -28,6 +33,12 @@ export const useModelStore = defineStore("models", {
     },
     setMoreThenTwoIssuesModelState(value: boolean) {
       this.isHaveMoreThenTwoIssueModelOpen = value;
+    },
+    setIsOpenChangeFontModelState(value: boolean) {
+      this.isOpenChangeFontModel = value;
+    },
+    setWordToAddTranslation(value: string) {
+      this.wordTranslationGoingToAdd = value;
     },
   },
 });

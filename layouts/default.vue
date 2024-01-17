@@ -8,6 +8,7 @@ import SuccessModel from "~/components/models/SuccessModel.vue";
 import IssueModel from "~/components/models/IssueModel.vue";
 import PoorTranslationModel from "~/components/models/PoorTranslationModel.vue";
 import SelectLanguageModel from "~/components/models/SelectLanguageModel.vue";
+import AddWordTranslationModel from "~/components/models/AddWordTranslationModel.vue";
 </script>
 <template>
   <div class="default-layout bg-transparent light-mode font-sans">
@@ -41,6 +42,7 @@ import SelectLanguageModel from "~/components/models/SelectLanguageModel.vue";
     <IssueModel />
     <PoorTranslationModel />
     <SelectLanguageModel />
+    <AddWordTranslationModel />
   </div>
 </template>
 

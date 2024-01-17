@@ -2,7 +2,9 @@
 import { computed } from "vue";
 import { Carousel, Pagination, Slide } from "vue3-carousel";
 import { useGeneralStore } from "../../store/general";
+import { useModelStore } from "~/store/models";
 const generalStore = useGeneralStore();
+const modelStore = useModelStore();
 const wizard = ref(true);
 const proTips = ref(true);
 const autoDedect = ref(true);
@@ -10,9 +12,9 @@ const notification = ref(true);
 const dark = ref(false);
 
 const isOpenFontChangeModel = computed({
-  get: () => generalStore.getIsOpenChangeFontModelState,
+  get: () => modelStore.getIsOpenChangeFontModelState,
   set: (value) => {
-    generalStore.setIsOpenChangeFontModelState(value);
+    modelStore.setIsOpenChangeFontModelState(value);
   },
 });
 

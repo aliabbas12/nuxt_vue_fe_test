@@ -4,17 +4,16 @@ import { Carousel, Pagination, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 import { computed, type PropType, ref, unref, watch } from "vue";
 import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
-import { useLocalStorageService } from "~/localStorage";
 import { useTranslationStore } from "~/store/translation";
 import type { WordData } from "~/interfaces/wordTranslation";
 import { useGeneralStore } from "~/store/general";
 import { proTips } from "~/store/proTips";
+import { useModelStore } from "~/store/models";
 const useTipStore = proTips();
 const translationStore = useTranslationStore();
-const localStorageService = useLocalStorageService();
-const toast = useToast();
 const showOverlayDiv = ref(false);
 const showCheckboxDiv = ref(false);
+const modelStore = useModelStore();
 
 const generalStore = useGeneralStore();
 const isHoverOnTrash = ref(false);
@@ -25,6 +24,13 @@ const selectedWord = computed({
   },
   set: (value) => {
     translationStore.setSelectedWord(value);
+  },
+});
+
+const isWordAddedForTranslationModel = computed({
+  get: () => modelStore.getIsWordTranslationGoingToAddState,
+  set: (value) => {
+    modelStore.setWordToAddTranslation(value);
   },
 });
 
@@ -156,9 +162,9 @@ const [dropCollect, drop] = useDrop(() => ({
 const canDrop = computed(() => unref(dropCollect).canDrop);
 const isOver = computed(() => unref(dropCollect).isOver);
 const isActive = computed(() => unref(canDrop) && unref(isOver));
-const backgroundColor = computed(() =>
-  unref(isActive) ? "darkgreen" : unref(canDrop) ? "darkkhaki" : "#222",
-);
+// const backgroundColor = computed(() =>
+//   unref(isActive) ? "darkgreen" : unref(canDrop) ? "darkkhaki" : "#222",
+// );
 const [collect, drag] = useDrag(() => ({
   type: "Box",
   item: () => ({
@@ -183,8 +189,8 @@ const handleMouseOver = () => {
   }, 500);
 };
 const opacity = computed(() => (unref(isDragging) ? 0.1 : 1));
-const handleDelete = (data: WordData) => {
-  useTipStore.removeTip({ value: data });
+const handleDelete = (word: string) => {
+  useTipStore.removeTip(word);
 };
 </script>
 
@@ -223,7 +229,7 @@ const handleDelete = (data: WordData) => {
           class="overlay absolute w-[100%] h-[100%] inset-0 bg-white text-black flex items-center justify-center flex-col group"
         >
           <span
-            class="uppercase transition-all ease-in-out duration-500 px-10 py-1 mb-6 text-black font-medium text-[14px] group-hover:delay-300"
+            class="uppercase transition-all ease-in-out duration-500 px-10 py-1 mb-1 text-black font-medium text-[14px] group-hover:delay-300"
             @mouseover="handleMouseOver"
           >
             protip
@@ -236,9 +242,9 @@ const handleDelete = (data: WordData) => {
               size="lg"
               :ui="{
                 strategy: 'overide',
-                background: 'bg-black',
+                color: 'text-black-500 dark:text-white-400',
               }"
-              checkbox-class=" my-5 w-full h-16 rounded-medium bg-black px-3"
+              checkbox-class=" my-3 w-full h-16 rounded-medium bg-black px-3"
             >
               <template #label>
                 <span class="text-[14px] text-gray-500 font-medium w-[70%]"
@@ -257,11 +263,13 @@ const handleDelete = (data: WordData) => {
               variant="ghost"
               icon="i-heroicons-x-mark-20-solid"
               class="absolute right-0 top-0"
-              @click="handleDelete(data)"
+              @click="handleDelete(word)"
             />
           </div>
 
-          <div class="flex items-center justify-center p-4 font-normal">
+          <div
+            class="flex items-center justify-center py-5 px-6 leading-[18px] text-normal"
+          >
             {{ word }}
           </div>
           <div
@@ -468,6 +476,7 @@ const handleDelete = (data: WordData) => {
                       <div class="flex justify-between w-3/5">
                         <span
                           class="px-2 py-1 mr-1 my-4 rounded-full bg-success text-sm"
+                          @click="isWordAddedForTranslationModel = word"
                           >add</span
                         >
                         <span

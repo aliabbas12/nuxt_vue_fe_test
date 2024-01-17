@@ -22,6 +22,7 @@ const popUpsKeys = ref(11111);
 const isAutoDetectOn = computed(
   () => generalStore.getAutodetectTranslationLanguageState,
 );
+const proTipsArray = computed(() => tipsStore.getProTipsState);
 const tokens = computed(() => store.getTokens);
 watch(tokens, () => {
   popUpsKeys.value = Math.random();
@@ -125,10 +126,11 @@ function checkTranslationOfToken(token: string) {
 
 <template>
   <div
-    :key="popUpsKeys"
+    :key="popUpsKeys + proTipsArray.length"
     class="flex md:h-full md:max-h-screen flex-col sm:relative sm:overflow-y-auto max-h-[250px] sm:w-6/6 md:absolute bg-transparent md:w-4/12 lg:w-[24rem] xl:w-[29rem] 2xl:w-[33rem] md:px-3 md:right-0 md:top-0 lg:mr-[-3rem] justify-center"
   >
     <div id="custom-scroll" ref="scrollDiv" class="overflow-y-auto inset-0">
+      <div v-if="translationsPopUps.length > 3" class="p-16"></div>
       <TranslationPopOver
         v-for="(word, index) in translationsPopUps"
         ref=" contentDiv"
@@ -136,6 +138,7 @@ function checkTranslationOfToken(token: string) {
         :data="word.data"
         :type="word.type"
       />
+      <div v-if="translationsPopUps.length > 3" class="p-16"></div>
       <div
         class="top w-[100%] h-24 absolute top-0 bg-primary-bg left-0 blur-2xl rounded-[30%] pointer-events-none"
       ></div>

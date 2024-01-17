@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useGeneralStore } from "~/store/general";
+import { useModelStore } from "~/store/models";
+const generalStore = useGeneralStore();
+const modelStore = useModelStore();
 
 const fonts = [
   { value: "font-elsie", label: "Elsie" },
@@ -11,11 +14,10 @@ const fonts = [
   { value: "font-prata", label: "Prata" },
 ];
 
-const generalStore = useGeneralStore();
 const isOpenFontChangeModel = computed({
-  get: () => generalStore.getIsOpenChangeFontModelState,
+  get: () => modelStore.getIsOpenChangeFontModelState,
   set: (value) => {
-    generalStore.setIsOpenChangeFontModelState(value);
+    modelStore.setIsOpenChangeFontModelState(value);
   },
 });
 const currentFontSelected = computed({

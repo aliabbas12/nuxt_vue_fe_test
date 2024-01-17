@@ -16,12 +16,41 @@
         scroll-snap-align: start;
     }
 }
+/*multiselect css*/
+.multiselect{
+    height: 64px;
+    .multiselect__select,.multiselect__tags{
+
+        height: 64px;
+        .multiselect__tag{
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            background-color: #99ffcc;
+            color: black;
+        }
+    }
+    .multiselect__tags{
+        border-radius: 1rem;
+        box-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+        --tw-ring-color: rgb(209 213 219);
+        border: none;
+    }
+}
+
+.select-category{
+.multiselect__select{
+    display: none;
+}
+}
+/*multiselect css*/
 
 .carousel__pagination-button::after{
     width: 7px !important;
     height: 7px !important;
     border-radius: 5px !important;
 }
+
 @font-face {
     font-family: 'Elsie';
     src: url("../fonts/elsie/elsier.ttf");

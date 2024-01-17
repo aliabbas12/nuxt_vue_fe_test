@@ -48,6 +48,7 @@
     "pinia": "^2.1.7",
     "react-dnd-html5-backend": "^16.0.1",
     "typeface-roboto": "^1.1.13",
+    "vue-multiselect": "^3.0.0-beta.3",
     "vue3-carousel-nuxt": "^1.1.0",
     "vue3-dnd": "^2.0.4"
   }

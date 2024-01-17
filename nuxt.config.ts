@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import { SystemLanguages } from "../global/constants/systemLanguages";
+import { SystemLanguages } from "./global/constants/systemLanguages";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
