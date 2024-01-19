@@ -88,7 +88,10 @@ const prev = (value) => {
           />
 
           <div class="relative flex w-full justify-center">
-            <Carousel v-model="currentSlide" class="w-full relative">
+            <Carousel
+              v-model="currentSlide"
+              class="w-full relative add_word_carousel"
+            >
               <template #addons>
                 <Pagination class="relative" />
               </template>
@@ -236,14 +239,5 @@ const prev = (value) => {
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-}
-.carousel__pagination-button:hover::after,
-.carousel__pagination-button::after,
-.carousel__pagination-button--active::after {
-  display: block;
-  content: "";
-  width: 20px !important;
-  height: 20px !important;
-  background-color: #99ffcc !important;
 }
 </style>
