@@ -8,6 +8,7 @@ export const useModelStore = defineStore("models", {
       isHaveMoreThenTwoIssueModelOpen: false,
       isSuccessModelOpen: false,
       isOpenChangeFontModel: false,
+      isAddNewWordModelOpen: true,
       wordTranslationGoingToAdd: null as string | null,
     };
   },
@@ -20,10 +21,14 @@ export const useModelStore = defineStore("models", {
     getIsOpenChangeFontModelState: (state) => state.isOpenChangeFontModel,
     getIsWordTranslationGoingToAddState: (state) =>
       state.wordTranslationGoingToAdd,
+    getAddNewWordModelState: (state) => state.isAddNewWordModelOpen,
   },
   actions: {
     setSelectLanguageModelValue(value: boolean) {
       this.isSelectLanguageModelOpen = value;
+    },
+    setAddNewWordModelValue(value: boolean) {
+      this.isAddNewWordModelOpen = value;
     },
     setIssueModelState(value: boolean) {
       this.isIssueModelOpen = value;

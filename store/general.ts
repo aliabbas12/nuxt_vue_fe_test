@@ -6,6 +6,7 @@ export const useGeneralStore = defineStore("general", {
     listening: false,
     sideOverOpen: false,
     languageSelected: "en",
+    wordType: "noun",
     translationLanguage: "en",
     autoDetectTranslation: true,
     currentSection: "section-1",
@@ -15,6 +16,7 @@ export const useGeneralStore = defineStore("general", {
     isSoundEnabled: true,
   }),
   getters: {
+    getWordType: (state) => state.wordType,
     getKeyboardState: (state) => state.keyboard,
     getTextTokens: (state) => state.tokens,
     getCurrentSectionState: (state) => state.currentSection,
@@ -31,6 +33,9 @@ export const useGeneralStore = defineStore("general", {
   actions: {
     setKeyboardState(value: boolean) {
       this.keyboard = value;
+    },
+    setSelectedWordState(value: string) {
+      this.wordType = value;
     },
     setListeningState(value: boolean) {
       this.listening = value;

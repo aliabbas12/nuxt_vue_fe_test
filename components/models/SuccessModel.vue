@@ -14,6 +14,11 @@ function openLanguageModel() {
   isOpenTranslationWithNoIssueModel.value = false;
   modelStore.setSelectLanguageModelValue(true);
 }
+const btnSound = "/sounds/loud/button-click.mp3";
+const handleSound = () => {
+  const audio = new Audio(btnSound);
+  audio.play();
+};
 </script>
 
 <template>
@@ -87,7 +92,11 @@ function openLanguageModel() {
             Woohoo! No issues found.
           </p>
           <div class="my-4 w-full text-center flex justify-center items-center">
-            <NextButton class="w-2/6" @call-event="openLanguageModel" />
+            <NextButton
+              class="w-2/6"
+              @call-event="openLanguageModel"
+              @click="handleSound"
+            />
           </div>
           <u-checkbox
             variant="outline"

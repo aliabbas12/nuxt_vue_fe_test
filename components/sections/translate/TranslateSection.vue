@@ -122,6 +122,11 @@ function checkTranslationOfToken(token: string) {
     }
   });
 }
+const translateBtnSound = "/sounds/loud/button-click.mp3";
+const handleSound = () => {
+  const audio = new Audio(translateBtnSound);
+  audio.play();
+};
 </script>
 
 <template>
@@ -150,6 +155,7 @@ function checkTranslationOfToken(token: string) {
         <NextButton
           v-if="text.length"
           :text="$t('button.translate')"
+          @click="handleSound"
           @call-event="translate"
         />
       </div>
