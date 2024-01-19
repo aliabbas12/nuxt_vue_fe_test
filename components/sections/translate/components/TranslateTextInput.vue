@@ -190,15 +190,18 @@ const currentFontSelected = computed({
 
 <template>
   <div>
-    <div
-      id="inputTextBox"
-      ref="inputDiv"
-      contenteditable="true"
-      :class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem]  text-center h-[12rem] ${currentFontSelected} font-light`"
-      @focus="isListening = false"
-      @input="handleInput"
-      @click="selectWordOnClick"
-    ></div>
+    <div class="flex flex-wrap items-center justify-center h-[280px]">
+      <div
+        id="inputTextBox"
+        ref="inputDiv"
+        contenteditable="true"
+        :class="`${textSizeAccordingToLength} mb-[1rem] mt-[2rem] text-center w-full ${currentFontSelected} font-light`"
+        @focus="isListening = false"
+        @input="handleInput"
+        @click="selectWordOnClick"
+      ></div>
+    </div>
+
     <div
       class="w-full flex flex-auto my-3 pr-1 text-center text-normal font-normal"
     >
