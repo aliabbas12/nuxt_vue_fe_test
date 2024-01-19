@@ -66,7 +66,7 @@ const props = defineProps({
     required: true,
   },
   index: {
-    type: number,
+    type: Number,
     required: true,
   },
 });
