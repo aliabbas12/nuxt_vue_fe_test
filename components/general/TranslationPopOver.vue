@@ -65,6 +65,10 @@ const props = defineProps({
     type: Object as PropType<WordData>,
     required: true,
   },
+  index: {
+    type: number,
+    required: true,
+  },
 });
 const { data, type } = props;
 const { word, translation, meaning, picture, categories, sound } = data;
@@ -431,7 +435,7 @@ const handleDelete = (word: string) => {
                         <span
                           class="px-2 py-1 mr-1 my-4 rounded-full bg-success text-sm"
                           @click="handleSounds(paginationSound)"
-                          >alla</span
+                          >rice</span
                         >
                         <div class="flex items-center justify-center">
                           <UAvatar

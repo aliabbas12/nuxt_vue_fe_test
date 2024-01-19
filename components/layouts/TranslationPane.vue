@@ -137,6 +137,7 @@ function checkTranslationOfToken(token: string) {
         :key="index"
         :data="word.data"
         :type="word.type"
+        :index="index"
       />
       <div v-if="translationsPopUps.length > 3" class="p-16"></div>
       <div
