@@ -46,9 +46,9 @@ const wordType = computed({
   },
 });
 const currentSlide = ref(0);
-const prev = (value) => {
-  if (currentSlide > 0) {
-    currentSlide.value = value;
+const prev = () => {
+  if (currentSlide.value > 0) {
+    currentSlide.value--;
   }
 };
 </script>
@@ -87,7 +87,9 @@ const prev = (value) => {
             size="2xl"
           />
 
-          <div class="relative flex w-full justify-center">
+          <div
+            class="relative flex w-full flex-col items-center justify-center"
+          >
             <Carousel
               v-model="currentSlide"
               class="w-full relative add_word_carousel"
@@ -136,11 +138,6 @@ const prev = (value) => {
                     textarea-class="rounded-3xl h-64 text-gray-500 bg-secondary-bg px-3"
                   />
                   <NextButton :text="$t('button.continue')" class="mt-5" />
-                  <a
-                    class="text-black text-sm mt-6 underline cursor-pointer"
-                    @click="prev"
-                    >back</a
-                  >
                 </div>
               </Slide>
               <Slide :key="3">
@@ -158,11 +155,6 @@ const prev = (value) => {
                     textarea-class="rounded-3xl h-64 text-gray-500 bg-secondary-bg px-3"
                   />
                   <NextButton :text="$t('button.continue')" class="mt-5" />
-                  <a
-                    class="text-black text-sm mt-6 underline cursor-pointer"
-                    @click="prev"
-                    >back</a
-                  >
                 </div>
               </Slide>
               <Slide :key="4">
@@ -187,11 +179,6 @@ const prev = (value) => {
                     }"
                   />
                   <NextButton :text="$t('button.continue')" class="mt-5" />
-                  <a
-                    class="text-black text-sm mt-6 underline cursor-pointer"
-                    @click="prev"
-                    >back</a
-                  >
                 </div>
               </Slide>
               <Slide :key="5">
@@ -218,14 +205,16 @@ const prev = (value) => {
                     }"
                   />
                   <NextButton :text="$t('button.continue')" class="mt-5" />
-                  <a
-                    class="text-black text-sm mt-6 underline cursor-pointer"
-                    @click="prev"
-                    >back</a
-                  >
                 </div>
               </Slide>
             </Carousel>
+
+            <a
+              v-if="currentSlide > 0"
+              class="text-black text-sm mt-2 underline cursor-pointer"
+              @click="prev"
+              >back</a
+            >
           </div>
         </div>
       </UCard>

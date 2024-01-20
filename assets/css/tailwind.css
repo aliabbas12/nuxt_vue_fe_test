@@ -58,13 +58,15 @@
 .carousel__pagination-button {
     padding: 0 15px !important;
 }
-.add_word_carousel .carousel__pagination-button::after, .carousel__pagination-button:hover::after,
-.carousel__pagination-button--active::after{
+.add_word_carousel .carousel__pagination-button::after{
     width: 15px !important;
     height: 15px !important;
     border-radius: 50% !important;
     background-color: #99ffcc;
     border: 1px solid #777 !important;
+}
+.add_word_carousel .carousel__pagination-button:hover::after{
+    background-color: #99ffcc !important;
 }
 @font-face {
     font-family: 'Elsie';
