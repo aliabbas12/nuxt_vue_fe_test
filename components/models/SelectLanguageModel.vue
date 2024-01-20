@@ -24,6 +24,11 @@ const languages = [
   { value: "it", label: "italian" },
   { value: "es", label: "spanish" },
 ];
+watch(selectedLanguageForTranslation, () => {
+  console.log("I am in Selected language:");
+  const audio = new Audio("/sounds/loud/success-synth.mp3");
+  audio.play();
+});
 </script>
 
 <template>

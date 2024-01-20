@@ -1,6 +1,7 @@
 export default {
   button: {
     translate: "translate",
+    continue: "continue",
   },
   tooltip: {
     virtual_keyboard: "virtual keyboard",
@@ -22,6 +23,7 @@ export default {
     filter: "filter",
     sort: "sort",
     translate: "translate",
+
     history: "history",
     sign_up: "sign-up",
     contact_us: "contact us",

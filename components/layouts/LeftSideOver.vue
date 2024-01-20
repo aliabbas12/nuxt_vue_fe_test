@@ -72,7 +72,7 @@ const ui = {
         dynamic
         @click="slideOverOpen = false"
       />
-      <Carousel>
+      <Carousel class="casual_carousel">
         <Slide :key="'1'" class="flex flex-col">
           <div class="h-full w-full flex flex-col my-20">
             <div

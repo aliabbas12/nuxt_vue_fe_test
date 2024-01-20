@@ -364,7 +364,7 @@ const handleDelete = (word: string) => {
               }"
             />
             <div v-if="type == TranslationPopOverType.FOUND">
-              <Carousel>
+              <Carousel class="casual_carousel">
                 <Slide v-if="picture" :key="word + '1'">
                   <div class="carousel__item text-left w-full h-full">
                     <img src="/icons/baby-goat.svg" alt="image ref" />
