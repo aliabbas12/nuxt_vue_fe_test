@@ -6,7 +6,6 @@ import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 import { proTipsType } from "~/global/enums/proTipsType";
 import { proTips } from "~/store/proTips";
 const useTipStore = proTips();
-const viewport = useViewport();
 const store = useTranslationStore();
 const generalStore = useGeneralStore();
 const text = computed(() => store.text);

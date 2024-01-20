@@ -24,7 +24,7 @@ import AddWordTranslationModel from "~/components/models/AddWordTranslationModel
         <img
           src="/menulance-logo-beta.svg"
           alt="Icon"
-          class="logo-icon w-[121px] md:w-[151px] lg:w-[211px] md:h-[35px] lg:h-[41px]"
+          class="logo-icon w-[171px] h-[35] ml-[52px]"
         />
       </div>
       <LanguagePane />

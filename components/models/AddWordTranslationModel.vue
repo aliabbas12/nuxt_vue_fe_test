@@ -51,7 +51,16 @@ function addTag(newTag: string) {
 
 <template>
   <div>
-    <UModal v-model="isModelOpen" :ui="{ rounded: 'rounded-[2.5rem]' }">
+    <UModal
+      v-model="isModelOpen"
+      :ui="{
+        rounded: 'rounded-[2.5rem]',
+        overlay: {
+          background: 'modal-background',
+        },
+        shadow: 'shadow-card',
+      }"
+    >
       <UCard
         :ui="{
           ring: '',
@@ -66,6 +75,17 @@ function addTag(newTag: string) {
             variant="ghost"
             icon="i-heroicons-x-mark-20-solid"
             class="-my-1"
+            :ui="{
+              strategy: 'override',
+              variant: {
+                ghost: 'text-{color}-500 disabled:bg-transparent ',
+              },
+              color: {
+                gray: {
+                  ghost: 'text-gray-700 dark:text-gray-200',
+                },
+              },
+            }"
             @click="isWordAddedForTranslationModel = null"
           />
         </div>

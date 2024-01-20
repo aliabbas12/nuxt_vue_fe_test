@@ -131,7 +131,7 @@ const handleSound = () => {
 
 <template>
   <div
-    class="relative w-[80%] md:w-[94%] mx-auto pt-[3rem] md:pt-[6rem] lg:pt-[15rem] flex flex-col h-screen"
+    class="relative w-[80%] md:w-[94%] mx-auto pt-[3rem] md:pt-[6rem] lg:pt-[16rem] flex flex-col h-screen"
   >
     <DndProvider :backend="HTML5Backend">
       <div class="container w-[300px]">

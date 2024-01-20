@@ -204,7 +204,7 @@ const handleDelete = (word: string) => {
 </script>
 
 <template>
-  <div class="group flex items-center justify-center py-3 box">
+  <div class="group flex items-center justify-center py-[13px] box">
     <div
       :ref="drag"
       role="Box"
@@ -212,7 +212,7 @@ const handleDelete = (word: string) => {
       class="bg-transparent rounded-3xl group-hover:-translate-x-2"
     >
       <u-card
-        class="relative overflow-hidden flex-initial p-0 rounded-3xl history-card col-span-1 my-[1rem] transition ease-in-out group-hover:-translate-x-2 font-light cursor-pointer border-gray-600"
+        class="relative overflow-hidden flex-initial p-0 rounded-3xl history-card col-span-1 transition ease-in-out group-hover:-translate-x-2 font-light cursor-pointer border-gray-600"
         :ui="{
           strategy: 'override',
           shadow: 'shadow-card',
@@ -276,6 +276,17 @@ const handleDelete = (word: string) => {
               color="gray"
               variant="ghost"
               icon="i-heroicons-x-mark-20-solid"
+              :ui="{
+                strategy: 'override',
+                variant: {
+                  ghost: 'text-{color}-500 disabled:bg-transparent ',
+                },
+                color: {
+                  gray: {
+                    ghost: 'text-gray-700 dark:text-gray-200',
+                  },
+                },
+              }"
               class="absolute right-[-13px] top-[-26px]"
               @click="handleDelete(word)"
             />
@@ -308,18 +319,21 @@ const handleDelete = (word: string) => {
         </div>
         <div v-else class="w-full px-[17px]">
           <div class="flex h-full" @click="handleSound">
-            <div class="flex-none flex items-center justify-center px-2">
+            <div class="flex-none flex items-center justify-center pr-[12px]">
               <UAvatar
                 :src="`/icons/${translationLogo}.svg`"
                 class="rounded-none"
                 :ui="{
                   strategy: 'override',
                   rounded: 'rounded-none',
+                  size: {
+                    xs: 'h-[25px] w-[25px] text-xs',
+                  },
                 }"
                 size="xs"
               />
             </div>
-            <div class="py-4 flex flex-col justify-center">
+            <div class="py-[13px] flex flex-col justify-center">
               <div class="leading-[18px] text-normal truncate w-[120px]">
                 {{ word }}
               </div>

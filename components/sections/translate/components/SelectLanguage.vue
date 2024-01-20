@@ -56,6 +56,10 @@ const languageLabel = computed(() => {
         background: 'bg-white',
         width: 'max-w-[453px]',
         height: 'max-h-[449px]',
+        overlay: {
+          background: 'modal-background',
+        },
+        shadow: 'shadow-card',
       }"
     >
       <div class="absolute top-5 right-6 w-[20px] h-[20px]">
@@ -64,6 +68,17 @@ const languageLabel = computed(() => {
           variant="ghost"
           icon="i-heroicons-x-mark-20-solid"
           class="-my-1 text-gray-500 text-[12px]"
+          :ui="{
+            strategy: 'override',
+            variant: {
+              ghost: 'text-{color}-500 disabled:bg-transparent ',
+            },
+            color: {
+              gray: {
+                ghost: 'text-gray-700 dark:text-gray-200',
+              },
+            },
+          }"
           @click="isOpen = false"
         />
       </div>

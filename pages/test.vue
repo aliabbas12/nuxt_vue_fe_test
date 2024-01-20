@@ -6,10 +6,12 @@ import AddNewWord from "~/components/models/AddNewWord.vue";
 </script>
 
 <template>
-  <DndProvider :backend="HTML5Backend">
-    <Example />
-  </DndProvider>
-  <AddNewWord />
+  <div>
+    <DndProvider :backend="HTML5Backend">
+      <Example />
+    </DndProvider>
+    <AddNewWord />
+  </div>
 </template>
 
 <style scoped lang="scss"></style>
