@@ -455,7 +455,7 @@ const handleDelete = (word: string) => {
                               rounded: 'rounded-none',
                             }"
                             size="xs"
-                            @click="addTokenOnSpecificIndex('rice', 1)"
+                            @click="addTokenOnSpecificIndex('rice', index++)"
                           />
                         </div>
                       </div>
