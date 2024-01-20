@@ -87,9 +87,7 @@ const prev = () => {
             size="2xl"
           />
 
-          <div
-            class="relative flex w-full flex-col items-center justify-center"
-          >
+          <div class="relative flex w-full flex-col">
             <Carousel
               v-model="currentSlide"
               class="w-full relative add_word_carousel"
@@ -211,7 +209,7 @@ const prev = () => {
 
             <a
               v-if="currentSlide > 0"
-              class="text-black text-sm mt-2 underline cursor-pointer"
+              class="text-black text-center text-sm mt-2 underline cursor-pointer"
               @click="prev"
               >back</a
             >
