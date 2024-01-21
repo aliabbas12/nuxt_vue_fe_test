@@ -146,3 +146,10 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-track {
     background-color: transparent !important;
 }
+
+.modal-background{
+    background: #F3F3F39E 0% 0% no-repeat padding-box;
+    opacity: 1;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}

@@ -6,7 +6,6 @@ import { TranslationPopOverType } from "~/global/enums/translationPopOverType";
 import { proTipsType } from "~/global/enums/proTipsType";
 import { proTips } from "~/store/proTips";
 const useTipStore = proTips();
-const viewport = useViewport();
 const store = useTranslationStore();
 const generalStore = useGeneralStore();
 const text = computed(() => store.text);
@@ -55,6 +54,8 @@ const buttonClickedTooptips = [
         navigator.clipboard.writeText(contentEditableDiv.innerText);
       }
     },
+    width: "w-[14px]",
+    height: "h-[17px]",
   },
   {
     id: 2,
@@ -66,6 +67,8 @@ const buttonClickedTooptips = [
       const utterance = new SpeechSynthesisUtterance(text.value);
       synth.speak(utterance);
     },
+    width: "w-[17px]",
+    height: "h-[19px]",
   },
   {
     id: 3,
@@ -74,6 +77,8 @@ const buttonClickedTooptips = [
     icon: "/icons/pin.svg",
     hoverIcon: "/icons/pin-hover.svg",
     myFunction: function () {},
+    width: "w-[14px]",
+    height: "h-[21px]",
   },
   {
     id: 4,
@@ -82,6 +87,8 @@ const buttonClickedTooptips = [
     icon: "/icons/feedback.svg",
     hoverIcon: "/icons/feedback-hover.svg",
     myFunction: function () {},
+    width: "w-[22px]",
+    height: "h-[22px]",
   },
   {
     id: 5,
@@ -99,6 +106,8 @@ const buttonClickedTooptips = [
       store.setTranslationButtonState(false);
       useTipStore.updateTipsState({ value: initialPopOverData });
     },
+    width: "w-[20px]",
+    height: "h-[20px]",
   },
 ];
 const buttonNotClickedTooptips = [
@@ -111,6 +120,8 @@ const buttonNotClickedTooptips = [
     myFunction: function () {
       isKeyboardOpen.value = !isKeyboardOpen.value;
     },
+    width: "w-[27px]",
+    height: "h-[16px]",
   },
   {
     id: 2,
@@ -128,6 +139,8 @@ const buttonNotClickedTooptips = [
         this.hoverIcon = "icons/microphone-hover.svg";
       }
     },
+    width: "w-[13px]",
+    height: "h-[18px]",
   },
   {
     id: 3,
@@ -139,6 +152,8 @@ const buttonNotClickedTooptips = [
       const utterance = new SpeechSynthesisUtterance(text.value);
       synth.speak(utterance);
     },
+    width: "w-[22px]",
+    height: "h-[19px]",
   },
 
   {
@@ -157,6 +172,8 @@ const buttonNotClickedTooptips = [
       store.setTranslationButtonState(false);
       useTipStore.updateTipsState({ value: initialPopOverData });
     },
+    width: "w-[19px]",
+    height: "h-[19px]",
   },
 ];
 onUnmounted(() => {
@@ -211,8 +228,7 @@ const getTooltipArray = computed(() => {
             strategy: 'override',
             rounded: 'rounded-none',
             size: {
-              xs: 'h-5 w-5 text-xs',
-              sm: 'h-7 w-7 text-normal font-normal',
+              sm: `${tooltip.height} ${tooltip.width} text-normal font-normal`,
             },
           }"
           :class="[
@@ -220,7 +236,7 @@ const getTooltipArray = computed(() => {
               ? 'icon'
               : '',
           ]"
-          :size="viewport.isLessThan('tablet') ? 'xs' : 'sm'"
+          :size="'sm'"
         />
       </UTooltip>
     </div>
@@ -229,7 +245,10 @@ const getTooltipArray = computed(() => {
     class="mt-4"
     :ui="{
       strategy: 'override',
-      border: { base: 'flex border-gray-600 dark:border-gray-800' },
+      border: {
+        base: 'flex border-[#999999] dark:border-[#999999]',
+        size: { horizontal: 'border-t-[1px]' },
+      },
     }"
   />
 </template>

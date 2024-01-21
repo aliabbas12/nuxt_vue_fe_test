@@ -8,7 +8,16 @@ const isOpen = ref(false);
   <div>
     <UButton label="Open signup model" @click="isOpen = true" />
 
-    <UModal v-model="isOpen" :ui="{ rounded: 'rounded-[2.5rem]' }">
+    <UModal
+      v-model="isOpen"
+      :ui="{
+        rounded: 'rounded-[2.5rem]',
+        overlay: {
+          background: 'modal-background',
+        },
+        shadow: 'shadow-card',
+      }"
+    >
       <UCard
         :ui="{
           ring: '',
@@ -22,6 +31,17 @@ const isOpen = ref(false);
             color="gray"
             variant="ghost"
             icon="i-heroicons-x-mark-20-solid"
+            :ui="{
+              strategy: 'override',
+              variant: {
+                ghost: 'text-{color}-500 disabled:bg-transparent ',
+              },
+              color: {
+                gray: {
+                  ghost: 'text-gray-700 dark:text-gray-200',
+                },
+              },
+            }"
             class="-my-1"
             @click="isOpen = false"
           />

@@ -23,7 +23,7 @@ const { text } = props;
     :ui="{
       strategy: 'override',
       inline: 'inline-flex items-center justify-center shadow-card',
-      base: 'focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed transition ease-in-out delay-50 duration-600 disabled:opacity-75 flex-shrink-0 shadow-card',
+      base: 'focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed transition-width duration-900 delay-150 transform ease-in-out disabled:opacity-75 flex-shrink-0 shadow-card',
     }"
     @click="buttonCLicked"
   >

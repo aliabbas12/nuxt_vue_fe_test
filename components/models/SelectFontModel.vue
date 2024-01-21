@@ -32,7 +32,13 @@ const currentFontSelected = computed({
   <div>
     <UModal
       v-model="isOpenFontChangeModel"
-      :ui="{ rounded: 'rounded-[2.5rem]' }"
+      :ui="{
+        rounded: 'rounded-[2.5rem]',
+        overlay: {
+          background: 'modal-background',
+        },
+        shadow: 'shadow-card',
+      }"
     >
       <UCard
         :ui="{
@@ -48,6 +54,17 @@ const currentFontSelected = computed({
             color="gray"
             variant="ghost"
             icon="i-heroicons-x-mark-20-solid"
+            :ui="{
+              strategy: 'override',
+              variant: {
+                ghost: 'text-{color}-500 disabled:bg-transparent ',
+              },
+              color: {
+                gray: {
+                  ghost: 'text-gray-700 dark:text-gray-200',
+                },
+              },
+            }"
             class="-my-1"
             @click="isOpenFontChangeModel = false"
           />

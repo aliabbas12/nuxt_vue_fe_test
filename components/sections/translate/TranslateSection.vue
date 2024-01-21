@@ -131,19 +131,17 @@ const handleSound = () => {
 
 <template>
   <div
-    class="relative w-[80%] md:w-[94%] mx-auto pt-[3rem] md:pt-[6rem] lg:pt-[15rem] flex flex-col h-screen"
+    class="relative w-[80%] md:w-[94%] mx-auto pt-[3rem] md:pt-[6rem] lg:pt-[16rem] flex flex-col h-screen"
   >
     <DndProvider :backend="HTML5Backend">
-      <div class="container w-5/6 sm:w-6/12 md:w-4/12 lg:w-4/12 xl:w-1/4">
+      <div class="container w-[300px]">
         <SelectLanguage class="" />
         <VirtualKeyboard class="absolute bottom-0 left-0 w-full -ml-[20px]" />
       </div>
       <div class="container w-5/6 sm:w-7/12 md:w-4/12 lg:w-5/12">
         <TranslateTextInput />
       </div>
-      <div
-        class="container w-5/6 sm:w-6/12 md:w-4/12 lg:w-4/12 xl:w-1/4 mt-[2rem]"
-      >
+      <div class="container w-[300px] mt-[2rem]">
         <TranslateOptions />
       </div>
       <div class="md:px-5">

@@ -204,7 +204,7 @@ const handleDelete = (word: string) => {
 </script>
 
 <template>
-  <div class="group flex items-center justify-center py-3 box">
+  <div class="group flex items-center justify-center py-[13px] box">
     <div
       :ref="drag"
       role="Box"
@@ -212,19 +212,20 @@ const handleDelete = (word: string) => {
       class="bg-transparent rounded-3xl group-hover:-translate-x-2"
     >
       <u-card
-        class="relative overflow-hidden flex-initial md:w-60 lg:w-64 w-64 p-0 rounded-3xl history-card col-span-1 my-[1rem] transition ease-in-out group-hover:-translate-x-2 font-light cursor-pointer border-gray-600"
+        class="relative overflow-hidden flex-initial p-0 rounded-3xl history-card col-span-1 transition ease-in-out group-hover:-translate-x-2 font-light cursor-pointer border-gray-600"
         :ui="{
           strategy: 'override',
           shadow: 'shadow-card',
           ring: 'ring-0',
           body: {
-            padding: 'px-4 py-2',
+            padding: 'p-0',
           },
         }"
         :class="[
           type === TranslationPopOverType.PRO_TIPS
             ? 'group-hover:border-[1px]'
             : '',
+          expanded ? 'w-[257px]' : 'w-[193px]',
         ]"
         @mouseover="showOverlayDiv = true"
         @mouseleave="[(showOverlayDiv = false), (showCheckboxDiv = false)]"
@@ -265,19 +266,34 @@ const handleDelete = (word: string) => {
           </div>
         </div>
 
-        <div v-if="type === TranslationPopOverType.PRO_TIPS">
+        <div
+          v-if="type === TranslationPopOverType.PRO_TIPS"
+          class="py-[36px] px-[23px]"
+        >
           <div class="relative items-center justify-between">
             <UButton
+              size="xs"
               color="gray"
               variant="ghost"
               icon="i-heroicons-x-mark-20-solid"
-              class="absolute right-0 top-0"
+              :ui="{
+                strategy: 'override',
+                variant: {
+                  ghost: 'text-{color}-500 disabled:bg-transparent ',
+                },
+                color: {
+                  gray: {
+                    ghost: 'text-gray-700 dark:text-gray-200',
+                  },
+                },
+              }"
+              class="absolute right-[-13px] top-[-26px]"
               @click="handleDelete(word)"
             />
           </div>
 
           <div
-            class="flex items-center justify-center py-5 px-6 leading-[18px] text-normal"
+            class="flex items-center justify-center leading-[18px] text-normal text-center"
           >
             {{ word }}
           </div>
@@ -301,22 +317,29 @@ const handleDelete = (word: string) => {
             >
           </div>
         </div>
-        <div v-else class="w-full">
+        <div v-else class="w-full px-[17px]">
           <div class="flex h-full" @click="handleSound">
-            <div class="flex-none flex items-center justify-center px-2">
+            <div class="flex-none flex items-center justify-center pr-[12px]">
               <UAvatar
                 :src="`/icons/${translationLogo}.svg`"
                 class="rounded-none"
                 :ui="{
                   strategy: 'override',
                   rounded: 'rounded-none',
+                  size: {
+                    xs: 'h-[25px] w-[25px] text-xs',
+                  },
                 }"
                 size="xs"
               />
             </div>
-            <div class="py-4 flex flex-col justify-center">
-              <div class="leading-[18px] text-normal">{{ word }}</div>
-              <div class="leading-[18px] text-secondary text-normal">
+            <div class="py-[13px] flex flex-col justify-center">
+              <div class="leading-[18px] text-normal truncate w-[120px]">
+                {{ word }}
+              </div>
+              <div
+                class="leading-[18px] text-secondary text-normal truncate w-[120px]"
+              >
                 {{ translation ? translation : "unknown" }}
               </div>
             </div>
@@ -446,7 +469,7 @@ const handleDelete = (word: string) => {
                               rounded: 'rounded-none',
                             }"
                             size="xs"
-                            @click="addTokenOnSpecificIndex('rice', 1)"
+                            @click="addTokenOnSpecificIndex('rice', index++)"
                           />
                         </div>
                       </div>
@@ -532,6 +555,35 @@ const handleDelete = (word: string) => {
         }"
         :size="viewport.isLessThan('tablet') ? '2xs' : '2xs'"
         @click="handleSounds(trashSound)"
+      />
+    </UTooltip>
+    <UTooltip
+      v-if="type !== TranslationPopOverType.PRO_TIPS"
+      :text="$t('tooltip.save')"
+      :popper="{ placement: 'bottom', strategy: 'absolute' }"
+      :ui="{
+        strategy: 'override',
+        rounded: 'rounded-3xl',
+        color: 'text-[#999999] dark:text-white',
+        shadow: 'shadow-card',
+        ring: 'ring-0',
+      }"
+      :class="`hidden py-0 bg-primary-bg rounded-3xl border-0 flex-initial w-15 px-1 cursor-pointer ${
+        expanded ? 'block' : ''
+      } group-hover:block`"
+      @mouseover="handleHover('history', true)"
+      @mouseout="handleHover('history', false)"
+    >
+      <UAvatar
+        :src="
+          isHoverOnHistory ? '/icons/history-hover.svg' : '/icons/history.svg'
+        "
+        class="rounded-none"
+        :ui="{
+          strategy: 'override',
+          rounded: 'rounded-none',
+        }"
+        :size="viewport.isLessThan('tablet') ? '2xs' : '2xs'"
       />
     </UTooltip>
   </div>

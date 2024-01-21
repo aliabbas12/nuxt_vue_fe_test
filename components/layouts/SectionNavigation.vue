@@ -50,14 +50,14 @@ const menu = ref([
     icon: "/icons/notification.svg",
     hoverIcon: "/icons/notification-hover.svg",
     hover: false,
-    section: "section-5",
+    section: "notification",
     tooltip: "tooltip.notifications",
   },
   {
     icon: "/icons/account-locked.svg",
     hoverIcon: "/icons/account-locked-hover.svg",
     hover: false,
-    section: "section-5",
+    section: "account",
     tooltip: "tooltip.account",
   },
 ]);
@@ -66,9 +66,20 @@ function changeHoverStatus(index: number, value: boolean) {
   menu.value[index].hover = value;
 }
 
+function getIconHeight(sectionId: String) {
+  if (sectionId === "account") {
+    return "height: 17px";
+  } else if (sectionId === "notification") {
+    return "height: 19px";
+  } else {
+    return "height: 13px";
+  }
+}
+
 function scrollToSection(sectionId: string) {
-  if (sectionId === "section-5") {
+  if (sectionId === "account") {
     slideOverOpen.value = !slideOverOpen.value;
+  } else if (sectionId === "notification") {
   } else {
     currentSection.value = sectionId;
     const element = document.getElementById(sectionId);
@@ -81,7 +92,7 @@ function scrollToSection(sectionId: string) {
 
 <template>
   <div
-    :class="`flex flex-col py-[18px] fixed top-1/2 transform -translate-y-1/2 left-0 bg-secondary-bg rounded-r-[15px] shadow-card navigations z-100 transition-all duration-200 ease-in-out pl-[3px]  ${
+    :class="`flex flex-col py-[20px] fixed top-1/2 transform -translate-y-1/2 left-0 bg-secondary-bg rounded-r-[15px] shadow-card navigations z-100 transition-all duration-200 ease-in-out pl-[3px]  ${
       slideOverOpen ? 'delay-100 ml-[20rem]' : ''
     }`"
   >
@@ -111,13 +122,17 @@ function scrollToSection(sectionId: string) {
       >
         <template #leading>
           <img
-            :class="`icon ${currentSection === item.section ? ' active' : ''}`"
+            :class="`${currentSection === item.section ? ' active' : ''} ${
+              item.section == 'account' || item.section == 'notification'
+                ? ' '
+                : 'icon'
+            }`"
             :src="
               currentSection === item.section || menu[index].hover
                 ? item.hoverIcon
                 : item.icon
             "
-            :style="`height: ${item.section == 'section-5' ? '15px' : '13px'}`"
+            :style="getIconHeight(item.section)"
           />
         </template>
       </UButton>

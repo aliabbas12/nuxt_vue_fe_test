@@ -24,12 +24,34 @@ const slideOverOpen = computed({
     generalStore.setSideOverState(value);
   },
 });
+
 const updateSoundFx = computed({
   get: () => generalStore.getSoundEnabled,
   set: (value) => {
     generalStore.setSoundEnabled(value);
   },
 });
+
+const ui = {
+  icons: {
+    strategy: "override",
+    size: {
+      "2xl": "h-full w-[46px] text-3xl",
+    },
+    rounded: "rounded-none",
+  },
+  toggle: {
+    strategy: "override",
+    active: "bg-success dark:bg-success",
+    base: "relative inline-flex flex-shrink-0 border-2 border-black",
+    container: {
+      base: "pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black ml-[0.15rem]",
+      size: {
+        xl: "w-5 h-5 mt-0.5",
+      },
+    },
+  },
+};
 </script>
 
 <template>
@@ -45,10 +67,9 @@ const updateSoundFx = computed({
       }"
     >
       <UIcon
-        name="mdi:close-circle-outline"
-        class="absolute top-0 right-0 m-2 w-[2rem] h-[2rem] cursor-pointer z-50"
+        name="material-symbols-light:cancel-outline-rounded"
+        class="absolute top-0 right-0 m-2 w-[21.18px] h-[21.18px] cursor-pointer z-50"
         dynamic
-        size="3xl"
         @click="slideOverOpen = false"
       />
       <Carousel class="casual_carousel max-h-[100vh]">
@@ -60,13 +81,7 @@ const updateSoundFx = computed({
               <UAvatar
                 src="/icons/profile-setting.svg"
                 class="rounded-none cursor-pointer"
-                :ui="{
-                  strategy: 'override',
-                  size: {
-                    '3xl': 'h-full w-5/6 text-3xl',
-                  },
-                  rounded: 'rounded-none',
-                }"
+                :ui="ui.icons"
                 size="2xl"
               />
               <span class="my-2">setting</span>
@@ -75,13 +90,7 @@ const updateSoundFx = computed({
               <UAvatar
                 src="/icons/language.svg"
                 class="rounded-none cursor-pointer"
-                :ui="{
-                  strategy: 'override',
-                  size: {
-                    '3xl': 'h-full w-5/6 text-3xl',
-                  },
-                  rounded: 'rounded-none',
-                }"
+                :ui="ui.icons"
                 size="2xl"
               />
               <span class="my-2">native language</span>
@@ -90,13 +99,7 @@ const updateSoundFx = computed({
               <UAvatar
                 src="/icons/font.svg"
                 class="rounded-none cursor-pointer"
-                :ui="{
-                  strategy: 'override',
-                  size: {
-                    '3xl': 'h-full w-5/6 text-3xl',
-                  },
-                  rounded: 'rounded-none',
-                }"
+                :ui="ui.icons"
                 size="2xl"
                 @click="isOpenFontChangeModel = true"
               />
@@ -111,17 +114,7 @@ const updateSoundFx = computed({
                 v-model="wizard"
                 color="primary"
                 size="xl"
-                :ui="{
-                  strategy: 'override',
-                  active: 'bg-success dark:bg-success',
-                  base: 'relative inline-flex flex-shrink-0 border-2 border-black',
-                  container: {
-                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black ml-[0.15rem]',
-                    size: {
-                      xl: 'w-5 h-5 mt-0.5',
-                    },
-                  },
-                }"
+                :ui="ui.toggle"
               />
               <div class="my-3">wizard</div>
             </div>
@@ -130,17 +123,7 @@ const updateSoundFx = computed({
                 v-model="proTips"
                 color="primary"
                 size="xl"
-                :ui="{
-                  strategy: 'override',
-                  active: 'bg-success dark:bg-success',
-                  base: 'relative inline-flex flex-shrink-0 border-2 border-black',
-                  container: {
-                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black ml-[0.15rem]',
-                    size: {
-                      xl: 'w-5 h-5 mt-0.5',
-                    },
-                  },
-                }"
+                :ui="ui.toggle"
               />
               <div class="my-3">pro tips</div>
             </div>
@@ -149,17 +132,7 @@ const updateSoundFx = computed({
                 v-model="autoDedect"
                 color="primary"
                 size="xl"
-                :ui="{
-                  strategy: 'override',
-                  active: 'bg-success dark:bg-success',
-                  base: 'relative inline-flex flex-shrink-0 border-2 border-black',
-                  container: {
-                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black ml-[0.15rem]',
-                    size: {
-                      xl: 'w-5 h-5 mt-0.5',
-                    },
-                  },
-                }"
+                :ui="ui.toggle"
               />
               <div class="my-3">autodedect</div>
             </div>
@@ -168,17 +141,7 @@ const updateSoundFx = computed({
                 v-model="notification"
                 color="primary"
                 size="xl"
-                :ui="{
-                  strategy: 'override',
-                  active: 'bg-success dark:bg-success',
-                  base: 'relative inline-flex flex-shrink-0 border-2 border-black',
-                  container: {
-                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black ml-[0.15rem]',
-                    size: {
-                      xl: 'w-5 h-5 mt-0.5',
-                    },
-                  },
-                }"
+                :ui="ui.toggle"
               />
               <div class="my-3">notifications</div>
             </div>
@@ -191,17 +154,7 @@ const updateSoundFx = computed({
                 v-model="updateSoundFx"
                 color="primary"
                 size="xl"
-                :ui="{
-                  strategy: 'override',
-                  active: 'bg-success dark:bg-success',
-                  base: 'relative inline-flex flex-shrink-0 border-2 border-black',
-                  container: {
-                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black',
-                    size: {
-                      xl: 'w-5 h-5 mt-0.5',
-                    },
-                  },
-                }"
+                :ui="ui.toggle"
                 @click="handleChange"
               />
               <div class="my-3">sound fx</div>
@@ -211,17 +164,7 @@ const updateSoundFx = computed({
                 v-model="dark"
                 color="primary"
                 size="xl"
-                :ui="{
-                  strategy: 'override',
-                  active: 'bg-success dark:bg-success',
-                  base: 'relative inline-flex flex-shrink-0 border-2 border-black',
-                  container: {
-                    base: 'pointer-events-none relative inline-block rounded-full bg-white dark:bg-gray-900 shadow transform ring-0 transition ease-in-out duration-200 border-solid border-2 border-black ml-[0.15rem]',
-                    size: {
-                      xl: 'w-5 h-5 mt-0.5',
-                    },
-                  },
-                }"
+                :ui="ui.toggle"
               />
               <div class="my-3">dark mode</div>
             </div>

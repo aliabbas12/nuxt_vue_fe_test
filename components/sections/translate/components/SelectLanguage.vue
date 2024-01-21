@@ -37,7 +37,13 @@ const languageLabel = computed(() => {
       square
       variant="soft"
       block
-      class="h-12 px-0 py-0 bg-primary-bg text-normal font-normal"
+      class="h-12 px-0 bg-primary-bg text-normal font-normal pb-[24px]"
+      :ui="{
+        strategy: 'override',
+        size: {
+          lg: 'text-normal',
+        },
+      }"
       @click="isOpen = true"
       >{{ languageLabel?.toUpperCase() }}</UButton
     >
@@ -50,6 +56,10 @@ const languageLabel = computed(() => {
         background: 'bg-white',
         width: 'max-w-[453px]',
         height: 'max-h-[449px]',
+        overlay: {
+          background: 'modal-background',
+        },
+        shadow: 'shadow-card',
       }"
     >
       <div class="absolute top-5 right-6 w-[20px] h-[20px]">
@@ -58,6 +68,17 @@ const languageLabel = computed(() => {
           variant="ghost"
           icon="i-heroicons-x-mark-20-solid"
           class="-my-1 text-gray-500 text-[12px]"
+          :ui="{
+            strategy: 'override',
+            variant: {
+              ghost: 'text-{color}-500 disabled:bg-transparent ',
+            },
+            color: {
+              gray: {
+                ghost: 'text-gray-700 dark:text-gray-200',
+              },
+            },
+          }"
           @click="isOpen = false"
         />
       </div>
@@ -79,10 +100,6 @@ const languageLabel = computed(() => {
             inner: 'ms-3 flex flex-col w-full h-6',
           }"
         />
-        <!--          container: 'flex items-center h-6',-->
-        <!--        ,-->
-        <!--        label:-->
-        <!--        'text-sm font-medium text-gray-700 dark:text-gray-200 h-full flex items-center',-->
 
         <div class="w-full flex my-6 items-center justify-start px-2">
           <UToggle
@@ -106,10 +123,12 @@ const languageLabel = computed(() => {
       </div>
     </UModal>
     <UDivider
-      class="mt-2"
       :ui="{
         strategy: 'override',
-        border: { base: 'flex border-gray-600 dark:border-gray-800' },
+        border: {
+          base: 'flex border-[#999999] dark:border-[#999999]',
+          size: { horizontal: 'border-t-[1px]' },
+        },
       }"
     />
   </div>
