@@ -51,6 +51,13 @@ const prev = () => {
     currentSlide.value--;
   }
 };
+const next = () => {
+  if (currentSlide.value < 4) {
+    const audio = new Audio("/sounds/loud/button-click-wood.mp3");
+    audio.play();
+    currentSlide.value++;
+  }
+};
 </script>
 <template>
   <div>
@@ -120,7 +127,11 @@ const prev = () => {
                       />
                     </template>
                   </u-select>
-                  <NextButton :text="$t('button.continue')" class="mt-5" />
+                  <NextButton
+                    :text="$t('button.continue')"
+                    class="mt-5"
+                    @click="next"
+                  />
                 </div>
               </Slide>
               <Slide :key="2">
@@ -135,7 +146,11 @@ const prev = () => {
                     class="my-8 w-full"
                     textarea-class="rounded-3xl h-64 text-gray-500 bg-secondary-bg px-3"
                   />
-                  <NextButton :text="$t('button.continue')" class="mt-5" />
+                  <NextButton
+                    :text="$t('button.continue')"
+                    class="mt-5"
+                    @click="next"
+                  />
                 </div>
               </Slide>
               <Slide :key="3">
@@ -152,7 +167,11 @@ const prev = () => {
                     class="my-8 w-full"
                     textarea-class="rounded-3xl h-64 text-gray-500 bg-secondary-bg px-3"
                   />
-                  <NextButton :text="$t('button.continue')" class="mt-5" />
+                  <NextButton
+                    :text="$t('button.continue')"
+                    class="mt-5"
+                    @click="next"
+                  />
                 </div>
               </Slide>
               <Slide :key="4">
@@ -176,7 +195,11 @@ const prev = () => {
                       inner: 'ms-3 flex flex-col w-full h-6',
                     }"
                   />
-                  <NextButton :text="$t('button.continue')" class="mt-5" />
+                  <NextButton
+                    :text="$t('button.continue')"
+                    class="mt-5"
+                    @click="next"
+                  />
                 </div>
               </Slide>
               <Slide :key="5">
@@ -202,7 +225,11 @@ const prev = () => {
                       inner: 'ms-3 flex flex-col w-full h-6',
                     }"
                   />
-                  <NextButton :text="$t('button.continue')" class="mt-5" />
+                  <NextButton
+                    :text="$t('button.continue')"
+                    class="mt-5"
+                    @click="next"
+                  />
                 </div>
               </Slide>
             </Carousel>

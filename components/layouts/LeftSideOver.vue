@@ -33,7 +33,7 @@ const updateSoundFx = computed({
 </script>
 
 <template>
-  <div>
+  <div class="">
     <USlideover
       v-model="slideOverOpen"
       side="left"
@@ -51,11 +51,11 @@ const updateSoundFx = computed({
         size="3xl"
         @click="slideOverOpen = false"
       />
-      <Carousel class="casual_carousel">
+      <Carousel class="casual_carousel max-h-[100vh]">
         <Slide :key="'1'" class="flex flex-col">
           <div class="h-full w-full flex flex-col my-20">
             <div
-              class="w-full flex flex-col my-16 items-center justify-center cursor-pointer"
+              class="w-full flex flex-col my-5 items-center justify-center cursor-pointer"
             >
               <UAvatar
                 src="/icons/profile-setting.svg"
@@ -86,7 +86,7 @@ const updateSoundFx = computed({
               />
               <span class="my-2">native language</span>
             </div>
-            <div class="w-full flex flex-col my-16 items-center justify-center">
+            <div class="w-full flex flex-col my-10 items-center justify-center">
               <UAvatar
                 src="/icons/font.svg"
                 class="rounded-none cursor-pointer"
@@ -105,7 +105,7 @@ const updateSoundFx = computed({
           </div>
         </Slide>
         <Slide :key="'2'" class="flex flex-col">
-          <div class="h-full w-full flex flex-col my-10">
+          <div class="h-full w-full flex flex-col py-10">
             <div class="w-full flex flex-col my-16 items-center justify-center">
               <UToggle
                 v-model="wizard"
@@ -184,8 +184,8 @@ const updateSoundFx = computed({
             </div>
           </div>
         </Slide>
-        <Slide :key="'2'" class="flex flex-col">
-          <div class="h-full w-full flex flex-col my-10">
+        <Slide :key="'3'" class="flex flex-col">
+          <div class="h-full w-full flex flex-col py-10">
             <div class="w-full flex flex-col my-16 items-center justify-center">
               <UToggle
                 v-model="updateSoundFx"
