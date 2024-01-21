@@ -72,7 +72,7 @@ const ui = {
         dynamic
         @click="slideOverOpen = false"
       />
-      <Carousel class="casual_carousel max-h-[100vh]">
+      <Carousel class="casual_carousel side-carousel max-h-[100vh]">
         <Slide :key="'1'" class="flex flex-col">
           <div class="h-full w-full flex flex-col my-20">
             <div
@@ -178,4 +178,10 @@ const ui = {
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style lang="scss">
+.side-carousel {
+  .carousel__viewport {
+    height: 96% !important;
+  }
+}
+</style>

@@ -4,6 +4,7 @@ export const useLocalStorageService = defineStore({
   id: "localStorageService",
   state: () => ({
     history: [] as string[],
+    localWordTranslations: [] as string[],
   }),
   getters: {
     getHistory: (state): any[] => {
@@ -16,6 +17,18 @@ export const useLocalStorageService = defineStore({
       }
       return state.history;
     },
+    getLocalWordTranslations: (state): any[] => {
+      const storageLocalWordTranslations = localStorage.getItem("menulance");
+      if (storageLocalWordTranslations !== null) {
+        const { localWordTranslations } = JSON.parse(
+          storageLocalWordTranslations,
+        );
+        if (localWordTranslations != null) {
+          state.localWordTranslations = localWordTranslations;
+        }
+      }
+      return state.localWordTranslations;
+    },
   },
   actions: {
     clear() {
@@ -27,6 +40,15 @@ export const useLocalStorageService = defineStore({
       history.push(value);
       this.history = history;
       localStorage.setItem("menulance", JSON.stringify({ history }));
+    },
+    setLocalWordTranslations: function ({ value }: { value: any }) {
+      const localWordTranslations: string[] = this.localWordTranslations;
+      localWordTranslations.push(value);
+      this.localWordTranslations = localWordTranslations;
+      localStorage.setItem(
+        "menulance",
+        JSON.stringify({ localWordTranslations }),
+      );
     },
   },
 });

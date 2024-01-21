@@ -30,7 +30,7 @@ interface Sound {
 
 export interface TranslationData {
   forms?: Array<{ form: string; tags: string[] }>;
-  head_templates: Array<{
+  head_templates?: Array<{
     args: Record<string, string>;
     expansion: string;
     name: string;

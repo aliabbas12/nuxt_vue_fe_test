@@ -13,14 +13,19 @@ import type { WordData } from "~/interfaces/wordTranslation";
 import { useGeneralStore } from "~/store/general";
 import { proTipsType } from "~/global/enums/proTipsType";
 import { proTips } from "~/store/proTips";
+import { useLocalStorageService } from "~/localStorage";
 const tipsStore = proTips();
 const store = useTranslationStore();
 const generalStore = useGeneralStore();
+const localStorageService = useLocalStorageService();
 let languageSet = false;
 let issues = [] as string[];
 const popUpsKeys = ref(11111);
 const isAutoDetectOn = computed(
   () => generalStore.getAutodetectTranslationLanguageState,
+);
+const LocalWordTranslations = computed(
+  () => localStorageService.getLocalWordTranslations,
 );
 const proTipsArray = computed(() => tipsStore.getProTipsState);
 const tokens = computed(() => store.getTokens);

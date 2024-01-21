@@ -141,7 +141,7 @@ const handleSound = () => {
       <div class="container w-5/6 sm:w-7/12 md:w-4/12 lg:w-5/12">
         <TranslateTextInput />
       </div>
-      <div class="container w-[300px] mt-[2rem]">
+      <div class="container w-[300px] mt-[14px]">
         <TranslateOptions />
       </div>
       <div class="md:px-5">

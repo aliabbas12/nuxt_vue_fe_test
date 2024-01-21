@@ -212,7 +212,7 @@ const currentFontSelected = computed({
         <span
           v-for="(word, index) in accentGroup"
           :key="index"
-          class="px-0.5 cursor-pointer"
+          class="px-[3px] cursor-pointer"
           @click="text = text + word"
           >{{ word }}</span
         >

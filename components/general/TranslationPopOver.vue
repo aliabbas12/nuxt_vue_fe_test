@@ -299,20 +299,22 @@ const handleDelete = (word: string) => {
           </div>
           <div
             v-if="data.option === 'cookies'"
-            class="flex justify-between items-center w-[100%] p-5"
+            class="flex justify-between items-center w-[100%] pt-5"
           >
             <UButton
               size="sm"
               color=""
               variant="soft"
-              class="mr-5 rounded-3xl bg-success text-sm font-normal"
+              class="mr-5 rounded-3xl bg-success text-sm font-light"
+              @click="handleDelete(word)"
               >Agree</UButton
             >
             <UButton
               size="sm"
               color="white"
               variant="soft"
-              class="rounded-3xl bg-success text-sm font-normal"
+              class="rounded-3xl bg-success text-sm font-light"
+              @click="handleDelete(word)"
               >No</UButton
             >
           </div>
@@ -437,7 +439,7 @@ const handleDelete = (word: string) => {
               </Carousel>
             </div>
             <div v-if="type == TranslationPopOverType.NOT_FOUND">
-              <Carousel>
+              <Carousel class="casual_carousel">
                 <Slide :key="word + '1'" class="flex flex-col">
                   <div class="flex justify-between text-left pb-3 w-full">
                     <div class="text-secondary text-normal">did you mean</div>
@@ -498,7 +500,7 @@ const handleDelete = (word: string) => {
                       class="w-full text-left flex flex-col items-center justify-center"
                     >
                       <div class="flex w-full justify-between">
-                        <span class="text-base font-normal text-normal"
+                        <span class="text-base font-light text-normal"
                           >May be you know how to translate this word. Provide
                           us a translation and we will try adding it to our
                           dictionary.</span
