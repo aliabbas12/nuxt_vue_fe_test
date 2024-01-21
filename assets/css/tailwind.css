@@ -62,11 +62,10 @@
     width: 15px !important;
     height: 15px !important;
     border-radius: 50% !important;
-    background-color: #99ffcc;
     border: 1px solid #777 !important;
 }
-.add_word_carousel .carousel__pagination-button:hover::after{
-    background-color: #99ffcc !important;
+.add_word_carousel .carousel__pagination-button--active::after {
+    background-color: #99ffcc;
 }
 @font-face {
     font-family: 'Elsie';
