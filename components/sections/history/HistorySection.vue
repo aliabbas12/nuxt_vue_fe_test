@@ -42,6 +42,7 @@ const translationHistory = computed(() => localStorageService.getHistory);
       </div>
       <div class="w-full">
         <div class="my-4">{{ translation.textAfterTranslate }}</div>
+        <div class="my-4">{{ translation.timestamp }}</div>
         <div class="py-2">
           <span class="px-3 py-2 mr-1 rounded-full bg-primary-bg"
             >breakfast</span
