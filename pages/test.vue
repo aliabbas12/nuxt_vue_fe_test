@@ -2,7 +2,7 @@
 import { DndProvider } from "vue3-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Example from "~/components/Example.vue";
-import AddNewWord from "~/components/models/AddWordTranslationModel.vue";
+import AddWordTranslationModel from "~/components/models/AddWordTranslationModel.vue";
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import AddNewWord from "~/components/models/AddWordTranslationModel.vue";
     <DndProvider :backend="HTML5Backend">
       <Example />
     </DndProvider>
-    <AddNewWord />
+    <AddWordTranslationModel />
   </div>
 </template>
 

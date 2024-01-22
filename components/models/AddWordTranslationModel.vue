@@ -12,7 +12,7 @@ const modelStore = useModelStore();
 const generalStore = useGeneralStore();
 const translationStore = useTranslationStore();
 const localStorageService = useLocalStorageService();
-
+const pagination = ref(HTMLElement);
 const languages = [
   { value: "en", label: "english" },
   { value: "it", label: "italian" },
@@ -65,6 +65,14 @@ const next = () => {
     currentSlide.value++;
   }
 };
+watch(currentSlide, () => {
+  const myEl = pagination.value.children;
+  for (let i = 0; i <= currentSlide.value; i++) {
+    const btn = myEl[i].querySelector(".carousel__pagination-button");
+    btn.classList.add("carousel__pagination-button--active");
+    console.log(btn);
+  }
+});
 function addLocalTranslation() {
   localStorageService.setLocalWordTranslations({
     value: wordTranslation.value,
@@ -135,7 +143,7 @@ watch(isWordAddedForTranslationModel, (value) => {
               class="w-full relative add_word_carousel"
             >
               <template #addons>
-                <Pagination class="relative" />
+                <Pagination ref="pagination" class="relative" />
               </template>
               <Slide :key="1">
                 <div
@@ -288,5 +296,8 @@ watch(isWordAddedForTranslationModel, (value) => {
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
+}
+button.active::after {
+  background-color: #99ffcc !important;
 }
 </style>
